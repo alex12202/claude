@@ -1,0 +1,311 @@
+/*
+ Theme Name:   Danora
+ Theme URI:    https://danora.sk
+ Description:  Child theme for Luxrio - DANORA bižutéria a doplnky. Light luxury palette (krémová, béžová, champagne, zlatá, čierna) on top of the dark Luxrio parent.
+ Author:       DANORA
+ Template:     luxrio
+ Version:      1.0.0
+ Requires at least: 5.0
+ Requires PHP: 7.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Text Domain:  danora
+*/
+
+/*  [ 1. Palette ]
+    Change colours here only. Gold can be dropped by setting
+    --dn-gold / --dn-gold-dark to the champagne / ink values.
+- - - - - - - - - - - - - - - - - - - - */
+:root {
+  --dn-ink: #1c1712;          /* čierna */
+  --dn-ink-soft: #3a3129;
+  --dn-taupe: #6e6358;        /* bežný text */
+  --dn-cream: #f7f1e6;        /* krémová - pozadie stránky */
+  --dn-surface: #fffcf6;      /* slonovina - karty, formuláre */
+  --dn-cream-deep: #efe4d2;   /* béžová - sekcie */
+  --dn-champagne: #e3cfae;    /* champagne */
+  --dn-gold: #b08d57;         /* zlatá - akcent */
+  --dn-gold-dark: #8a6a3b;    /* zlatá pre text/odkazy (čitateľnosť) */
+  --dn-line: #e2d5c0;
+
+  --dn-font-title: "Cormorant Garamond", "Cormorant", Georgia, serif;
+  --dn-font-body: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --dn-font-caps: "Cinzel", "Cormorant Garamond", serif;
+  --dn-font-script: "Pinyon Script", cursive;
+
+  /* Luxrio variables remapped from dark to light luxury */
+  --theme-color: var(--dn-gold);
+  --theme-color-rgb: 176, 141, 87;
+  --theme-color2: var(--dn-champagne);
+  --title-color: var(--dn-ink);
+  --title-color-rgb: 28, 23, 18;
+  --body-color: var(--dn-taupe);
+  --smoke-color: var(--dn-taupe);
+  --smoke-color-rgb: 110, 99, 88;
+  --white-color: var(--dn-ink);            /* Luxrio uses "white" for text on dark */
+  --white-color-rgb: 28, 23, 18;
+  --black-color: var(--dn-ink);
+  --black-bg: var(--dn-cream-deep);
+  --black-bg-rgb: 239, 228, 210;
+  --gold-light-color: var(--dn-champagne);
+  --gold-light-color-rgb: 227, 207, 174;
+  --light-color: var(--dn-champagne);
+  --vs-secondary-color: var(--dn-cream-deep);
+  --vs-border-color: var(--dn-line);
+  --vs-border-color2: var(--dn-line);
+  --vs-border-color3: var(--dn-line);
+  --vs-border-color4: var(--dn-line);
+  --vs-border-color5: var(--dn-line);
+  --vs-border-color6: var(--dn-line);
+  --vs-border-color7: var(--dn-line);
+
+  --bg-color1: var(--dn-cream-deep);
+  --bg-color2: var(--dn-cream);
+  --bg-color3: var(--dn-ink);              /* button hover fill */
+  --bg-color4: var(--dn-surface);
+  --bg-color5: var(--dn-cream);
+  --bg-color6: var(--dn-surface);
+  --bg-color7: var(--dn-cream-deep);
+  --bg-color8: var(--dn-surface);
+  --bg-color9: var(--dn-cream);
+  --bg-color10: var(--dn-surface);
+  --bg-color11: var(--dn-gold-dark);
+  --bg-color12: var(--dn-cream-deep);
+  --bg-color13: var(--dn-surface);
+  --bg-color14: var(--dn-cream-deep);
+  --bg-color-up1: var(--dn-cream);
+
+  --text-color1: var(--dn-taupe);
+  --text-color2: var(--dn-taupe);
+  --text-color3: var(--dn-ink-soft);
+  --text-color4: var(--dn-taupe);
+  --text-color5: var(--dn-ink);
+  --text-color6: var(--dn-gold-dark);
+  --text-color7: var(--dn-ink-soft);
+  --text-color8: var(--dn-taupe);
+  --text-color9: var(--dn-surface);
+  --text-color-up1: var(--dn-taupe);
+  --text-color-up2: var(--dn-taupe);
+  --rating-color1: var(--dn-gold);
+  --rating-color2: var(--dn-champagne);
+  --bread-text-color: var(--dn-taupe);
+  --pagi-text-color: var(--dn-taupe);
+  --footer-text-color: var(--dn-taupe);
+
+  --title-font: var(--dn-font-title);
+  --body-font: var(--dn-font-body);
+  --special-font: var(--dn-font-caps);
+}
+
+/*  [ 2. Base ]
+- - - - - - - - - - - - - - - - - - - - */
+html,
+body {
+  background-color: var(--dn-cream);
+  color: var(--dn-taupe);
+}
+body {
+  font-size: 15px;
+  letter-spacing: 0.01em;
+}
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--dn-font-title);
+  font-weight: 500;
+  color: var(--dn-ink);
+}
+a {
+  color: var(--dn-ink);
+}
+a:hover {
+  color: var(--dn-gold-dark);
+}
+::selection {
+  background: var(--dn-champagne);
+  color: var(--dn-ink);
+}
+
+/*  [ 3. Buttons ] black & cream, gold on hover
+- - - - - - - - - - - - - - - - - - - - */
+.vs-btn,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce #respond input#submit,
+.wp-element-button {
+  background-color: var(--dn-ink);
+  color: var(--dn-cream);
+  font-family: var(--dn-font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  border-radius: 0;
+}
+.vs-btn::before,
+.vs-btn::after {
+  background: var(--dn-gold);
+}
+.vs-btn:hover,
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover,
+.wp-element-button:hover {
+  background-color: var(--dn-gold);
+  color: var(--dn-ink);
+}
+.vs-btn.style2,
+.vs-btn.style3 {
+  background-color: transparent;
+  color: var(--dn-ink);
+  box-shadow: inset 0 0 0 1px var(--dn-ink);
+}
+
+/*  [ 4. Header & menu ]
+- - - - - - - - - - - - - - - - - - - - */
+.vs-header,
+.header-bottom,
+.sticky-wrapper.sticky .header-bottom,
+.header-layout1 {
+  background-color: var(--dn-cream);
+}
+.header-top {
+  background-color: var(--dn-ink);
+  color: var(--dn-champagne);
+}
+.header-top a,
+.header-top span {
+  color: var(--dn-champagne);
+}
+.header-logo img {
+  max-height: 64px;
+  width: auto;
+}
+.main-menu > ul > li > a {
+  font-family: var(--dn-font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: var(--dn-ink);
+}
+.main-menu > ul > li > a:hover,
+.main-menu > ul > li.current-menu-item > a {
+  color: var(--dn-gold-dark);
+}
+.main-menu ul.sub-menu {
+  background-color: var(--dn-surface);
+  border-top: 2px solid var(--dn-gold);
+  box-shadow: 0 20px 40px rgba(28, 23, 18, 0.08);
+}
+
+/*  [ 5. WooCommerce ]
+- - - - - - - - - - - - - - - - - - - - */
+.woocommerce ul.products li.product,
+.vs-product {
+  background-color: var(--dn-surface);
+}
+.woocommerce ul.products li.product .woocommerce-loop-product__title {
+  font-family: var(--dn-font-title);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--dn-ink);
+}
+.woocommerce .price,
+.woocommerce ul.products li.product .price,
+.woocommerce div.product p.price,
+.woocommerce div.product span.price {
+  color: var(--dn-gold-dark);
+  font-family: var(--dn-font-body);
+  font-weight: 500;
+}
+.woocommerce span.onsale {
+  background-color: var(--dn-ink);
+  color: var(--dn-champagne);
+  border-radius: 0;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+.woocommerce .star-rating span::before {
+  color: var(--dn-gold);
+}
+.woocommerce-message,
+.woocommerce-info {
+  border-top-color: var(--dn-gold);
+  background-color: var(--dn-surface);
+}
+.woocommerce-error {
+  background-color: var(--dn-surface);
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+select,
+textarea,
+.form-control,
+.form-select {
+  background-color: var(--dn-surface);
+  border-color: var(--dn-line);
+  color: var(--dn-ink);
+}
+input:focus,
+select:focus,
+textarea:focus,
+.form-control:focus {
+  border-color: var(--dn-gold);
+  box-shadow: 0 0 0 3px rgba(176, 141, 87, 0.15);
+}
+
+/*  [ 6. Footer ]
+- - - - - - - - - - - - - - - - - - - - */
+.footer-wrapper,
+.footer-layout1,
+.footer-layout2 {
+  background-color: var(--dn-ink);
+  color: #cfc3b1;
+}
+.footer-wrapper .footer-title,
+.footer-wrapper h3,
+.footer-wrapper h4 {
+  color: var(--dn-champagne);
+}
+.footer-wrapper a,
+.footer-wrapper p,
+.footer-wrapper li {
+  color: #cfc3b1;
+}
+.footer-wrapper a:hover {
+  color: var(--dn-champagne);
+}
+.footer-copyright,
+.footer-copyright.bg-black {
+  background-color: var(--dn-ink);
+  border-top: 1px solid rgba(227, 207, 174, 0.18);
+  color: #a99d8c;
+}
+
+/*  [ 7. Danora helpers ] usable in Elementor "CSS Classes"
+- - - - - - - - - - - - - - - - - - - - */
+.dn-eyebrow {
+  font-family: var(--dn-font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--dn-gold-dark);
+}
+.dn-script {
+  font-family: var(--dn-font-script);
+  color: var(--dn-gold-dark);
+}
+.dn-section-cream { background-color: var(--dn-cream); }
+.dn-section-beige { background-color: var(--dn-cream-deep); }
+.dn-section-ink { background-color: var(--dn-ink); color: var(--dn-champagne); }
+.dn-divider {
+  display: block;
+  width: 90px;
+  height: 1px;
+  margin: 18px auto;
+  background: linear-gradient(90deg, transparent, var(--dn-gold), transparent);
+}
