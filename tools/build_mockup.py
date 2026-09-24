@@ -35,7 +35,6 @@ html = re.sub(
 )
 html = (
     html.replace("%%NAME%%", data_uri("danora-name.png", 420))
-    .replace("%%MONO%%", data_uri("danora-monogram.png", 420))
     .replace("%%FULL%%", data_uri("danora-logo-full.png", 380))
     .replace("%%DIVIDER%%", DIVIDER)
 )

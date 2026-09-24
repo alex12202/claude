@@ -31,7 +31,7 @@ Zlatú sa oplatí nechať: logo je zlaté, takže zlatý akcent na webe ho prep�
 | `danora-logo-full.png/.webp` | celé logo (monogram + DANORA + Bižutéria + slogan), priehľadné pozadie – pätička, prihlásenie |
 | `danora-name.png` | iba nápis DANORA – **logo do hlavičky** |
 | `danora-wordmark.png/.webp` | DANORA + Bižutéria + slogan |
-| `danora-monogram.png/.webp` | iba monogram D – sekcia „O značke“, sociálne siete |
+| `danora-monogram.png/.webp` | iba monogram D – sociálne siete, profilová fotka |
 | `danora-site-icon-512.png` | ikona webu / favicon (Vzhľad → Prispôsobiť → Identita webu) |
 
 Logo je vyrezané z dodaného obrázka (791 px). Na web stačí; na tlač (vizitky, krabičky) treba vektorovú verziu (SVG/PDF) od grafika.
@@ -70,7 +70,7 @@ Náhľad `design/danora-homepage.html` sa skladá príkazom `python3 tools/build
 2. Celoplošný slider na pozadí (4 snímky, pomalý zoom a posun pozadia, postupné zobrazenie textu, plávajúci produkt, časová lišta)
 3. Kategórie (kruhy so saténom) a 2 promo bannery
 4. Obľúbené produkty (záložky Najpredávanejšie / Novinky / Do 20 €), stav skladu pri produkte
-5. O značke (monogram, DANORA Bižutéria / Doplnky / Collection)
+5. O značke (text, DANORA Bižutéria / Doplnky / Collection)
 6. Výhody: platba, doručenie, vrátenie, darčekové balenie
 7. Newsletter so zľavou 10 %
 8. Pätička s právnymi stránkami, platobnými metódami, údajmi o prevádzkovateľovi, SOI a RSO

@@ -243,15 +243,12 @@
   .card .stock.low { color: #9a5b2e; }
   .center { text-align: center; margin-top: 48px; }
 
-  /* story with parallax emblem */
-  .story { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-  .story .emblem { position: relative; overflow: hidden; aspect-ratio: 5 / 4; display: grid; place-items: center; padding: 40px; }
-  .story .emblem .bg { position: absolute; inset: -12% 0; background-size: cover; background-position: center; transform: translateY(var(--py, 0)); }
-  .story .emblem img { position: absolute; inset: 9%; width: 82%; height: 82%; object-fit: contain; filter: drop-shadow(0 20px 26px rgba(60, 40, 15, .3)); animation: float 7s ease-in-out infinite; }
+  /* story: centred text */
+  .story { max-width: 760px; text-align: center; display: grid; justify-items: center; }
   .story h2 { font-size: clamp(34px, 4vw, 50px); margin: 12px 0 18px; }
-  .story p { max-width: 52ch; margin: 0 0 16px; }
+  .story p { max-width: 58ch; margin: 0 auto 16px; }
   .story .sign { font-family: var(--f-script); font-size: 36px; color: var(--accent-text); margin: 10px 0 26px; }
-  .lines { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+  .lines { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-bottom: 28px; }
   .lines span { border: 1px solid var(--line); padding: 8px 14px; font-family: var(--f-caps); font-size: 11px; letter-spacing: .24em; color: var(--ink); background: var(--surface); }
 
   /* trust */
@@ -308,7 +305,7 @@
     .products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .trust .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .foot { grid-template-columns: 1fr 1fr; }
-    .story, .promos { grid-template-columns: 1fr; gap: 36px; }
+    .promos { grid-template-columns: 1fr; gap: 36px; }
     .hero-ui .thumb small { display: none; }
   }
   @media (max-width: 720px) {
@@ -546,8 +543,7 @@
 
   <section>
     <div class="wrap story">
-      <div class="emblem" data-reveal><span class="bg" data-py style="background-image:url(%%IMG:satin-cream.webp%%)"></span><img class="gilded" src="%%MONO%%" alt="Monogram DANORA"></div>
-      <div data-reveal style="--d:.15s">
+      <div data-reveal>
         <span class="eyebrow">O značke</span>
         <h2>Šperky, ktoré dokončia každý outfit</h2>
         <p>DANORA vznikla z lásky k jemným detailom. Každý kúsok vyberáme ručne, aby bol elegantný, pohodlný a dostupný. Náušnice, náhrdelníky a doplnky pre bežný deň, večernú udalosť aj ako darček.</p>
