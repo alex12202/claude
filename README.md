@@ -5,7 +5,7 @@ Dizajn a WordPress child téma pre e-shop **DANORA** postavený na šablóne **L
 - **Náhľad návrhu homepage:** `design/danora-homepage.html` (otvor v prehliadači). Vpravo dole je panel na prepnutie variantu **so zlatou / bez zlatej** a podtitulu **Bižutéria a doplnky / Jewelry & Accessories / Collection**.
 - **Child téma:** `danora-child/`
 - **Logo bez pozadia:** `danora-child/assets/img/`
-- **Obrázky pre náhľad:** `design/assets/` (3D rendre šperkov, saténové pozadia, fotka z dema Luxria)
+- **Obrázky pre náhľad:** `design/assets/` (3D rendre šperkov, saténové pozadia)
 
 ## Farby
 
@@ -59,7 +59,6 @@ python3 tools/build_light_overrides.py cesta/k/luxrio/assets/css/style.css > dan
 
 ### Obrázky v náhľade
 
-- **Fotka modelky** je z dokumentácie šablóny Luxrio (demo Home 02), prstene z nej sú odstránené a pozadie rozšírené doľava. Demo obrázky ThemeForest sú licencované iba podľa zakúpenej licencie a zvyčajne **nie sú určené na ostrý web**. Pred spustením ich nahraď vlastnými fotkami.
 - **Šperky** sú 3D rendre (`tools/render-jewelry.html`, three.js), **satén** je generovaný (`tools/satin.py`). Slúžia ako ukážka, kým nebudú hotové skutočné produktové fotky.
 - Ostatné demo fotky Luxria (produkty, bannery) nie sú v ZIPe. Stiahnu sa až pri importe dema vo WordPresse (Luxrio → Import Demo Data).
 

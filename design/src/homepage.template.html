@@ -337,10 +337,6 @@
     .stage .tag { display: none; }
     .slide h1 { font-size: 42px; }
     .slide p { font-size: 14px; margin-bottom: 18px; }
-    .slide.photo .inner { padding-top: 300px; }
-    .slide.photo .bg { background-position: 89% 0; background-size: auto 300px; background-repeat: no-repeat; inset: 0 0 auto 0; height: 300px; }
-    .slide.photo .shade { background: linear-gradient(180deg, transparent 180px, #d9c6ad 300px) !important; }
-    .slide.photo { background: #d9c6ad; }
     .hero-ui .wrap { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     .hero-ui .thumb b { font-size: 0; }
     .hero-ui .thumb { padding: 14px 8px 18px 0; }
@@ -410,19 +406,24 @@
 
 <main id="top">
   <section class="hero" id="hero" style="padding:0" aria-roledescription="carousel" aria-label="Vybrané kolekcie">
-    <article class="slide photo on" style="--kb:kb-a;--pos:80% 20%" aria-label="1 zo 4">
-      <div class="bg" style="background-image:url(%%IMG:hero-model.webp%%)"></div>
-      <div class="shade" style="background:linear-gradient(90deg, rgba(232,218,198,.55) 0%, rgba(232,218,198,.15) 45%, transparent 60%)"></div>
+    <article class="slide on" style="--kb:kb-c" aria-label="1 zo 4">
+      <div class="bg" style="background-image:url(%%IMG:satin-cream.webp%%)"></div>
       <div class="wrap inner">
         <div class="hero-copy">
           <span class="eyebrow">Nová kolekcia · Jeseň 2026</span>
           <h1>Náušnice, ktoré <em>žiaria</em></h1>
           <span class="script">Krása v každom detaile</span>
-          <p>Výrazné kruhy aj jemné kvapky. Hypoalergénne zapínanie z chirurgickej ocele, ľahké na celý deň.</p>
+          <p>Brúsené kamene v zlatom ráme. Hypoalergénne zapínanie z chirurgickej ocele, ľahké na celý deň.</p>
           <p class="price">od 16,90 €</p>
           <div class="actions"><a class="btn" href="#novinky">Nakupovať náušnice <span class="arr">→</span></a></div>
         </div>
-        <div></div>
+        <div class="stage" data-parallax>
+          <span class="glow"></span><span class="orbit"></span>
+          <div class="prod"><img src="%%IMG:product-earring.webp%%" alt="Náušnice Aurelia"></div>
+          <span class="sparkle" style="left:36%;top:52%;animation-delay:.5s"></span>
+          <span class="sparkle" style="left:62%;top:40%;animation-delay:1.7s"></span>
+          <span class="tag"><b>Aurelia</b>Novinka tejto sezóny</span>
+        </div>
       </div>
     </article>
 
