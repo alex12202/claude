@@ -5,6 +5,7 @@ Dizajn a WordPress child téma pre e-shop **DANORA** postavený na šablóne **L
 - **Náhľad návrhu homepage:** `design/danora-homepage.html` (otvor v prehliadači). Vpravo dole je panel na prepnutie variantu **so zlatou / bez zlatej** a podtitulu **Bižutéria a doplnky / Jewelry & Accessories / Collection**.
 - **Child téma:** `danora-child/`
 - **Logo bez pozadia:** `danora-child/assets/img/`
+- **Obrázky pre náhľad:** `design/assets/` (3D rendre šperkov, saténové pozadia, fotka z dema Luxria)
 
 ## Farby
 
@@ -56,20 +57,27 @@ Luxrio je tmavá téma – premennú `--white-color` používa na text na tmavom
 python3 tools/build_light_overrides.py cesta/k/luxrio/assets/css/style.css > danora-child/assets/css/danora-light.css
 ```
 
+### Obrázky v náhľade
+
+- **Fotka modelky** je z dokumentácie šablóny Luxrio (demo Home 02), prstene z nej sú odstránené a pozadie rozšírené doľava. Demo obrázky ThemeForest sú licencované iba podľa zakúpenej licencie a zvyčajne **nie sú určené na ostrý web**. Pred spustením ich nahraď vlastnými fotkami.
+- **Šperky** sú 3D rendre (`tools/render-jewelry.html`, three.js), **satén** je generovaný (`tools/satin.py`). Slúžia ako ukážka, kým nebudú hotové skutočné produktové fotky.
+- Ostatné demo fotky Luxria (produkty, bannery) nie sú v ZIPe. Stiahnu sa až pri importe dema vo WordPresse (Luxrio → Import Demo Data).
+
 Náhľad `design/danora-homepage.html` sa skladá príkazom `python3 tools/build_mockup.py` zo `design/src/homepage.template.html`.
 
 ## Štruktúra homepage (podľa návrhu)
 
-1. Čierny pruh: doprava zadarmo, odoslanie do 24 h, 14 dní na vrátenie
-2. Hlavička: logo v strede, menu kategórií (Novinky, Náušnice, Náhrdelníky, Náramky, Prstene, Doplnky do vlasov, Darčekové sety, Výpredaj)
-3. Posuvný slider s produktmi
-4. Kategórie (kruhy)
-5. Obľúbené produkty (záložky Najpredávanejšie / Novinky / Do 20 €), stav skladu pri produkte
-6. O značke (monogram, DANORA Bižutéria / Doplnky / Collection)
-7. Výhody: platba, doručenie, vrátenie, darčekové balenie
-8. Newsletter so zľavou 10 %
-9. Pätička s právnymi stránkami, platobnými metódami, údajmi o prevádzkovateľovi, SOI a RSO
-10. Cookie lišta s možnosťou „Iba nevyhnutné“
+1. Čierny bežiaci pruh: doprava zadarmo, odoslanie do 24 h, 14 dní na vrátenie
+2. Hlavička: logo v strede, menu kategórií (Novinky, Náušnice, Náhrdelníky, Náramky, Prstene, Doplnky do vlasov, Darčekové sety, Výpredaj); pri scrollovaní sa zmenší
+3. Celoplošný slider na pozadí (4 snímky, pomalý zoom a posun pozadia, postupné zobrazenie textu, plávajúci produkt, časová lišta)
+4. Bežiaci pás DANORA / Bižutéria / Doplnky / Collection
+5. Kategórie (kruhy so saténom) a 2 promo bannery
+6. Obľúbené produkty (záložky Najpredávanejšie / Novinky / Do 20 €), stav skladu pri produkte
+7. O značke (monogram, DANORA Bižutéria / Doplnky / Collection)
+8. Výhody: platba, doručenie, vrátenie, darčekové balenie
+9. Newsletter so zľavou 10 %
+10. Pätička s právnymi stránkami, platobnými metódami, údajmi o prevádzkovateľovi, SOI a RSO
+11. Cookie lišta s možnosťou „Iba nevyhnutné“
 
 ## Čo treba pripraviť pred spustením
 

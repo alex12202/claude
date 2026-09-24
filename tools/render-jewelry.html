@@ -1,0 +1,115 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:transparent}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script>
+</head><body><script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { mergeVertices } from 'three/addons/utils/BufferGeometryUtils.js';
+const q = new URLSearchParams(location.search);
+const item = q.get('item') || 'ring';
+const S = +(q.get('size') || 1000);
+const tint = q.get('tint') || 'gold';
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(1); renderer.setSize(S, S);
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+const pm = new THREE.PMREMGenerator(renderer);
+scene.environment = pm.fromScene(new RoomEnvironment(), 0.03).texture;
+scene.environmentIntensity = 1.15;
+const cam = new THREE.PerspectiveCamera(28, 1, 0.1, 100);
+const key = new THREE.DirectionalLight(0xfff3e0, 1.6); key.position.set(3, 5, 4); scene.add(key);
+const rim = new THREE.DirectionalLight(0xffffff, 0.8); rim.position.set(-4, 2, -3); scene.add(rim);
+const goldC = { gold: 0xe6bd78, rose: 0xe8ad95, silver: 0xdedad2 }[tint];
+const gold = new THREE.MeshPhysicalMaterial({ color: goldC, metalness: 1, roughness: 0.16, clearcoat: 0.3, clearcoatRoughness: 0.1 });
+const gem = new THREE.MeshPhysicalMaterial({ color: 0xf6f8fc, metalness: 0.92, roughness: 0.02, flatShading: true, clearcoat: 1, clearcoatRoughness: 0, iridescence: 0.35, iridescenceIOR: 1.8, envMapIntensity: 2.4 });
+const pearl = new THREE.MeshPhysicalMaterial({ color: 0xe9dcc6, roughness: 0.28, metalness: 0.08, clearcoat: 1, clearcoatRoughness: 0.12, iridescence: 0.6, iridescenceIOR: 1.35, envMapIntensity: 0.85 });
+
+function brilliant(r = 0.3, h = 0.36) {
+  const pts = [new THREE.Vector2(0, -h), new THREE.Vector2(r * 0.55, -h * 0.5), new THREE.Vector2(r, -h * 0.05), new THREE.Vector2(r, 0.02), new THREE.Vector2(r * 0.8, h * 0.2), new THREE.Vector2(r * 0.55, h * 0.36), new THREE.Vector2(0, h * 0.36)];
+  const g = new THREE.LatheGeometry(pts, 16);
+  return new THREE.Mesh(g, gem);
+}
+function marquise(len = 0.9, w = 0.36, d = 0.22) {
+  const m = brilliant(0.5, 0.5); m.scale.set(w, d * 2, len); return m;
+}
+function prongs(r, y, n = 6, parent) {
+  for (let i = 0; i < n; i++) {
+    const a = i / n * Math.PI * 2;
+    const c = new THREE.Mesh(new THREE.CapsuleGeometry(0.022, 0.22, 4, 12), gold);
+    c.position.set(Math.cos(a) * r, y, Math.sin(a) * r); c.rotation.z = -Math.cos(a) * 0.25; c.rotation.x = Math.sin(a) * 0.25;
+    parent.add(c);
+  }
+}
+function chainAlong(curve, n, linkR, tube, parent) {
+  for (let i = 0; i < n; i++) {
+    const t = i / (n - 1), p = curve.getPointAt(t), tg = curve.getTangentAt(t);
+    const l = new THREE.Mesh(new THREE.TorusGeometry(linkR, tube, 10, 28), gold);
+    l.scale.set(1.5, 1, 1);
+    l.position.copy(p);
+    l.quaternion.setFromUnitVectors(new THREE.Vector3(1, 0, 0), tg);
+    l.rotateX(i % 2 ? Math.PI / 2 : 0);
+    parent.add(l);
+  }
+}
+const g = new THREE.Group(); scene.add(g);
+let camPos = [0, 1.2, 6], look = [0, 0, 0];
+
+if (item === 'ring') {
+  const band = new THREE.Mesh(new THREE.TorusGeometry(1, 0.12, 48, 220), gold); band.scale.set(1, 1, 1.5); g.add(band);
+  const head = new THREE.Group(); head.position.y = 1.12; g.add(head);
+  const d = brilliant(0.42, 0.5); d.position.y = 0.26; head.add(d);
+  prongs(0.38, 0.22, 6, head);
+  const cup = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.1, 0.22, 32, 1, true), gold); cup.position.y = 0.0; head.add(cup);
+  g.rotation.set(0.45, -0.7, 0.12); camPos = [0, 0.9, 7]; look = [0, 0.3, 0];
+} else if (item === 'earring') {
+  for (const [x, rz, ry] of [[-0.62, 0.06, 0.4], [0.62, -0.06, -0.4]]) {
+    const e = new THREE.Group(); e.position.x = x; e.rotation.set(0, ry, rz); g.add(e);
+    const hook = new THREE.Mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3([new THREE.Vector3(0, 0.9, 0), new THREE.Vector3(0, 1.35, 0.05), new THREE.Vector3(0.18, 1.62, 0), new THREE.Vector3(0.38, 1.4, 0), new THREE.Vector3(0.42, 1.0, 0)]), 60, 0.028, 10), gold); e.add(hook);
+    const top = brilliant(0.14, 0.16); top.rotation.x = Math.PI / 2; top.position.y = 0.78; e.add(top);
+    const bez = new THREE.Mesh(new THREE.TorusGeometry(0.15, 0.03, 12, 40), gold); bez.position.y = 0.78; e.add(bez);
+    const drop = marquise(1.15, 0.52, 0.2); drop.rotation.set(Math.PI / 2, 0, 0); drop.position.y = -0.05; e.add(drop);
+    const frame = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.025, 12, 80), gold); frame.scale.set(0.95, 1.95, 1); frame.position.y = -0.05; e.add(frame);
+  }
+  camPos = [0, 0.3, 6.6]; look = [0, 0.55, 0];
+} else if (item === 'pearls') {
+  const curve = new THREE.CatmullRomCurve3([new THREE.Vector3(-1.5, 1.4, -0.3), new THREE.Vector3(-1.15, 0.2, 0), new THREE.Vector3(-0.55, -0.55, 0.2), new THREE.Vector3(0, -0.72, 0.25), new THREE.Vector3(0.55, -0.55, 0.2), new THREE.Vector3(1.15, 0.2, 0), new THREE.Vector3(1.5, 1.4, -0.3)]);
+  const n = 34; for (let i = 0; i < n; i++) { const t = i / (n - 1); const r = 0.085 + 0.03 * Math.sin(Math.PI * t); const s = new THREE.Mesh(new THREE.SphereGeometry(r, 48, 32), pearl); s.position.copy(curve.getPointAt(t)); g.add(s); }
+  const bail = new THREE.Mesh(new THREE.TorusGeometry(0.07, 0.02, 10, 30), gold); bail.position.set(0, -0.86, 0.25); g.add(bail);
+  const pd = marquise(0.62, 0.34, 0.16); pd.rotation.set(Math.PI / 2, 0, 0); pd.position.set(0, -1.25, 0.25); g.add(pd);
+  const fr = new THREE.Mesh(new THREE.TorusGeometry(0.19, 0.02, 10, 60), gold); fr.scale.set(0.95, 1.75, 1); fr.position.copy(pd.position); g.add(fr);
+  g.rotation.x = -0.35; camPos = [0, 0.2, 6.4]; look = [0, 0.05, 0];
+} else if (item === 'bracelet') {
+  const curve = new THREE.EllipseCurve(0, 0, 1.25, 1.25);
+  const pts = curve.getPoints(200).map(p => new THREE.Vector3(p.x, 0, p.y));
+  const c3 = new THREE.CatmullRomCurve3(pts, true);
+  chainAlong(c3, 64, 0.06, 0.018, g);
+  for (let k = 0; k < 5; k++) { const t = 0.15 + k * 0.05; const p = c3.getPointAt(t); const s = new THREE.Mesh(new THREE.SphereGeometry(0.1, 40, 28), pearl); s.position.copy(p).multiplyScalar(1.0); s.position.y -= 0.12; g.add(s); }
+  const cl = brilliant(0.2, 0.22); const p = c3.getPointAt(0.25); cl.position.set(p.x, -0.2, p.z); g.add(cl);
+  g.rotation.set(0.9, 0.3, 0.1); camPos = [0, 0.8, 7]; look = [0, -0.1, 0];
+} else if (item === 'hoops') {
+  for (const [x, ry] of [[-0.75, 0.5], [0.75, -0.3]]) {
+    const h = new THREE.Mesh(new THREE.TorusGeometry(0.72, 0.1, 48, 200), gold); h.position.x = x; h.rotation.set(0.15, ry, 0); g.add(h);
+    for (let k = 0; k < 12; k++) { const a = -Math.PI / 2 + (k - 5.5) * 0.14; const m = brilliant(0.045, 0.05); m.position.set(Math.cos(a) * 0.72, Math.sin(a) * 0.72, 0.1); m.rotation.x = Math.PI / 2; h.add(m); }
+  }
+  camPos = [0, 0.3, 6.2]; look = [0, 0, 0];
+} else if (item === 'chain') {
+  const curve = new THREE.CatmullRomCurve3([new THREE.Vector3(-1.4, 1.4, -0.3), new THREE.Vector3(-1.05, 0.1, 0), new THREE.Vector3(-0.5, -0.6, 0.2), new THREE.Vector3(0, -0.75, 0.25), new THREE.Vector3(0.5, -0.6, 0.2), new THREE.Vector3(1.05, 0.1, 0), new THREE.Vector3(1.4, 1.4, -0.3)]);
+  chainAlong(curve, 90, 0.045, 0.013, g);
+  const disc = new THREE.Mesh(new THREE.TorusGeometry(0.28, 0.07, 32, 96), gold); disc.rotation.set(0.2, 0.35, 0); disc.position.set(0, -1.2, 0.25); g.add(disc);
+  const d = brilliant(0.2, 0.24); d.rotation.set(Math.PI / 2 - 0.2, 0, 0); d.position.set(0, -1.2, 0.3); g.add(d);
+  const bail = new THREE.Mesh(new THREE.TorusGeometry(0.07, 0.02, 10, 30), gold); bail.position.set(0, -0.84, 0.25); g.add(bail);
+  g.rotation.x = -0.35; camPos = [0, 0.2, 6.4]; look = [0, 0, 0];
+} else if (item === 'clip') {
+  const bar = new THREE.Mesh(new THREE.CapsuleGeometry(0.07, 2.6, 8, 24), gold); bar.rotation.z = Math.PI / 2; g.add(bar);
+  const bar2 = new THREE.Mesh(new THREE.CapsuleGeometry(0.025, 2.4, 8, 16), gold); bar2.rotation.z = Math.PI / 2; bar2.position.set(0, -0.12, -0.1); g.add(bar2);
+  for (let k = 0; k < 7; k++) { const x = -1.05 + k * 0.35; const r = k % 2 ? 0.12 : 0.15; const s = new THREE.Mesh(new THREE.SphereGeometry(r, 48, 32), pearl); s.position.set(x, 0.1, 0.1); g.add(s); }
+  g.rotation.set(0.5, 0.2, 0.35); camPos = [0, 0.3, 5.4]; look = [0, 0, 0];
+}
+const box = new THREE.Box3().setFromObject(g), sph = box.getBoundingSphere(new THREE.Sphere());
+const dir = new THREE.Vector3(...camPos).sub(new THREE.Vector3(...look)).normalize();
+const dist = sph.radius / Math.sin(THREE.MathUtils.degToRad(cam.fov / 2)) * 0.9;
+cam.position.copy(sph.center).addScaledVector(dir, dist); cam.lookAt(sph.center);
+renderer.render(scene, cam);
+window.done = true;
+</script></body></html>

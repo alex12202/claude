@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Build design/danora-homepage.html: inline logo images into the template."""
+"""Build design/danora-homepage.html: inline logos and design/assets images into the template."""
 import base64
 import io
 import pathlib
+import re
 
 from PIL import Image
 
@@ -26,6 +27,12 @@ DIVIDER = (
 )
 
 html = (ROOT / "design" / "src" / "homepage.template.html").read_text(encoding="utf-8")
+ASSETS = ROOT / "design" / "assets"
+html = re.sub(
+    r"%%IMG:([\w.-]+)%%",
+    lambda m: "data:image/webp;base64," + base64.b64encode((ASSETS / m.group(1)).read_bytes()).decode(),
+    html,
+)
 html = (
     html.replace("%%NAME%%", data_uri("danora-name.png", 420))
     .replace("%%MONO%%", data_uri("danora-monogram.png", 420))
