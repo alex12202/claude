@@ -71,12 +71,6 @@
   .btn .arr { transition: transform .4s var(--ease); }
   .btn:hover .arr { transform: translateX(5px); }
 
-  /* announcement: scrolling ticker */
-  .announce { background: var(--ink); color: var(--champagne); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; overflow: hidden; white-space: nowrap; }
-  .announce .track { display: inline-flex; gap: 48px; padding-block: 10px; animation: ticker 38s linear infinite; }
-  .announce .track span::after { content: "✦"; margin-left: 48px; color: var(--accent); }
-  :root.no-gold .announce .track span::after { color: var(--champagne); }
-  @keyframes ticker { to { transform: translateX(-50%); } }
 
   /* header */
   header.site { background: rgba(247, 241, 230, .92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; transition: box-shadow .4s; }
@@ -358,13 +352,6 @@
     <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.2-8.6C1.1 8 3 4.5 6.5 4.5c2 0 3.5 1.2 4.3 2.5h2.4c.8-1.3 2.3-2.5 4.3-2.5 3.5 0 5.4 3.5 3.7 6.9C19 15.6 12 20 12 20Z" transform="translate(0 -.5)"/></symbol>
   </defs>
 </svg>
-
-<div class="announce" aria-label="Výhody nákupu">
-  <div class="track">
-    <span>Doprava zadarmo nad 49 €</span><span>Odosielame do 24 hodín</span><span>14 dní na vrátenie tovaru</span><span>Darčekové balenie ku každej objednávke</span><span>Platba kartou, Apple Pay a Google Pay</span>
-    <span aria-hidden="true">Doprava zadarmo nad 49 €</span><span aria-hidden="true">Odosielame do 24 hodín</span><span aria-hidden="true">14 dní na vrátenie tovaru</span><span aria-hidden="true">Darčekové balenie ku každej objednávke</span><span aria-hidden="true">Platba kartou, Apple Pay a Google Pay</span>
-  </div>
-</div>
 
 <header class="site" id="siteHeader">
   <div class="wrap">

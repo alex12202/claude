@@ -66,16 +66,15 @@ Náhľad `design/danora-homepage.html` sa skladá príkazom `python3 tools/build
 
 ## Štruktúra homepage (podľa návrhu)
 
-1. Čierny bežiaci pruh: doprava zadarmo, odoslanie do 24 h, 14 dní na vrátenie
-2. Hlavička: logo v strede, menu kategórií (Novinky, Náušnice, Náhrdelníky, Náramky, Prstene, Doplnky do vlasov, Darčekové sety, Výpredaj); pri scrollovaní sa zmenší
-3. Celoplošný slider na pozadí (4 snímky, pomalý zoom a posun pozadia, postupné zobrazenie textu, plávajúci produkt, časová lišta)
-4. Kategórie (kruhy so saténom) a 2 promo bannery
-5. Obľúbené produkty (záložky Najpredávanejšie / Novinky / Do 20 €), stav skladu pri produkte
-6. O značke (monogram, DANORA Bižutéria / Doplnky / Collection)
-7. Výhody: platba, doručenie, vrátenie, darčekové balenie
-8. Newsletter so zľavou 10 %
-9. Pätička s právnymi stránkami, platobnými metódami, údajmi o prevádzkovateľovi, SOI a RSO
-10. Cookie lišta s možnosťou „Iba nevyhnutné“
+1. Hlavička: logo v strede, menu kategórií (Novinky, Náušnice, Náhrdelníky, Náramky, Prstene, Doplnky do vlasov, Darčekové sety, Výpredaj); pri scrollovaní sa zmenší
+2. Celoplošný slider na pozadí (4 snímky, pomalý zoom a posun pozadia, postupné zobrazenie textu, plávajúci produkt, časová lišta)
+3. Kategórie (kruhy so saténom) a 2 promo bannery
+4. Obľúbené produkty (záložky Najpredávanejšie / Novinky / Do 20 €), stav skladu pri produkte
+5. O značke (monogram, DANORA Bižutéria / Doplnky / Collection)
+6. Výhody: platba, doručenie, vrátenie, darčekové balenie
+7. Newsletter so zľavou 10 %
+8. Pätička s právnymi stránkami, platobnými metódami, údajmi o prevádzkovateľovi, SOI a RSO
+9. Cookie lišta s možnosťou „Iba nevyhnutné“
 
 ## Čo treba pripraviť pred spustením
 
