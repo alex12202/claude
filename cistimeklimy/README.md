@@ -35,9 +35,12 @@ Podpisový prvok: **modrá čiara – TEXT – oranžová čiara** nad nadpismi,
 
 ## Písma
 
-Logo je vektorové (písmo je prevedené na krivky, jeho názov sa z PDF nedá zistiť).
-Na nadpisy je použitý **Exo 2 ExtraBold Italic** (Google Fonts) – šikmé, zaoblené, technické, najbližšie k logu a s plnou podporou slovenčiny.
-Text: **Manrope**. Ak grafik povie presný názov písma z loga, stačí zmeniť `--f-display` v `assets/css/style.css`.
+**Nadpisy – `Cistime Display`** (`assets/fonts/`, woff2 v rezoch 600/700/800).
+V PDF loga je text prevedený na krivky a Illustrator v súbore neuchováva názov písma (sú tam iba predvolené Myriad a Times), preto sa pôvodné písmo nedá z loga vyčítať.
+Písmo som určil porovnaním tvarov s ~100 kandidátmi. Najbližšie je **Saira** v najširšom reze (šírka 125 %). Logo má sklon ~22°, čo žiadna bežná kurzíva nemá, preto je `Cistime Display` Saira so sklonom presne 22°, upravená pre tento web (licencia OFL, `assets/fonts/OFL.txt`).
+Ak grafička pozná presný názov písma loga a má naň licenciu na web, stačí ho vložiť do `assets/fonts/` a zmeniť `@font-face` v `assets/css/style.css`.
+
+**Text:** Manrope (Google Fonts).
 
 ## Logo
 
