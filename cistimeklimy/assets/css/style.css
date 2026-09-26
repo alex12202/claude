@@ -25,6 +25,7 @@
   --line: #d9e3ee;
 
   --f-display: "Cistime Display", "Arial Black", Arial, sans-serif;
+  --f-ui: "Exo 2", "Segoe UI", Arial, sans-serif; /* tlačidlá a pás výhod */
   --f-body: "Manrope", "Segoe UI", Roboto, Arial, sans-serif;
 
   --wrap: 1200px;
@@ -92,7 +93,7 @@ p { margin: 0; }
   display: inline-flex; align-items: center; justify-content: center;
   padding: 15px 26px; border: 0; cursor: pointer;
   background: var(--bg); color: var(--fg);
-  font: italic 700 1rem/1.1 var(--f-display); letter-spacing: .02em;
+  font: italic 700 1rem/1.1 var(--f-ui); letter-spacing: .02em;
   text-decoration: none;
   transform: skewX(-10deg); border-radius: 6px;
   transition: background .2s, transform .2s, box-shadow .2s;
@@ -190,7 +191,7 @@ p { margin: 0; }
 .perks { background: var(--ink); color: #cfd8e3; padding-block: 26px; }
 .perks ul { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; list-style: none; margin: 0 auto; padding-block: 0; }
 .perks li { display: flex; gap: 14px; align-items: center; font-size: .9rem; line-height: 1.35; }
-.perks b { display: block; color: #fff; font: italic 700 1.02rem/1.2 var(--f-display); }
+.perks b { display: block; color: #fff; font: italic 700 1.05rem/1.2 var(--f-ui); }
 .perks svg { width: 34px; height: 34px; color: var(--blue); flex: none; }
 
 /* ---------- prečo čistiť: porovnanie pred/po ---------- */

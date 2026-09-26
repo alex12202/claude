@@ -40,6 +40,8 @@ V PDF loga je text prevedený na krivky a Illustrator v súbore neuchováva náz
 Písmo som určil porovnaním tvarov s ~100 kandidátmi. Najbližšie je **Saira** v najširšom reze (šírka 125 %). Logo má sklon ~22°, čo žiadna bežná kurzíva nemá, preto je `Cistime Display` Saira so sklonom presne 22°, upravená pre tento web (licencia OFL, `assets/fonts/OFL.txt`).
 Ak grafička pozná presný názov písma loga a má naň licenciu na web, stačí ho vložiť do `assets/fonts/` a zmeniť `@font-face` v `assets/css/style.css`.
 
+**Tlačidlá a pás výhod:** Exo 2 Bold Italic (Google Fonts).
+
 **Text:** Manrope (Google Fonts).
 
 ## Logo
