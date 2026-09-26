@@ -267,7 +267,8 @@ p { margin: 0; }
 .svc:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
 .svc svg { width: 56px; height: 56px; color: var(--blue); }
 .svc p { font-size: .94rem; color: var(--muted); flex: 1; }
-.svc a { font: italic 700 .92rem/1 var(--f-display); letter-spacing: .06em; text-transform: uppercase; text-decoration: none; }
+.svc h3 { font-family: var(--f-ui); font-weight: 700; font-size: 1.3rem; }
+.svc a { font: italic 700 .92rem/1 var(--f-ui); letter-spacing: .06em; text-transform: uppercase; text-decoration: none; }
 .svc a::after { content: " →"; color: var(--orange); }
 .svc.new { background: var(--blue-night); border-color: var(--blue-night); color: #b9c9da; }
 .svc.new h3 { color: #fff; }
