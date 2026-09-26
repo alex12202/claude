@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BROMAR – tieniaca technika</title>
-<meta name="description" content="Vonkajšie žalúzie, screenové rolety, rolety, bioklimatické pergoly, vnútorné tienenie a servis okien. Zameranie, montáž a servis – BROMAR s. r. o.">
+<title>BROMAR – komfort, kvalita, detail | tieniaca technika</title>
+<meta name="description" content="Kompletné riešenia tienenia – pergoly, žalúzie, rolety, siete, zimné záhrady a zasklenia. Vyrábame a montujeme na mieru. BROMAR – komfort, kvalita, detail.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Stack+Sans+Headline:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,8 +20,8 @@
   --anth-2:#3b3f45;
   --navy:#1c2a3e;        /* tmavomodrá (firemné tričká) */
   --navy-2:#243650;
-  --red:#b5302a;         /* akcent z loga – striedmo */
-  --red-dark:#962620;
+  --red:#c0141c;         /* červená z loga – striedmo */
+  --red-dark:#9c0f16;
   --white:#fff;
   --radius:18px;
   --shadow:0 18px 50px -24px rgba(28,42,62,.35);
@@ -51,7 +51,7 @@ h1,h2,h3,h4{font-family:var(--head);color:var(--navy);font-weight:600;line-heigh
 .btn{--bgc:var(--navy);--fg:#fff;display:inline-flex;align-items:center;gap:12px;height:54px;padding:0 26px;border-radius:999px;background:var(--bgc);color:var(--fg);font:600 15px/1 var(--body);letter-spacing:.01em;border:0;cursor:pointer;position:relative;overflow:hidden;isolation:isolate;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
 .btn::after{content:"";position:absolute;inset:0;background:var(--red);transform:translateY(101%);transition:transform .45s var(--ease);z-index:-1}
 .btn:hover::after{transform:none}
-.btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(181,48,42,.55)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(192,20,28,.5)}
 .btn .arr{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.14);display:grid;place-items:center;transition:transform .35s var(--ease)}
 .btn:hover .arr{transform:translateX(4px)}
 .btn-red{--bgc:var(--red)}
@@ -78,9 +78,9 @@ header.site .wrap{display:flex;align-items:center;gap:30px;height:84px;transitio
 header.site.solid{top:0;background:rgba(251,250,247,.86);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);box-shadow:0 1px 0 rgba(28,42,62,.08)}
 header.site.solid .wrap{height:70px}
 .logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
-.logo svg{height:38px;width:auto}
-.logo{--lw:#fff;--ls:rgba(255,255,255,.72)}
-header.site.solid .logo{--lw:var(--navy);--ls:var(--taupe)}
+.logo svg{height:46px;width:auto}
+.logo{--lw:#fff;--ls:#f0a3a0}
+header.site.solid .logo{--lw:#1d1e20;--ls:var(--red)}
 nav.main{display:flex;gap:4px;margin-left:auto}
 nav.main>a,nav.main>.dd>button{position:relative;padding:10px 14px;font:500 15px/1 var(--body);color:#fff;background:none;border:0;cursor:pointer;display:flex;align-items:center;gap:6px;transition:color .3s}
 header.site.solid nav.main>a,header.site.solid nav.main>.dd>button{color:var(--navy)}
@@ -183,6 +183,23 @@ header.site.solid .burger span{background:var(--navy)}
 .usp-i small{font-size:13px;color:var(--taupe);line-height:1.4;display:block;margin-top:2px}
 @media (max-width:980px){.usp .wrap{grid-template-columns:1fr 1fr}.usp-i{border-left:0;padding:22px 0}}
 @media (max-width:560px){.usp .wrap{grid-template-columns:1fr}}
+
+
+/* ============ statement ============ */
+.stmt{padding-bottom:0}
+.stmt-big{font:600 clamp(30px,4.2vw,58px)/1.12 var(--head);letter-spacing:-.025em;color:var(--navy);margin:22px 0 34px;max-width:22ch}
+.stmt-big span{color:var(--taupe)}
+.stmt-row{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;padding-bottom:10px;border-bottom:1px solid rgba(28,42,62,.1)}
+.stmt-row .lead{max-width:46ch;padding-bottom:26px}
+.motto{display:flex;align-items:center;gap:18px;padding-bottom:26px;font:600 15px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--navy)}
+.motto i{width:7px;height:7px;border-radius:50%;background:var(--red)}
+.extras{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:22px}
+.extra{display:flex;gap:18px;align-items:center;background:var(--paper);border-radius:var(--radius);padding:22px 24px;transition:.4s var(--ease)}
+.extra:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.extra .ic{width:54px;height:54px;border-radius:14px;background:var(--sand);display:grid;place-items:center;color:var(--navy);flex-shrink:0}
+.extra b{display:block;font:600 18px/1.2 var(--head);color:var(--navy)}
+.extra small{font-size:13.5px;color:var(--taupe);line-height:1.4;display:block;margin-top:3px}
+@media (max-width:860px){.extras{grid-template-columns:1fr}}
 
 /* ============ products grid ============ */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
@@ -454,7 +471,7 @@ footer{background:#141f2e;color:#9fabbb;font-size:14.5px;padding:80px 0 30px}
 footer h5{font:600 13px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:20px}
 footer ul{list-style:none;display:grid;gap:10px}
 footer a:hover{color:#fff}
-footer .logo{--lw:#fff;--ls:#9fabbb}
+footer .logo{--lw:#fff;--ls:#f0a3a0}
 .f-about p{margin:20px 0;max-width:34ch}
 .soc{display:flex;gap:10px}
 .soc a{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.06);display:grid;place-items:center;color:#fff;transition:.3s}
@@ -502,16 +519,20 @@ footer .logo{--lw:#fff;--ls:#9fabbb}
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
   <symbol id="i-home" viewBox="0 0 24 24"><path d="M3.5 11 12 4l8.5 7M6 9.5V20h12V9.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
   <symbol id="i-blind" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="2.5" rx="1" fill="currentColor"/><path d="M5 8.5h14M5 12h14M5 15.5h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 5.5v13" stroke="currentColor" stroke-width="1"/></symbol>
+  <symbol id="i-net" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 8h16M4 13h16M4 18h16M9 3v18M15 3v18" stroke="currentColor" stroke-width=".9" opacity=".7"/></symbol>
+  <symbol id="i-garden" viewBox="0 0 24 24"><path d="M3 20V10l9-6 9 6v10Z M3 10h18M9 20v-6h6v6M12 4v16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+  <symbol id="i-glass" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="1" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 4v16M15 4v16M5.5 8l2-2M11.5 9l2-2M17.5 8l1-1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
   <symbol id="i-fb" viewBox="0 0 24 24"><path d="M14 8h2.5V4.5H14A4 4 0 0 0 10 8.5V11H7.5v3.5H10V21h3.5v-6.5H16l.5-3.5h-3V9a1 1 0 0 1 .5-1Z" fill="currentColor"/></symbol>
   <symbol id="i-ig" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="16.8" cy="7.2" r="1.1" fill="currentColor"/></symbol>
-  <symbol id="logo" viewBox="0 0 250 60">
-    <!-- zástupné logo: lamely + BROMAR (nahradiť originálom) -->
-    <g transform="translate(2 8)">
-      <rect x="0" y="0" width="44" height="44" rx="11" fill="#b5302a"/>
-      <path d="M10 13.5h24M10 20.5h24M10 27.5h24M10 34.5h24" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/>
-    </g>
-    <text style="fill:var(--lw,#1c2a3e)" x="58" y="36" font-family="Stack Sans Headline, Inter, sans-serif" font-weight="700" font-size="29" letter-spacing="3">BROMAR</text>
-    <text style="fill:var(--ls,#8c8377)" x="59" y="52" font-family="Inter, sans-serif" font-weight="500" font-size="9.6" letter-spacing="3.2">TIENIACA TECHNIKA</text>
+  <symbol id="logo" viewBox="0 0 330 72">
+    <!-- logo BROMAR prekreslené do vektora podľa dodaného obrázka -->
+    <defs><linearGradient id="shieldG" x1="0" x2="1"><stop offset=".5" stop-color="#d0101c"/><stop offset=".5" stop-color="#b00c16"/></linearGradient></defs>
+    <path d="M2 11 30 2l28 9v29c0 14-13 23-28 31C15 63 2 54 2 40Z" fill="url(#shieldG)"/>
+    <path d="M6 13.8 30 6.1l24 7.7V40c0 11.6-10.7 19.3-24 26.4C16.7 59.3 6 51.6 6 40Z" fill="none" stroke="#fff" stroke-width="1.3"/>
+    <text x="30" y="47" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="34" fill="#fff">B</text>
+    <text x="72" y="44" style="fill:var(--lw,#1d1e20)" font-family="'Stack Sans Headline',Inter,sans-serif" font-weight="700" font-size="42" letter-spacing="1.5" textLength="252" lengthAdjust="spacingAndGlyphs">BROMAR</text>
+    <path d="M72 60.5h26M298 60.5h26" style="stroke:var(--ls,#c0141c)" stroke-width="1.4"/>
+    <text x="198" y="65" text-anchor="middle" style="fill:var(--ls,#c0141c)" font-family="Inter,sans-serif" font-weight="600" font-size="12.5" letter-spacing="3.6">TIENIACA TECHNIKA</text>
   </symbol>
 </svg>
 
@@ -527,7 +548,7 @@ footer .logo{--lw:#fff;--ls:#9fabbb}
 
 <header class="site" id="hdr">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="BROMAR – domov"><svg viewBox="0 0 250 60"><use href="#logo"/></svg></a>
+    <a class="logo" href="#top" aria-label="BROMAR – domov"><svg viewBox="0 0 330 72"><use href="#logo"/></svg></a>
     <nav class="main" aria-label="Hlavné menu">
       <div class="dd">
         <button type="button">Produkty <svg class="chev" viewBox="0 0 10 10"><path d="M2 3.5 5 6.5l3-3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
@@ -554,7 +575,7 @@ footer .logo{--lw:#fff;--ls:#9fabbb}
 
 <div class="drawer" id="drawer">
   <button class="x" type="button" aria-label="Zavrieť" id="drawerX">×</button>
-  <a href="#zaluzie">Vonkajšie žalúzie</a><a href="#screeny">Screenové rolety</a><a href="#rolety">Vonkajšie rolety</a><a href="#pergoly">Bioklimatické pergoly</a><a href="#interier">Vnútorné tienenie</a><a href="#smart">Somfy – ovládanie z mobilu</a><a href="#servis">Servis okien</a><a href="#realizacie">Realizácie</a><a href="#kontakt">Kontakt</a>
+  <a href="#zaluzie">Vonkajšie žalúzie</a><a href="#screeny">Screenové rolety</a><a href="#rolety">Vonkajšie rolety</a><a href="#pergoly">Bioklimatické pergoly</a><a href="#interier">Vnútorné tienenie</a><a href="#produkty">Siete, zimné záhrady, zasklenia</a><a href="#smart">Somfy – ovládanie z mobilu</a><a href="#servis">Servis okien</a><a href="#realizacie">Realizácie</a><a href="#kontakt">Kontakt</a>
   <a class="btn btn-red" href="#kontakt">Nezáväzná cenová ponuka</a>
 </div>
 
@@ -626,6 +647,19 @@ footer .logo{--lw:#fff;--ls:#9fabbb}
   </div>
 </section>
 
+
+<!-- ============ STATEMENT ============ -->
+<section class="sec stmt" aria-label="O firme">
+  <div class="wrap">
+    <span class="eyebrow rv">BROMAR s. r. o.</span>
+    <p class="stmt-big rv d1">Kompletné riešenia tienenia – <span>pergoly, žalúzie, rolety, siete, zimné záhrady a&nbsp;zasklenia.</span></p>
+    <div class="stmt-row">
+      <p class="lead rv d2">Všetko vyrábame a montujeme presne na mieru, s dôrazom na kvalitu, dizajn a dlhú životnosť.</p>
+      <div class="motto rv d3"><b>Komfort</b><i></i><b>Kvalita</b><i></i><b>Detail</b></div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ PRODUCTS ============ -->
 <section class="sec" id="produkty">
   <div class="wrap">
@@ -640,6 +674,11 @@ footer .logo{--lw:#fff;--ls:#9fabbb}
       <a class="card rv" href="#pergoly"><div class="ph"><img src="%%IMG:card-pergola.webp%%" alt="Bioklimatická hliníková pergola na terase"><span class="tag">Novinka</span></div><div class="bd"><h3>Bioklimatické pergoly</h3><p>Hliníková konštrukcia s otočnými lamelami, LED osvetlením a odvodom vody v stĺpoch.</p><ul><li>hliník</li><li>LED</li><li>senzor dažďa</li></ul><div class="go">Ako funguje <i><svg width="14" height="14"><use href="#i-arr"/></svg></i></div></div></a>
       <a class="card rv d1" href="#interier"><div class="ph"><img src="%%IMG:card-interior.webp%%" alt="Vnútorné žalúzie v obývačke"></div><div class="bd"><h3>Vnútorné tienenie</h3><p>Horizontálne žalúzie, látkové rolety, deň a noc, plisé a vertikálne žalúzie.</p><ul><li>žalúzie</li><li>rolety</li><li>plisé</li></ul><div class="go">Prehľad <i><svg width="14" height="14"><use href="#i-arr"/></svg></i></div></div></a>
       <a class="card rv d2" href="#servis"><div class="ph"><img src="%%IMG:card-service.webp%%" alt="Servis a nastavenie okien"></div><div class="bd"><h3>Servis okien</h3><p>Okná, ktoré sa zle zatvárajú, fúka cez ne alebo drhnú? Nastavíme, premažeme, vymeníme.</p><ul><li>kovanie</li><li>tesnenia</li><li>kľučky</li></ul><div class="go">Čo opravíme <i><svg width="14" height="14"><use href="#i-arr"/></svg></i></div></div></a>
+    </div>
+    <div class="extras">
+      <a class="extra rv" href="#kontakt"><div class="ic"><svg width="26" height="26"><use href="#i-net"/></svg></div><div><b>Siete proti hmyzu</b><small>Rámové, posuvné, rolovacie aj plisé siete na okná a dvere</small></div></a>
+      <a class="extra rv d1" href="#kontakt"><div class="ic"><svg width="26" height="26"><use href="#i-garden"/></svg></div><div><b>Zimné záhrady</b><small>Hliníkové konštrukcie, ktoré rozšíria obytný priestor</small></div></a>
+      <a class="extra rv d2" href="#kontakt"><div class="ic"><svg width="26" height="26"><use href="#i-glass"/></svg></div><div><b>Zasklenia terás</b><small>Posuvné sklenené steny k pergole aj na terasu</small></div></a>
     </div>
   </div>
 </section>
@@ -720,7 +759,7 @@ footer .logo{--lw:#fff;--ls:#9fabbb}
               <rect x="20" y="0" width="60" height="130" fill="#d9d2c6"/><rect x="80" y="0" width="30" height="130" fill="#efe9df"/><rect x="110" y="0" width="4" height="130" fill="#cfc6b8"/>
               <rect x="20" y="42" width="94" height="18" fill="#b9b0a2"/>
               <rect x="40" y="60" width="26" height="70" fill="#2e3136"/><rect x="46" y="60" width="14" height="70" fill="#9fb3c2"/>
-              <rect x="116" y="42" width="24" height="30" rx="3" fill="#1c2a3e"/><path d="M128 72v58" stroke="#b5302a" stroke-width="3" stroke-dasharray="3 3"/>
+              <rect x="116" y="42" width="24" height="30" rx="3" fill="#1c2a3e"/><path d="M128 72v58" stroke="#c0141c" stroke-width="3" stroke-dasharray="3 3"/>
             </svg>
             <div><span class="pill">Aj do hotového domu</span><h4>Predokenný box</h4><p>Box je namontovaný na fasáde nad oknom a je viditeľný. Najjednoduchšie riešenie, keď sa fasáda už nebude zatepľovať.</p></div>
           </div>
@@ -729,7 +768,7 @@ footer .logo{--lw:#fff;--ls:#9fabbb}
               <rect x="20" y="0" width="60" height="130" fill="#d9d2c6"/><rect x="80" y="0" width="44" height="130" fill="#efe9df"/><rect x="124" y="0" width="4" height="130" fill="#cfc6b8"/>
               <rect x="20" y="42" width="60" height="18" fill="#b9b0a2"/>
               <rect x="40" y="60" width="26" height="70" fill="#2e3136"/><rect x="46" y="60" width="14" height="70" fill="#9fb3c2"/>
-              <rect x="88" y="34" width="30" height="26" rx="3" fill="#1c2a3e"/><path d="M103 60v70" stroke="#b5302a" stroke-width="3" stroke-dasharray="3 3"/>
+              <rect x="88" y="34" width="30" height="26" rx="3" fill="#1c2a3e"/><path d="M103 60v70" stroke="#c0141c" stroke-width="3" stroke-dasharray="3 3"/>
             </svg>
             <div><span class="pill">Najčistejší vzhľad</span><h4>Podomietkový box</h4><p>Box je skrytý v zateplení pod omietkou, na fasáde ostane len úzka štrbina. Ideálne pri novostavbe alebo pri zatepľovaní.</p></div>
           </div>
@@ -738,7 +777,7 @@ footer .logo{--lw:#fff;--ls:#9fabbb}
               <rect x="20" y="0" width="60" height="130" fill="#d9d2c6"/><rect x="80" y="0" width="30" height="130" fill="#efe9df"/><rect x="110" y="0" width="4" height="130" fill="#cfc6b8"/>
               <rect x="20" y="30" width="94" height="30" fill="#b9b0a2"/><rect x="72" y="32" width="36" height="26" rx="3" fill="#1c2a3e"/>
               <rect x="40" y="60" width="26" height="70" fill="#2e3136"/><rect x="46" y="60" width="14" height="70" fill="#9fb3c2"/>
-              <path d="M90 58v72" stroke="#b5302a" stroke-width="3" stroke-dasharray="3 3"/>
+              <path d="M90 58v72" stroke="#c0141c" stroke-width="3" stroke-dasharray="3 3"/>
             </svg>
             <div><span class="pill">Novostavby</span><h4>Box v nadokennom preklade</h4><p>Žalúzia sa ukryje v špeciálnom preklade nad oknom už pri stavbe. Treba s ňou rátať v projekte. Radi to prekonzultujeme s vaším projektantom.</p></div>
           </div>
@@ -977,6 +1016,8 @@ footer .logo{--lw:#fff;--ls:#9fabbb}
         <label><input type="checkbox" name="p" value="rolety"><span>Rolety</span></label>
         <label><input type="checkbox" name="p" value="pergola"><span>Pergola</span></label>
         <label><input type="checkbox" name="p" value="interier"><span>Vnútorné tienenie</span></label>
+        <label><input type="checkbox" name="p" value="siete"><span>Siete</span></label>
+        <label><input type="checkbox" name="p" value="zahrada"><span>Zimná záhrada / zasklenie</span></label>
         <label><input type="checkbox" name="p" value="servis"><span>Servis okien</span></label>
       </div>
       <div class="fg">
@@ -997,12 +1038,12 @@ footer .logo{--lw:#fff;--ls:#9fabbb}
 <footer>
   <div class="wrap">
     <div class="f-grid">
-      <div class="f-about"><a class="logo" href="#top"><svg viewBox="0 0 250 60" style="height:40px"><use href="#logo"/></svg></a><p>Tieniaca technika na mieru: predaj, zameranie, montáž a servis. Vonkajšie žalúzie, screeny, rolety, pergoly a servis okien.</p><div class="soc"><a href="#" aria-label="Facebook"><svg width="18" height="18"><use href="#i-fb"/></svg></a><a href="#" aria-label="Instagram"><svg width="18" height="18"><use href="#i-ig"/></svg></a></div></div>
-      <div><h5>Produkty</h5><ul><li><a href="#zaluzie">Vonkajšie žalúzie</a></li><li><a href="#screeny">Screenové rolety</a></li><li><a href="#rolety">Vonkajšie rolety</a></li><li><a href="#pergoly">Bioklimatické pergoly</a></li><li><a href="#interier">Vnútorné tienenie</a></li></ul></div>
+      <div class="f-about"><a class="logo" href="#top"><svg viewBox="0 0 330 72" style="height:52px"><use href="#logo"/></svg></a><p>Kompletné riešenia tienenia – pergoly, žalúzie, rolety, siete, zimné záhrady a zasklenia. Vyrábame a montujeme na mieru.<br><b style="color:#fff;font-weight:600">Komfort, kvalita, detail.</b></p><div class="soc"><a href="#" aria-label="Facebook"><svg width="18" height="18"><use href="#i-fb"/></svg></a><a href="#" aria-label="Instagram"><svg width="18" height="18"><use href="#i-ig"/></svg></a></div></div>
+      <div><h5>Produkty</h5><ul><li><a href="#zaluzie">Vonkajšie žalúzie</a></li><li><a href="#screeny">Screenové rolety</a></li><li><a href="#rolety">Vonkajšie rolety</a></li><li><a href="#pergoly">Bioklimatické pergoly</a></li><li><a href="#interier">Vnútorné tienenie</a></li><li><a href="#produkty">Siete proti hmyzu</a></li><li><a href="#produkty">Zimné záhrady a zasklenia</a></li></ul></div>
       <div><h5>Služby</h5><ul><li><a href="#servis">Servis okien</a></li><li><a href="#smart">Somfy automatika</a></li><li><a href="#postup">Zameranie zdarma</a></li><li><a href="#realizacie">Realizácie</a></li><li><a href="#faq">Časté otázky</a></li></ul></div>
       <div><h5>Kontakt</h5><ul><li>BROMAR s. r. o.</li><li>Adresa prevádzky, PSČ Mesto</li><li>IČO: 00 000 000</li><li><a href="tel:+421900000000">+421 900 000 000</a></li><li><a href="mailto:info@bromar.sk">info@bromar.sk</a></li></ul></div>
     </div>
-    <div class="f-bot"><span>© 2026 BROMAR s. r. o. · bromar.sk</span><span><a href="#">Ochrana osobných údajov</a> · <a href="#">Cookies</a></span></div>
+    <div class="f-bot"><span>© 2026 BROMAR s. r. o. · komfort, kvalita, detail</span><span><a href="#">Ochrana osobných údajov</a> · <a href="#">Cookies</a></span></div>
   </div>
 </footer>
 

@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 60" width="250" height="60">
-  <!-- Zástupné logo pre návrh. Nahradiť originálnym logom BROMAR (SVG/PNG bez pozadia). -->
-  <g transform="translate(2 8)">
-    <rect x="0" y="0" width="44" height="44" rx="11" fill="#b5302a"/>
-    <path d="M10 13.5h24M10 20.5h24M10 27.5h24M10 34.5h24" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/>
-  </g>
-  <text x="58" y="36" fill="#1c2a3e" font-family="Stack Sans Headline, Inter, sans-serif" font-weight="700" font-size="29" letter-spacing="3">BROMAR</text>
-  <text x="59" y="52" fill="#8c8377" font-family="Inter, sans-serif" font-weight="500" font-size="9.6" letter-spacing="3.2">TIENIACA TECHNIKA</text>
-</svg>

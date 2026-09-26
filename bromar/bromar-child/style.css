@@ -1,7 +1,7 @@
 /*
 Theme Name: Bromar
 Theme URI: https://bromar.sk/
-Description: Child téma pre BROMAR s. r. o. (tieniaca technika) postavená na šablóne Domi. Neutrálna paleta (kriedová, béžová, antracit, tmavomodrá) s červeným akcentom z loga.
+Description: Child téma pre BROMAR s. r. o. – kompletné riešenia tienenia: pergoly, žalúzie, rolety, siete, zimné záhrady a zasklenia. Komfort, kvalita, detail.
 Author: BROMAR s. r. o.
 Template: domi
 Version: 1.0.0
@@ -25,8 +25,8 @@ Text Domain: bromar
 	--bm-text: #4a4d52;    /* bežný text */
 	--bm-anth: #2e3136;    /* antracit */
 	--bm-navy: #1c2a3e;    /* tmavomodrá */
-	--bm-red: #b5302a;     /* akcent z loga – iba tlačidlá a detaily */
-	--bm-red-dark: #962620;
+	--bm-red: #c0141c;     /* červená z loga – iba tlačidlá a detaily */
+	--bm-red-dark: #9c0f16;
 	--bm-ease: cubic-bezier(.22, .8, .2, 1);
 }
 
@@ -59,7 +59,7 @@ Text Domain: bromar
 	transform: translateY(101%); transition: transform .45s var(--bm-ease);
 }
 .bm-btn .elementor-button:hover::after, a.bm-btn:hover::after { transform: none; }
-.bm-btn .elementor-button:hover, a.bm-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -12px rgba(181, 48, 42, .55); }
+.bm-btn .elementor-button:hover, a.bm-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -12px rgba(192, 20, 28, .5); }
 .bm-btn-red .elementor-button { background: var(--bm-red); }
 
 /* karta produktu (Elementor kontajner s obrázkom) */

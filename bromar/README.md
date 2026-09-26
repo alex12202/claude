@@ -1,6 +1,8 @@
 # BROMAR s. r. o. – návrh webu (tieniaca technika)
 
-Návrh novej stránky **bromar.sk**: vonkajšie žalúzie (aj podomietkové), screenové rolety, plastové a hliníkové rolety, bioklimatické hliníkové pergoly, vnútorné tienenie, automatika Somfy a servis okien. Stavia na šablóne **Domi** (WordPress + Elementor).
+Návrh novej stránky **bromar.sk**: *Kompletné riešenia tienenia – pergoly, žalúzie, rolety, siete, zimné záhrady a zasklenia. Všetko vyrábame a montujeme presne na mieru, s dôrazom na kvalitu, dizajn a dlhú životnosť. BROMAR – komfort, kvalita, detail.*
+
+Na stránke sú vonkajšie žalúzie (aj podomietkové), screenové rolety, plastové a hliníkové rolety, bioklimatické hliníkové pergoly, vnútorné tienenie, siete proti hmyzu, zimné záhrady, zasklenia, automatika Somfy a servis okien. Stavia na šablóne **Domi** (WordPress + Elementor).
 
 - **Náhľad homepage:** `design/bromar-homepage.html` (otvor v prehliadači, všetko je v jednom súbore)
 - **Screenshoty:** `design/previews/` (desktop, mobil, celá stránka)
@@ -21,19 +23,20 @@ Návrh novej stránky **bromar.sk**: vonkajšie žalúzie (aj podomietkové), sc
 1. Horná lišta (telefón, e-mail) a hlavička. Pri scrollovaní sa zmení na bielu so sklenným efektom.
 2. Hero slider: 4 snímky (žalúzie, pergola, screeny, interiér), každá s vlastným textom a tlačidlami.
 3. Výhody: zameranie zdarma, vlastná montáž, Somfy, záruka a servis
-4. Produktové karty (ako na climax.cz): 6 kategórií s krátkym popisom a štítkami
-5. **Vonkajšie žalúzie:** typy lamiel, typ boxu (predokenný / podomietkový / v preklade), ovládanie (kľuka, motor, ovládač, mobil)
-6. **Screenové rolety:** základný typ (ZIP), typ boxu, ovládanie, tkaniny s ukážkou farieb
-7. **Bioklimatické pergoly** (tmavomodrá sekcia): otočné lamely, senzor dažďa, LED, bočné screeny, odvod vody
-8. **Rolety:** porovnanie plastové vs. hliníkové
-9. **Vnútorné tienenie:** horizontálne žalúzie, látkové rolety, deň a noc, plisé, vertikálne žalúzie
-10. **Somfy / smart home:** mobil s aplikáciou, scény, senzory vetra a slnka
-11. **Servis okien:** nastavenie, tesnenia, kovanie, kľučky, sezónna prehliadka, servis tienenia
-12. Postup v 5 krokoch (od konzultácie po servis)
-13. Realizácie: galéria so zväčšením fotiek
-14. Časté otázky
-15. Formulár na **nezáväznú cenovú ponuku**: výber produktov, meno, telefón, e-mail, obec, poznámka a súhlas GDPR
-16. Pätička s kontaktmi a údajmi firmy
+4. Predstavenie firmy: *Kompletné riešenia tienenia…* a heslo **Komfort · Kvalita · Detail**
+5. Produktové karty (ako na climax.cz): 6 hlavných kategórií, pod nimi siete proti hmyzu, zimné záhrady a zasklenia terás
+6. **Vonkajšie žalúzie:** typy lamiel, typ boxu (predokenný / podomietkový / v preklade), ovládanie (kľuka, motor, ovládač, mobil)
+7. **Screenové rolety:** základný typ (ZIP), typ boxu, ovládanie, tkaniny s ukážkou farieb
+8. **Bioklimatické pergoly** (tmavomodrá sekcia): otočné lamely, senzor dažďa, LED, bočné screeny, odvod vody
+9. **Rolety:** porovnanie plastové vs. hliníkové
+10. **Vnútorné tienenie:** horizontálne žalúzie, látkové rolety, deň a noc, plisé, vertikálne žalúzie
+11. **Somfy / smart home:** mobil s aplikáciou, scény, senzory vetra a slnka
+12. **Servis okien:** nastavenie, tesnenia, kovanie, kľučky, sezónna prehliadka, servis tienenia
+13. Postup v 5 krokoch (od konzultácie po servis)
+14. Realizácie: galéria so zväčšením fotiek
+15. Časté otázky
+16. Formulár na **nezáväznú cenovú ponuku**: výber produktov, meno, telefón, e-mail, obec, poznámka a súhlas GDPR
+17. Pätička s kontaktmi a údajmi firmy
 
 Každá sekcia má vlastnú kotvu (`#zaluzie`, `#screeny`, `#pergoly`, `#rolety`, `#interier`, `#smart`, `#servis`, `#kontakt`). Neskôr z nich môžu byť samostatné podstránky, na ktoré sa nasmeruje reklama v Google Ads (napr. kampaň „vonkajšie žalúzie“ → stránka o žalúziách s formulárom).
 
@@ -51,13 +54,13 @@ Neutrálny základ, červená iba ako akcent (hlavné tlačidlo „Nezáväzná 
 | Text | `#4a4d52` | bežný text |
 | Antracit | `#2e3136` | rámy, ovládače, tmavé karty |
 | Tmavomodrá | `#1c2a3e` | nadpisy, tlačidlá, tmavé sekcie |
-| Červená (logo) | `#b5302a` | akcent, hlavné CTA |
+| Červená (logo) | `#c0141c` | štít v logu, akcent, hlavné CTA |
 
 **Písma:** Stack Sans Headline (nadpisy) a Inter (text). Sú to presne tie písma, ktoré používa téma Domi, takže sa nemusí nič meniť.
 
 ## Čo treba doplniť od klienta
 
-- **Logo** – v návrhu je **zástupné** logo (červený štvorec s lamelami + BROMAR). Treba originál vo vektore (SVG/PDF/AI) alebo aspoň PNG bez pozadia. Podľa neho sa doladí odtieň červenej (`--red`).
+- **Logo** – v návrhu je logo **prekreslené do SVG** podľa dodaného obrázka (štít s „B“, BROMAR, TIENIACA TECHNIKA): `bromar-child/assets/img/bromar-logo.svg` (na svetlé pozadie) a `bromar-logo-negative.svg` (na tmavé). Písmo nápisu je približné. Ak existuje originálny vektor od grafika (SVG/PDF/AI), treba ho použiť.
 - **Kontakty** – telefón `+421 900 000 000`, adresa a IČO sú **vymyslené zástupné údaje**. E-mail `info@bromar.sk` treba overiť.
 - **Fotky** – obrázky v návrhu sú **3D vizualizácie** (three.js), nie skutočné realizácie. Pred spustením ich treba nahradiť fotkami z vlastných montáží alebo fotkami od dodávateľa (CLIMAX, Somfy) so súhlasom na použitie. Galéria „Realizácie“ má zmysel len so skutočnými fotkami.
 - **Texty o produktoch** sú všeobecné. Parametre (max. rozmery, farby RAL, typy boxov, záruky, dodacie lehoty) treba zosúladiť s tým, čo BROMAR od CLIMAXu reálne predáva. Obsah sa dá prevziať z climax.cz (so súhlasom), ale nie doslovne skopírovať.
