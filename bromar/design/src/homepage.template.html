@@ -1,0 +1,1171 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BROMAR – tieniaca technika</title>
+<meta name="description" content="Vonkajšie žalúzie, screenové rolety, rolety, bioklimatické pergoly, vnútorné tienenie a servis okien. Zameranie, montáž a servis – BROMAR s. r. o.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Stack+Sans+Headline:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f2ed;          /* kriedová – pozadie */
+  --paper:#fbfaf7;       /* karty */
+  --sand:#e9e2d7;        /* béžová – striedanie sekcií */
+  --stone:#cfc6b8;       /* greige – linky, rámiky */
+  --taupe:#8c8377;       /* doplnkový text */
+  --text:#4a4d52;        /* bežný text */
+  --anth:#2e3136;        /* antracit */
+  --anth-2:#3b3f45;
+  --navy:#1c2a3e;        /* tmavomodrá (firemné tričká) */
+  --navy-2:#243650;
+  --red:#b5302a;         /* akcent z loga – striedmo */
+  --red-dark:#962620;
+  --white:#fff;
+  --radius:18px;
+  --shadow:0 18px 50px -24px rgba(28,42,62,.35);
+  --ease:cubic-bezier(.22,.8,.2,1);
+  --head:"Stack Sans Headline","Inter",system-ui,sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);font:400 16px/1.65 var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3,h4{font-family:var(--head);color:var(--navy);font-weight:600;line-height:1.08;letter-spacing:-.02em}
+.wrap{width:min(1240px,100% - 48px);margin-inline:auto}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font:600 12px/1 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--taupe)}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--red);border-radius:2px}
+.h2{font-size:clamp(32px,4.4vw,56px)}
+.lead{font-size:clamp(17px,1.4vw,19px);color:var(--text);max-width:60ch}
+.sec{padding:clamp(80px,11vw,150px) 0;position:relative}
+.sec-head{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end;margin-bottom:56px}
+.sec-head .eyebrow{margin-bottom:18px}
+@media (max-width:860px){.sec-head{grid-template-columns:1fr;gap:18px}}
+
+/* buttons */
+.btn{--bgc:var(--navy);--fg:#fff;display:inline-flex;align-items:center;gap:12px;height:54px;padding:0 26px;border-radius:999px;background:var(--bgc);color:var(--fg);font:600 15px/1 var(--body);letter-spacing:.01em;border:0;cursor:pointer;position:relative;overflow:hidden;isolation:isolate;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.btn::after{content:"";position:absolute;inset:0;background:var(--red);transform:translateY(101%);transition:transform .45s var(--ease);z-index:-1}
+.btn:hover::after{transform:none}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(181,48,42,.55)}
+.btn .arr{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.14);display:grid;place-items:center;transition:transform .35s var(--ease)}
+.btn:hover .arr{transform:translateX(4px)}
+.btn-red{--bgc:var(--red)}
+.btn-red::after{background:var(--navy)}
+.btn-light{--bgc:#fff;--fg:var(--navy)}
+.btn-light .arr{background:rgba(28,42,62,.08)}
+.btn-light:hover{--fg:#fff}
+.btn-ghost{--bgc:transparent;--fg:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.55)}
+.btn-ghost::after{background:#fff}
+.btn-ghost:hover{--fg:var(--navy);box-shadow:inset 0 0 0 1.5px #fff}
+.link{display:inline-flex;align-items:center;gap:10px;font-weight:600;color:var(--navy);border-bottom:1.5px solid var(--stone);padding-bottom:4px;transition:border-color .3s,gap .3s}
+.link:hover{border-color:var(--red);gap:14px}
+
+/* ============ header ============ */
+.topbar{background:var(--navy);color:#cfd6e0;font-size:13px}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:40px;gap:20px}
+.topbar a:hover{color:#fff}
+.topbar .tb-l,.topbar .tb-r{display:flex;gap:26px;align-items:center}
+.topbar svg{width:14px;height:14px;vertical-align:-2px;margin-right:6px;opacity:.8}
+@media (max-width:760px){.topbar .tb-l span:not(:first-child),.topbar .tb-r a:not(:first-child){display:none}}
+@media (max-width:560px){.topbar .tb-l{display:none}.topbar .wrap{justify-content:center}}
+header.site{position:fixed;left:0;right:0;top:40px;z-index:50;transition:top .4s var(--ease),background .4s,box-shadow .4s,backdrop-filter .4s}
+header.site .wrap{display:flex;align-items:center;gap:30px;height:84px;transition:height .4s var(--ease)}
+header.site.solid{top:0;background:rgba(251,250,247,.86);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);box-shadow:0 1px 0 rgba(28,42,62,.08)}
+header.site.solid .wrap{height:70px}
+.logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.logo svg{height:38px;width:auto}
+.logo{--lw:#fff;--ls:rgba(255,255,255,.72)}
+header.site.solid .logo{--lw:var(--navy);--ls:var(--taupe)}
+nav.main{display:flex;gap:4px;margin-left:auto}
+nav.main>a,nav.main>.dd>button{position:relative;padding:10px 14px;font:500 15px/1 var(--body);color:#fff;background:none;border:0;cursor:pointer;display:flex;align-items:center;gap:6px;transition:color .3s}
+header.site.solid nav.main>a,header.site.solid nav.main>.dd>button{color:var(--navy)}
+nav.main>a::after,nav.main>.dd>button::after{content:"";position:absolute;left:14px;right:14px;bottom:4px;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+nav.main>a:hover::after,nav.main>.dd:hover>button::after{transform:none}
+.dd{position:relative}
+.dd .chev{width:10px;height:10px;transition:transform .3s}
+.dd:hover .chev{transform:rotate(180deg)}
+.mega{position:absolute;top:calc(100% + 14px);left:50%;width:760px;transform:translate(-40%,10px);opacity:0;visibility:hidden;transition:.35s var(--ease);background:var(--paper);border-radius:22px;box-shadow:0 30px 80px -30px rgba(28,42,62,.45);padding:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.mega::before{content:"";position:absolute;left:0;right:0;top:-16px;height:16px}
+.dd:hover .mega{opacity:1;visibility:visible;transform:translate(-40%,0)}
+.mega a{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center;padding:10px;border-radius:14px;transition:background .25s}
+.mega a:hover{background:var(--sand)}
+.mega img{width:64px;height:64px;object-fit:cover;border-radius:10px}
+.mega b{display:block;font:600 15px/1.2 var(--head);color:var(--navy)}
+.mega small{font-size:12.5px;color:var(--taupe);line-height:1.35;display:block;margin-top:3px}
+.h-cta{margin-left:10px;height:46px;padding:0 20px;font-size:14px}
+.burger{display:none;margin-left:auto;width:46px;height:46px;border-radius:50%;border:0;background:rgba(255,255,255,.14);cursor:pointer;place-items:center}
+header.site.solid .burger{background:var(--sand)}
+.burger span{display:block;width:18px;height:2px;background:#fff;margin:4px auto;border-radius:2px;transition:.3s}
+header.site.solid .burger span{background:var(--navy)}
+@media (max-width:1180px){nav.main,.h-cta{display:none}.burger{display:grid}}
+.drawer{position:fixed;inset:0;z-index:60;background:var(--navy);color:#fff;padding:100px 28px 40px;transform:translateX(100%);transition:transform .55s var(--ease);display:flex;flex-direction:column;gap:6px;overflow:auto}
+.drawer.open{transform:none}
+.drawer a{font:500 24px/1.2 var(--head);padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.drawer .btn{margin-top:26px;justify-content:center}
+.drawer .x{position:absolute;top:26px;right:24px;width:46px;height:46px;border-radius:50%;border:0;background:rgba(255,255,255,.1);color:#fff;font-size:26px;cursor:pointer}
+
+/* ============ hero ============ */
+.hero{position:relative;height:calc(100vh - 40px);height:calc(100svh - 40px);min-height:680px;max-height:1100px;overflow:hidden;background:#15181c;color:#fff}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
+.slide.active{opacity:1;z-index:1}
+.slide .bg{position:absolute;inset:-4%;background-size:cover;background-position:center;transform:scale(1.02);will-change:transform}
+.slide.active .bg{animation:kenburns 9s linear forwards}
+.slide:nth-child(2n).active .bg{animation-name:kenburns2}
+@keyframes kenburns{from{transform:scale(1.02) translate3d(0,0,0)}to{transform:scale(1.14) translate3d(-2.2%,-1.2%,0)}}
+@keyframes kenburns2{from{transform:scale(1.14) translate3d(2%,1%,0)}to{transform:scale(1.03) translate3d(0,0,0)}}
+.hero::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,rgba(14,20,30,.78) 0%,rgba(14,20,30,.45) 38%,rgba(14,20,30,0) 70%),linear-gradient(0deg,rgba(14,20,30,.6) 0%,rgba(14,20,30,0) 34%),linear-gradient(180deg,rgba(14,20,30,.5) 0%,rgba(14,20,30,0) 22%)}
+.blinds{position:absolute;inset:0;z-index:4;pointer-events:none;display:flex;flex-direction:column;perspective:1600px}
+.blinds i{flex:1;margin:-1px 0;background:linear-gradient(180deg,#4a4f56 0%,#33373c 18%,#2a2d31 70%,#1d1f22 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.18);transform:rotateX(-90deg);opacity:0;transition:transform .55s cubic-bezier(.6,.05,.3,1) var(--d,0s),opacity 0s linear calc(var(--d,0s) + .55s);backface-visibility:hidden}
+.blinds.closed i{transform:rotateX(0);opacity:1;transition:transform .55s cubic-bezier(.6,.05,.3,1) var(--d,0s),opacity 0s}
+.blinds.reset i{transform:rotateX(90deg);transition:none}
+.hero-content{position:absolute;inset:0;z-index:3;display:flex;align-items:center}
+.hero-text{position:absolute;max-width:720px;opacity:0;visibility:hidden}
+.hero-text.active{opacity:1;visibility:visible}
+.hero-text .eyebrow{color:#e7ddd0;margin-bottom:26px}
+.hero-text h1{color:#fff;font-size:clamp(44px,6.6vw,96px);font-weight:600;letter-spacing:-.035em;line-height:1}
+.hero-text h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em}
+.hero-text h1 .w>span{display:inline-block;transform:translateY(105%);transition:transform 1s var(--ease)}
+.hero-text.active.in h1 .w>span{transform:none}
+.hero-text h1 em{font-style:normal;color:#e9c9a7}
+.hero-text p{margin:28px 0 38px;font-size:clamp(17px,1.5vw,20px);color:rgba(255,255,255,.85);max-width:54ch;opacity:0;transform:translateY(20px);transition:1s var(--ease) .35s}
+.hero-text .btns{display:flex;gap:14px;flex-wrap:wrap;opacity:0;transform:translateY(20px);transition:1s var(--ease) .5s}
+.hero-text.active.in p,.hero-text.active.in .btns{opacity:1;transform:none}
+.hero-inner{position:relative;height:520px}
+.hero-nav{position:absolute;z-index:5;left:0;right:0;bottom:34px}
+.hero-nav .wrap{display:grid;grid-template-columns:repeat(4,1fr) auto;gap:22px;align-items:end}
+.hn{background:none;border:0;color:rgba(255,255,255,.6);text-align:left;cursor:pointer;padding-top:14px;position:relative;font:500 13px/1.35 var(--body);transition:color .3s}
+.hn b{display:block;font:600 12px/1 var(--body);letter-spacing:.14em;color:rgba(255,255,255,.45);margin-bottom:6px}
+.hn::before,.hn::after{content:"";position:absolute;left:0;top:0;height:2px;border-radius:2px}
+.hn::before{right:0;background:rgba(255,255,255,.22)}
+.hn::after{width:0;background:#fff}
+.hn.active{color:#fff}
+.hn.active::after{animation:prog var(--dur,7s) linear forwards}
+@keyframes prog{to{width:100%}}
+.hero-arrows{display:flex;gap:10px}
+.hero-arrows button{width:50px;height:50px;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);background:rgba(255,255,255,.04);color:#fff;cursor:pointer;display:grid;place-items:center;transition:.3s;backdrop-filter:blur(6px)}
+.hero-arrows button:hover{background:#fff;color:var(--navy);border-color:#fff}
+.smart-card{position:absolute;z-index:5;right:max(24px,calc((100vw - 1240px)/2));top:calc(50% - 40px);width:250px;padding:18px;border-radius:20px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);color:#fff;box-shadow:0 30px 60px -30px rgba(0,0,0,.6);animation:float 6s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px)}}
+.smart-card .sc-top{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(255,255,255,.75);margin-bottom:14px}
+.smart-card .dot{width:8px;height:8px;border-radius:50%;background:#7ddc9b;box-shadow:0 0 0 4px rgba(125,220,155,.2);display:inline-block;margin-right:6px}
+.smart-card h4{color:#fff;font:600 16px/1.2 var(--head);margin-bottom:2px}
+.smart-card small{font-size:12px;color:rgba(255,255,255,.7)}
+.sc-win{margin:14px 0;height:92px;border-radius:12px;overflow:hidden;position:relative;background:linear-gradient(#9fb8cc,#d9c7ae)}
+.sc-win .sl{position:absolute;left:0;right:0;top:0;height:var(--p,60%);background:repeating-linear-gradient(180deg,#3a3e44 0 6px,#23262a 6px 8px);transition:height 1.6s var(--ease)}
+.sc-bar{display:flex;gap:8px}
+.sc-bar button{flex:1;height:34px;border-radius:10px;border:0;background:rgba(255,255,255,.16);color:#fff;cursor:pointer;font-size:12px;transition:background .2s}
+.sc-bar button:hover{background:rgba(255,255,255,.3)}
+.sc-pct{font:600 26px/1 var(--head)}
+@media (max-width:1100px){.smart-card{display:none}}
+.scroll-cue{position:absolute;z-index:5;left:50%;bottom:120px;transform:translateX(-50%);width:26px;height:42px;border:1.5px solid rgba(255,255,255,.5);border-radius:14px;display:none}
+.scroll-cue::after{content:"";position:absolute;left:50%;top:8px;width:3px;height:8px;margin-left:-1.5px;border-radius:2px;background:#fff;animation:cue 1.8s infinite}
+@keyframes cue{60%{transform:translateY(12px);opacity:0}100%{opacity:0}}
+@media (max-width:760px){
+  .hero{min-height:640px}
+  .hero-nav .wrap{grid-template-columns:repeat(4,1fr)}
+  .hero-arrows{display:none}
+  .hn span{display:none}
+  .hero-inner{height:560px}
+}
+
+/* ============ USP strip ============ */
+.usp{background:var(--paper);border-bottom:1px solid rgba(28,42,62,.07)}
+.usp .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.usp-i{display:flex;gap:16px;align-items:center;padding:30px 26px;border-left:1px solid rgba(28,42,62,.07)}
+.usp-i:first-child{border-left:0;padding-left:0}
+.usp-i .ic{width:48px;height:48px;border-radius:14px;background:var(--sand);display:grid;place-items:center;flex-shrink:0;color:var(--navy)}
+.usp-i b{display:block;color:var(--navy);font:600 15.5px/1.25 var(--head)}
+.usp-i small{font-size:13px;color:var(--taupe);line-height:1.4;display:block;margin-top:2px}
+@media (max-width:980px){.usp .wrap{grid-template-columns:1fr 1fr}.usp-i{border-left:0;padding:22px 0}}
+@media (max-width:560px){.usp .wrap{grid-template-columns:1fr}}
+
+/* ============ products grid ============ */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{position:relative;background:var(--paper);border-radius:var(--radius);overflow:hidden;box-shadow:0 1px 0 rgba(28,42,62,.06);transition:transform .5s var(--ease),box-shadow .5s var(--ease);display:flex;flex-direction:column}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.card .ph{aspect-ratio:4/3;overflow:hidden;position:relative}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.card:hover .ph img{transform:scale(1.07)}
+.card .tag{position:absolute;left:16px;top:16px;background:rgba(251,250,247,.9);backdrop-filter:blur(6px);color:var(--navy);font:600 11px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;padding:8px 11px;border-radius:999px}
+.card .bd{padding:26px 26px 28px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card h3{font-size:24px}
+.card p{font-size:15px;color:var(--text)}
+.card ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.card li{font-size:12.5px;padding:5px 10px;border-radius:999px;background:var(--bg);color:var(--anth)}
+.card .go{margin-top:auto;padding-top:14px;display:flex;justify-content:space-between;align-items:center;font-weight:600;color:var(--navy);font-size:14.5px}
+.card .go i{width:40px;height:40px;border-radius:50%;background:var(--sand);display:grid;place-items:center;transition:.4s var(--ease)}
+.card:hover .go i{background:var(--red);color:#fff;transform:rotate(-45deg)}
+.card::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.card:hover::after{transform:none}
+@media (max-width:980px){.cards{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.cards{grid-template-columns:1fr}}
+
+/* ============ marquee ============ */
+.marq{overflow:hidden;padding:26px 0;border-top:1px solid rgba(28,42,62,.08);border-bottom:1px solid rgba(28,42,62,.08);background:var(--bg)}
+.marq .track{display:flex;gap:56px;white-space:nowrap;font:600 clamp(40px,6vw,86px)/1 var(--head);letter-spacing:-.03em;will-change:transform}
+.marq span{color:transparent;-webkit-text-stroke:1.2px var(--stone)}
+.marq span.f{color:var(--navy);-webkit-text-stroke:0}
+.marq .star{color:var(--red);-webkit-text-stroke:0;font-size:.5em;align-self:center}
+
+/* ============ exterior blinds deep dive ============ */
+.dive{background:var(--sand)}
+.dive-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.demo{position:sticky;top:100px}
+.win{position:relative;aspect-ratio:4/4.3;border-radius:22px;overflow:hidden;background:#222;box-shadow:var(--shadow);border:14px solid var(--anth)}
+.win .view{position:absolute;inset:0;background-size:cover;background-position:center}
+.win .shade{position:absolute;inset:0;background:#0c0f14;opacity:var(--dark,.3);transition:opacity .4s;pointer-events:none}
+.win .slats{position:absolute;left:0;right:0;top:0;height:var(--drop,70%);overflow:hidden;perspective:900px;transition:height 2s linear}
+.win .slats i{display:block;height:4.2%;margin-bottom:-.4%;background:linear-gradient(180deg,#6b7078,#3d4147 45%,#2b2e33);transform:rotateX(var(--tilt,40deg));transform-origin:50% 50%;box-shadow:0 1px 0 rgba(255,255,255,.15) inset;transition:transform .5s var(--ease)}
+.win .rail{position:absolute;top:0;bottom:0;width:12px;background:linear-gradient(90deg,#26292d,#3d4147,#26292d);z-index:2}
+.win .rail.l{left:0}.win .rail.r{right:0}
+.win .lintel{position:absolute;left:0;right:0;top:0;height:18px;background:var(--anth);z-index:3}
+.win .glare{position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.14),transparent 40%);pointer-events:none}
+.remote{margin-top:22px;background:var(--paper);border-radius:20px;padding:20px 22px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center;box-shadow:0 1px 0 rgba(28,42,62,.06)}
+.remote .keys{display:flex;flex-direction:column;gap:6px;background:var(--anth);padding:8px;border-radius:16px}
+.remote .keys button{width:46px;height:40px;border-radius:10px;border:0;background:#454a51;color:#fff;cursor:pointer;display:grid;place-items:center;transition:background .2s}
+.remote .keys button:hover{background:var(--red)}
+.remote label{font:600 13px/1 var(--body);color:var(--navy);display:flex;justify-content:space-between;margin-bottom:12px}
+.remote label output{color:var(--red)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:6px;background:linear-gradient(90deg,var(--navy) var(--v,50%),var(--stone) var(--v,50%));outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:#fff;border:6px solid var(--navy);cursor:grab;box-shadow:0 4px 10px rgba(0,0,0,.2)}
+input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:#fff;border:6px solid var(--navy);cursor:grab}
+.remote .meta{display:flex;gap:18px;margin-top:14px;font-size:13px;color:var(--taupe)}
+.remote .meta b{color:var(--navy);font-weight:600}
+.tabs{display:flex;gap:6px;background:rgba(255,255,255,.5);padding:6px;border-radius:999px;width:max-content;max-width:100%;overflow:auto;margin:26px 0 30px}
+.tabs button{border:0;background:none;padding:12px 20px;border-radius:999px;font:600 14px/1 var(--body);color:var(--anth);cursor:pointer;white-space:nowrap;transition:.3s}
+.tabs button.on{background:var(--navy);color:#fff}
+.panel{display:none}
+.panel.on{display:block;animation:fadeup .6s var(--ease)}
+@keyframes fadeup{from{opacity:0;transform:translateY(14px)}}
+.prof{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pf{background:var(--paper);border-radius:16px;padding:20px;border:1.5px solid transparent;cursor:pointer;transition:.3s}
+.pf:hover,.pf.on{border-color:var(--navy)}
+.pf svg{width:100%;height:56px;margin-bottom:10px}
+.pf svg path{fill:none;stroke:var(--anth);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.pf h4{font-size:19px;display:flex;justify-content:space-between;align-items:baseline}
+.pf h4 small{font:500 12px/1 var(--body);color:var(--taupe)}
+.pf p{font-size:14px;margin:6px 0 10px}
+.rate{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:12.5px;color:var(--taupe);align-items:center}
+.rate span{display:flex;gap:3px}
+.rate span i{width:14px;height:5px;border-radius:3px;background:var(--stone)}
+.rate span i.f{background:var(--navy)}
+.boxes{display:grid;gap:14px}
+.bx{display:grid;grid-template-columns:150px 1fr;gap:22px;background:var(--paper);border-radius:16px;padding:18px;align-items:center}
+.bx svg{width:150px;height:130px}
+.bx h4{font-size:19px;margin-bottom:6px}
+.bx p{font-size:14.5px}
+.bx .pill{display:inline-block;font:600 11px/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.ctrl{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ct{background:var(--paper);border-radius:16px;padding:20px}
+.ct .ic{width:44px;height:44px;border-radius:12px;background:var(--bg);display:grid;place-items:center;color:var(--navy);margin-bottom:12px}
+.ct h4{font-size:18px;margin-bottom:4px}
+.ct p{font-size:14px}
+.ct.hl{background:var(--navy);color:#cfd6e0}
+.ct.hl h4{color:#fff}
+.ct.hl .ic{background:rgba(255,255,255,.1);color:#fff}
+@media (max-width:980px){.dive-grid{grid-template-columns:1fr;gap:40px}.demo{position:relative;top:0}}
+@media (max-width:560px){.prof,.ctrl{grid-template-columns:1fr}.bx{grid-template-columns:1fr}.bx svg{width:100%}}
+
+/* ============ split feature (screens) ============ */
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
+.split.rev{grid-template-columns:.95fr 1.05fr}
+.split.rev .media{order:2}
+.media{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:5/4.4;box-shadow:var(--shadow)}
+.media img{width:100%;height:118%;object-fit:cover;will-change:transform}
+.media .badge{position:absolute;left:22px;bottom:22px;background:rgba(251,250,247,.92);backdrop-filter:blur(8px);border-radius:16px;padding:14px 18px;display:flex;gap:14px;align-items:center;max-width:78%}
+.media .badge b{display:block;font:600 15px/1.2 var(--head);color:var(--navy)}
+.media .badge small{font-size:12.5px;color:var(--taupe)}
+.facts{display:grid;gap:0;margin:30px 0 32px;border-top:1px solid rgba(28,42,62,.1)}
+.fact{display:grid;grid-template-columns:160px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid rgba(28,42,62,.1)}
+.fact b{font:600 15px/1.35 var(--head);color:var(--navy)}
+.fact p{font-size:15px}
+.swatches{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+.swatches span{width:34px;height:34px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08),0 0 0 3px var(--bg);position:relative;cursor:default;background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.08) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(0,0,0,.08) 0 1px,transparent 1px 3px)}
+.swatches span:hover::after{content:attr(data-n);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);white-space:nowrap;background:var(--navy);color:#fff;font-size:11px;padding:5px 8px;border-radius:6px}
+@media (max-width:980px){.split,.split.rev{grid-template-columns:1fr;gap:40px}.split.rev .media{order:0}}
+@media (max-width:560px){.fact{grid-template-columns:1fr;gap:4px}}
+
+/* ============ pergola (dark) ============ */
+.perg{background:var(--navy);color:#c9d1dc;overflow:hidden}
+.perg h2,.perg h3,.perg h4{color:#fff}
+.perg .eyebrow{color:#aab6c6}
+.perg .lead{color:#c9d1dc}
+.perg-hero{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:21/9;margin-top:10px}
+.perg-hero img{width:100%;height:125%;object-fit:cover;will-change:transform}
+.perg-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(28,42,62,.55),transparent 50%)}
+.perg-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:70px;align-items:center;margin-top:70px}
+.lam-demo{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:28px}
+.lam-demo svg{width:100%;height:auto;display:block}
+.lam-demo .cap{display:flex;justify-content:space-between;font-size:13px;color:#aab6c6;margin-top:14px}
+.lam-demo .cap b{color:#fff;font-weight:600}
+.pfeat{display:grid;grid-template-columns:1fr 1fr;gap:26px 30px;margin-top:34px}
+.pfeat div{border-top:1px solid rgba(255,255,255,.14);padding-top:16px}
+.pfeat h4{font-size:17px;margin-bottom:6px}
+.pfeat p{font-size:14.5px;color:#aab6c6}
+@media (max-width:980px){.perg-grid{grid-template-columns:1fr;gap:40px}.perg-hero{aspect-ratio:4/3}}
+@media (max-width:560px){.pfeat{grid-template-columns:1fr}}
+
+/* ============ rollers compare ============ */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:10px}
+.cmp .col{background:var(--paper);border-radius:20px;padding:30px;position:relative;overflow:hidden}
+.cmp .col.alt{background:var(--anth);color:#c9ccd1}
+.cmp .col.alt h3{color:#fff}
+.cmp h3{font-size:26px;margin-bottom:6px}
+.cmp .sub{font-size:14px;color:var(--taupe);margin-bottom:18px}
+.cmp .col.alt .sub{color:#9ea3aa}
+.cmp dl{display:grid;grid-template-columns:auto 1fr;gap:12px 20px;font-size:14.5px}
+.cmp dt{color:var(--taupe)}
+.cmp .col.alt dt{color:#9ea3aa}
+.cmp dd{font-weight:500;color:var(--navy)}
+.cmp .col.alt dd{color:#fff}
+.cmp .slat-ill{position:absolute;right:-20px;top:-20px;width:150px;opacity:.9}
+@media (max-width:860px){.cmp{grid-template-columns:1fr}}
+
+/* ============ interior ============ */
+.int-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:40px}
+.int{background:var(--paper);border-radius:18px;padding:22px 18px;transition:.4s var(--ease)}
+.int:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.int svg{width:100%;height:90px;margin-bottom:14px;border-radius:10px;background:var(--bg)}
+.int h4{font-size:16.5px;margin-bottom:4px}
+.int p{font-size:13.5px;line-height:1.5}
+@media (max-width:1080px){.int-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:640px){.int-grid{grid-template-columns:1fr 1fr}}
+
+/* ============ smart ============ */
+.smart{background:linear-gradient(180deg,var(--bg),var(--sand))}
+.phone{width:300px;margin:0 auto;aspect-ratio:9/19;border-radius:46px;background:#111;padding:12px;box-shadow:0 50px 100px -40px rgba(28,42,62,.6),inset 0 0 0 2px #333;position:relative}
+.phone::before{content:"";position:absolute;top:22px;left:50%;width:90px;height:24px;margin-left:-45px;border-radius:20px;background:#000;z-index:2}
+.screen{width:100%;height:100%;border-radius:36px;background:#f4f2ee;overflow:hidden;padding:56px 16px 16px;display:flex;flex-direction:column;gap:10px}
+.screen .hi{font:600 22px/1.1 var(--head);color:var(--navy)}
+.screen .hi small{display:block;font:400 12px/1.4 var(--body);color:var(--taupe);margin-top:4px}
+.scn{display:flex;gap:6px;overflow:hidden}
+.scn span{flex-shrink:0;font-size:11px;font-weight:600;padding:8px 10px;border-radius:12px;background:#fff;color:var(--navy);box-shadow:0 1px 0 rgba(0,0,0,.05)}
+.scn span.on{background:var(--navy);color:#fff}
+.dev{background:#fff;border-radius:16px;padding:12px 14px;display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;box-shadow:0 1px 0 rgba(0,0,0,.05)}
+.dev .di{width:34px;height:34px;border-radius:10px;background:var(--bg);display:grid;place-items:center;color:var(--navy)}
+.dev b{font-size:12.5px;color:var(--navy);display:block;line-height:1.2}
+.dev small{font-size:11px;color:var(--taupe)}
+.dev .pc{font:600 14px/1 var(--head);color:var(--navy)}
+.dev .bar{grid-column:1/-1;height:5px;border-radius:5px;background:var(--sand);overflow:hidden}
+.dev .bar i{display:block;height:100%;width:var(--w,50%);background:var(--navy);border-radius:5px;transition:width 1.5s var(--ease)}
+.dev.anim .bar i{animation:bar 6s var(--ease) infinite}
+@keyframes bar{0%,15%{width:20%}45%,65%{width:85%}95%,100%{width:20%}}
+.sensor{display:flex;gap:8px}
+.sensor div{flex:1;background:#fff;border-radius:14px;padding:10px;font-size:10.5px;color:var(--taupe)}
+.sensor b{display:block;font:600 15px/1.2 var(--head);color:var(--navy)}
+.smart-list{display:grid;gap:18px;margin:30px 0 34px}
+.smart-list>div{display:grid;grid-template-columns:46px 1fr;gap:16px}
+.smart-list .ic{width:46px;height:46px;border-radius:14px;background:var(--paper);display:grid;place-items:center;color:var(--navy)}
+.smart-list h4{font-size:17.5px;margin-bottom:2px}
+.smart-list p{font-size:14.5px}
+
+/* ============ service ============ */
+.svc{background:var(--paper)}
+.svc-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:28px 0 34px}
+.svc-list div{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:14px;background:var(--bg);font-size:14.5px;color:var(--anth);line-height:1.45}
+.svc-list svg{flex-shrink:0;color:var(--red);margin-top:2px}
+@media (max-width:560px){.svc-list{grid-template-columns:1fr}}
+
+/* ============ process ============ */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;position:relative;margin-top:20px}
+.steps::before{content:"";position:absolute;left:0;right:0;top:27px;height:2px;background:var(--stone)}
+.steps .line{position:absolute;left:0;top:27px;height:2px;background:var(--red);width:calc(var(--p,0) * 100%);transition:width .2s linear}
+.step{position:relative}
+.step .n{width:56px;height:56px;border-radius:50%;background:var(--bg);border:2px solid var(--stone);display:grid;place-items:center;font:600 17px/1 var(--head);color:var(--navy);position:relative;z-index:1;transition:.5s var(--ease)}
+.step.lit .n{background:var(--navy);border-color:var(--navy);color:#fff}
+.step h4{font-size:19px;margin:22px 0 8px}
+.step p{font-size:14.5px}
+@media (max-width:980px){.steps{grid-template-columns:1fr;gap:26px}.steps::before,.steps .line{left:27px;right:auto;top:0;bottom:0;width:2px;height:auto}.steps .line{height:calc(var(--p,0) * 100%);width:2px}.step{display:grid;grid-template-columns:56px 1fr;gap:0 20px}.step h4{margin:4px 0 6px}.step p{grid-column:2}}
+
+/* ============ gallery ============ */
+.gal{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:120px;gap:14px}
+.gal figure{position:relative;border-radius:18px;overflow:hidden;cursor:zoom-in}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.gal figure:hover img{transform:scale(1.06)}
+.gal figcaption{position:absolute;left:14px;bottom:14px;right:14px;color:#fff;font-size:13px;display:flex;justify-content:space-between;align-items:end;opacity:0;transform:translateY(10px);transition:.4s var(--ease)}
+.gal figcaption b{font:600 16px/1.2 var(--head);display:block}
+.gal figure::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,26,36,.7),transparent 55%);opacity:0;transition:.4s}
+.gal figure:hover::after,.gal figure:hover figcaption{opacity:1;transform:none}
+.gal figcaption{z-index:1}
+.g1{grid-column:span 7;grid-row:span 4}.g2{grid-column:span 5;grid-row:span 2}.g3{grid-column:span 5;grid-row:span 2}.g4{grid-column:span 4;grid-row:span 3}.g5{grid-column:span 4;grid-row:span 3}.g6{grid-column:span 4;grid-row:span 3}
+@media (max-width:860px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:170px}.gal figure{grid-column:span 1!important;grid-row:span 1!important}.gal .g1{grid-column:span 2!important;grid-row:span 2!important}.gal figcaption{opacity:1;transform:none}.gal figure::after{opacity:1}}
+.lb{position:fixed;inset:0;z-index:80;background:rgba(12,16,22,.92);display:none;place-items:center;padding:30px;cursor:zoom-out}
+.lb.on{display:grid;animation:fadeup .4s}
+.lb img{max-width:min(1400px,100%);max-height:88vh;border-radius:14px}
+
+/* ============ faq ============ */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}
+details{border-bottom:1px solid rgba(28,42,62,.12)}
+summary{list-style:none;cursor:pointer;padding:24px 50px 24px 0;position:relative;font:600 18.5px/1.35 var(--head);color:var(--navy)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";position:absolute;right:6px;top:50%;width:30px;height:30px;margin-top:-15px;border-radius:50%;background:var(--sand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 1v10M1 6h10' stroke='%231c2a3e' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") center/12px no-repeat;transition:transform .35s var(--ease)}
+details[open] summary::after{transform:rotate(45deg);background-color:var(--navy);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 1v10M1 6h10' stroke='%23fff' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E")}
+details p{padding:0 50px 24px 0;font-size:15.5px}
+@media (max-width:860px){.faq-grid{grid-template-columns:1fr;gap:30px}}
+
+/* ============ contact form ============ */
+.lead-sec{background:var(--navy);color:#c9d1dc;position:relative;overflow:hidden}
+.lead-sec::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(180deg,rgba(255,255,255,.025) 0 22px,transparent 22px 30px);mask-image:linear-gradient(90deg,#000,transparent 60%);-webkit-mask-image:linear-gradient(90deg,#000,transparent 60%)}
+.lead-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;position:relative}
+.lead-sec h2{color:#fff}
+.lead-sec .eyebrow{color:#aab6c6}
+.contact-list{display:grid;gap:18px;margin-top:36px}
+.contact-list a,.contact-list div{display:flex;gap:16px;align-items:center;color:#fff;font:500 17px/1.3 var(--body)}
+.contact-list small{display:block;font-size:12.5px;color:#9fabbb;font-weight:400}
+.contact-list .ic{width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,.07);display:grid;place-items:center;flex-shrink:0}
+form.lead{background:var(--paper);border-radius:24px;padding:36px;color:var(--text);box-shadow:0 40px 80px -40px rgba(0,0,0,.6)}
+form.lead h3{font-size:26px;margin-bottom:6px}
+form.lead .hint{font-size:14px;color:var(--taupe);margin-bottom:22px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.chips label{cursor:pointer}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips span{display:inline-flex;align-items:center;gap:8px;padding:10px 15px;border-radius:999px;background:var(--bg);font-size:14px;font-weight:500;color:var(--anth);border:1.5px solid transparent;transition:.25s}
+.chips span::before{content:"";width:14px;height:14px;border-radius:4px;border:1.5px solid var(--stone);transition:.25s}
+.chips input:checked+span{border-color:var(--navy);background:#fff;color:var(--navy)}
+.chips input:checked+span::before{background:var(--red) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.2l2.3 2.3 4.7-5' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/10px no-repeat;border-color:var(--red)}
+.chips input:focus-visible+span{outline:2px solid var(--navy);outline-offset:2px}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fl{position:relative}
+.fl.full{grid-column:1/-1}
+.fl input,.fl textarea,.fl select{width:100%;height:58px;border-radius:14px;border:1.5px solid var(--sand);background:var(--bg);padding:22px 16px 8px;font-size:15.5px;outline:none;transition:border-color .25s,background .25s}
+.fl textarea{height:110px;resize:vertical;padding-top:26px}
+.fl label{position:absolute;left:17px;top:19px;font-size:15px;color:var(--taupe);pointer-events:none;transition:.2s var(--ease)}
+.fl input:focus,.fl textarea:focus{border-color:var(--navy);background:#fff}
+.fl input:focus+label,.fl input:not(:placeholder-shown)+label,.fl textarea:focus+label,.fl textarea:not(:placeholder-shown)+label{top:9px;font-size:11.5px;letter-spacing:.04em;color:var(--navy)}
+.consent{display:flex;gap:10px;font-size:13px;color:var(--taupe);margin:18px 0 22px;align-items:flex-start}
+.consent input{margin-top:3px;accent-color:var(--navy)}
+.consent a{text-decoration:underline}
+form.lead .btn{width:100%;justify-content:center;height:58px}
+.sent{display:none;text-align:center;padding:40px 10px}
+.sent .ok{width:70px;height:70px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;margin:0 auto 18px}
+form.lead.done>*:not(.sent){display:none}
+form.lead.done .sent{display:block;animation:fadeup .6s}
+@media (max-width:980px){.lead-grid{grid-template-columns:1fr;gap:40px}}
+@media (max-width:560px){.fg{grid-template-columns:1fr}form.lead{padding:24px}}
+
+/* ============ footer ============ */
+footer{background:#141f2e;color:#9fabbb;font-size:14.5px;padding:80px 0 30px}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;padding-bottom:50px;border-bottom:1px solid rgba(255,255,255,.08)}
+footer h5{font:600 13px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:20px}
+footer ul{list-style:none;display:grid;gap:10px}
+footer a:hover{color:#fff}
+footer .logo{--lw:#fff;--ls:#9fabbb}
+.f-about p{margin:20px 0;max-width:34ch}
+.soc{display:flex;gap:10px}
+.soc a{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.06);display:grid;place-items:center;color:#fff;transition:.3s}
+.soc a:hover{background:var(--red)}
+.f-bot{display:flex;justify-content:space-between;gap:20px;padding-top:26px;font-size:13px;flex-wrap:wrap}
+@media (max-width:980px){.f-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.f-grid{grid-template-columns:1fr}}
+
+/* sticky mobile CTA */
+.mcta{position:fixed;left:12px;right:12px;bottom:12px;z-index:40;display:none;gap:8px;padding:8px;border-radius:20px;background:rgba(251,250,247,.92);backdrop-filter:blur(14px);box-shadow:0 20px 40px -18px rgba(28,42,62,.5);transform:translateY(130%);transition:transform .5s var(--ease)}
+.mcta.show{transform:none}
+.mcta a{flex:1;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;gap:8px;font-weight:600;font-size:15px}
+.mcta a:first-child{background:var(--sand);color:var(--navy)}
+.mcta a:last-child{background:var(--red);color:#fff}
+@media (max-width:760px){.mcta{display:flex}}
+
+/* reveal on scroll */
+.rv{opacity:0;transform:translateY(40px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv-img{clip-path:inset(12% 12% 12% 12% round 24px);transition:clip-path 1.4s var(--ease)}
+.rv-img.in{clip-path:inset(0 0 0 0 round 24px)}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.4s}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.rv-img{clip-path:none}}
+</style>
+</head>
+<body>
+
+<!-- ============ SVG sprite ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arr" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 6.5 12 13l8.5-6.5" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 16 16"><path d="M3 8.5 6.3 11.5 13 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-ruler" viewBox="0 0 24 24"><path d="M3 16 16 3l5 5L8 21Z M7 12l2 2M10 9l2 2M13 6l2 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.5 6.5a4 4 0 0 0 5 5L12 19a2.1 2.1 0 0 1-3-3l7.5-7.5a4 4 0 0 1-2-2ZM16 3.5l1.5 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M2.5 9a14 14 0 0 1 19 0M5.5 12.5a9.5 9.5 0 0 1 13 0M8.8 16a5 5 0 0 1 6.4 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="19.2" r="1.3" fill="currentColor"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.2 7.5 9.5 4.3-1.3 7.5-4.9 7.5-9.5V6Z M8.5 12l2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-wind" viewBox="0 0 24 24"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-motor" viewBox="0 0 24 24"><rect x="3" y="9" width="14" height="6" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M17 12h4M7 9V6M11 9V6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-remote" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v0M9.5 11 12 8.8l2.5 2.2M9.5 15 12 17.2l2.5-2.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mobile" viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 18.5h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3.5 11 12 4l8.5 7M6 9.5V20h12V9.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-blind" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="2.5" rx="1" fill="currentColor"/><path d="M5 8.5h14M5 12h14M5 15.5h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 5.5v13" stroke="currentColor" stroke-width="1"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path d="M14 8h2.5V4.5H14A4 4 0 0 0 10 8.5V11H7.5v3.5H10V21h3.5v-6.5H16l.5-3.5h-3V9a1 1 0 0 1 .5-1Z" fill="currentColor"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="16.8" cy="7.2" r="1.1" fill="currentColor"/></symbol>
+  <symbol id="logo" viewBox="0 0 250 60">
+    <!-- zástupné logo: lamely + BROMAR (nahradiť originálom) -->
+    <g transform="translate(2 8)">
+      <rect x="0" y="0" width="44" height="44" rx="11" fill="#b5302a"/>
+      <path d="M10 13.5h24M10 20.5h24M10 27.5h24M10 34.5h24" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/>
+    </g>
+    <text style="fill:var(--lw,#1c2a3e)" x="58" y="36" font-family="Stack Sans Headline, Inter, sans-serif" font-weight="700" font-size="29" letter-spacing="3">BROMAR</text>
+    <text style="fill:var(--ls,#8c8377)" x="59" y="52" font-family="Inter, sans-serif" font-weight="500" font-size="9.6" letter-spacing="3.2">TIENIACA TECHNIKA</text>
+  </symbol>
+</svg>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="tb-l"><span>Bezplatné zameranie a cenová ponuka</span><span>Montáž · Servis · Somfy automatika</span></div>
+    <div class="tb-r">
+      <a href="tel:+421900000000"><svg><use href="#i-phone"/></svg>+421 900 000 000</a>
+      <a href="mailto:info@bromar.sk"><svg><use href="#i-mail"/></svg>info@bromar.sk</a>
+    </div>
+  </div>
+</div>
+
+<header class="site" id="hdr">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="BROMAR – domov"><svg viewBox="0 0 250 60"><use href="#logo"/></svg></a>
+    <nav class="main" aria-label="Hlavné menu">
+      <div class="dd">
+        <button type="button">Produkty <svg class="chev" viewBox="0 0 10 10"><path d="M2 3.5 5 6.5l3-3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        <div class="mega">
+          <a href="#zaluzie"><img src="%%IMG:card-blinds.webp%%" alt=""><span><b>Vonkajšie žalúzie</b><small>Lamely C-80, Z-90, S-90, F-80</small></span></a>
+          <a href="#screeny"><img src="%%IMG:card-screen.webp%%" alt=""><span><b>Screenové rolety</b><small>ZIP systém, odolné vetru</small></span></a>
+          <a href="#rolety"><img src="%%IMG:card-roller.webp%%" alt=""><span><b>Vonkajšie rolety</b><small>Plastové a hliníkové</small></span></a>
+          <a href="#pergoly"><img src="%%IMG:card-pergola.webp%%" alt=""><span><b>Bioklimatické pergoly</b><small>Hliníkové, otočné lamely</small></span></a>
+          <a href="#interier"><img src="%%IMG:card-interior.webp%%" alt=""><span><b>Vnútorné tienenie</b><small>Žalúzie, rolety, plisé</small></span></a>
+          <a href="#servis"><img src="%%IMG:card-service.webp%%" alt=""><span><b>Servis okien</b><small>Nastavenie, tesnenia, kovanie</small></span></a>
+        </div>
+      </div>
+      <a href="#zaluzie">Vonkajšie žalúzie</a>
+      <a href="#pergoly">Pergoly</a>
+      <a href="#smart">Somfy</a>
+      <a href="#servis">Servis okien</a>
+      <a href="#realizacie">Realizácie</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <a class="btn btn-red h-cta" href="#kontakt">Nezáväzná ponuka <span class="arr"><svg width="14" height="14"><use href="#i-arr"/></svg></span></a>
+    <button class="burger" type="button" aria-label="Menu" id="burger"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer">
+  <button class="x" type="button" aria-label="Zavrieť" id="drawerX">×</button>
+  <a href="#zaluzie">Vonkajšie žalúzie</a><a href="#screeny">Screenové rolety</a><a href="#rolety">Vonkajšie rolety</a><a href="#pergoly">Bioklimatické pergoly</a><a href="#interier">Vnútorné tienenie</a><a href="#smart">Somfy – ovládanie z mobilu</a><a href="#servis">Servis okien</a><a href="#realizacie">Realizácie</a><a href="#kontakt">Kontakt</a>
+  <a class="btn btn-red" href="#kontakt">Nezáväzná cenová ponuka</a>
+</div>
+
+<main id="top">
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero" aria-label="Úvod">
+  <div class="slides">
+    <div class="slide active"><div class="bg" style="background-image:url(%%IMG:hero-house.webp%%)"></div></div>
+    <div class="slide"><div class="bg" style="background-image:url(%%IMG:hero-pergola.webp%%)"></div></div>
+    <div class="slide"><div class="bg" style="background-image:url(%%IMG:hero-screen.webp%%)"></div></div>
+    <div class="slide"><div class="bg" style="background-image:url(%%IMG:hero-interior.webp%%)"></div></div>
+  </div>
+  <div class="hero-content">
+    <div class="wrap hero-inner">
+      <div class="hero-text active">
+        <span class="eyebrow">Vonkajšie žalúzie · podomietkové</span>
+        <h1 data-split>Tieň, ktorý pracuje <em>za vás.</em></h1>
+        <p>Vonkajšie žalúzie na mieru so skrytým boxom pod omietkou a motorom Somfy. V lete chladnejší dom, večer súkromie, všetko jedným dotykom v mobile.</p>
+        <div class="btns"><a class="btn btn-light" href="#kontakt">Chcem cenovú ponuku <span class="arr"><svg width="14" height="14"><use href="#i-arr"/></svg></span></a><a class="btn btn-ghost" href="#zaluzie">Typy žalúzií</a></div>
+      </div>
+      <div class="hero-text">
+        <span class="eyebrow">Bioklimatické pergoly</span>
+        <h1 data-split>Terasa, ktorá sa prispôsobí <em>počasiu.</em></h1>
+        <p>Hliníková pergola s otočnými lamelami: pustí dnu svetlo, alebo vytvorí strechu pred dažďom. Doplníte ju LED osvetlením a bočnými screenmi.</p>
+        <div class="btns"><a class="btn btn-light" href="#kontakt">Nacenenie pergoly <span class="arr"><svg width="14" height="14"><use href="#i-arr"/></svg></span></a><a class="btn btn-ghost" href="#pergoly">Ako funguje</a></div>
+      </div>
+      <div class="hero-text">
+        <span class="eyebrow">Screenové rolety ZIP</span>
+        <h1 data-split>Výhľad zostáva. <em>Horúčava nie.</em></h1>
+        <p>Technická tkanina zastaví väčšinu slnečného tepla ešte pred sklom, a pritom z domu stále vidíte von. Vedenie ZIP drží látku napnutú aj vo vetre.</p>
+        <div class="btns"><a class="btn btn-light" href="#kontakt">Nezáväzná ponuka <span class="arr"><svg width="14" height="14"><use href="#i-arr"/></svg></span></a><a class="btn btn-ghost" href="#screeny">Viac o screenoch</a></div>
+      </div>
+      <div class="hero-text">
+        <span class="eyebrow">Vnútorné tienenie</span>
+        <h1 data-split>Svetlo presne podľa <em>nálady.</em></h1>
+        <p>Horizontálne žalúzie, látkové rolety, deň a noc aj plisé. Doladíme farbu, materiál a ovládanie k vášmu interiéru.</p>
+        <div class="btns"><a class="btn btn-light" href="#kontakt">Poradiť sa <span class="arr"><svg width="14" height="14"><use href="#i-arr"/></svg></span></a><a class="btn btn-ghost" href="#interier">Vnútorné tienenie</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="blinds closed" id="blinds" aria-hidden="true"></div>
+
+  <div class="smart-card" aria-hidden="true">
+    <div class="sc-top"><span><span class="dot"></span>Somfy · online</span><span>Obývačka</span></div>
+    <h4>Žalúzie – juh</h4><small>Scéna „Poludnie“ o 12:00</small>
+    <div class="sc-win"><div class="sl" id="scSl" style="--p:62%"></div></div>
+    <div style="display:flex;justify-content:space-between;align-items:end;margin-bottom:12px"><span class="sc-pct" id="scPct">62 %</span><small>zatiahnuté</small></div>
+    <div class="sc-bar"><button data-p="0">▲</button><button data-p="50">■</button><button data-p="100">▼</button></div>
+  </div>
+
+  <div class="hero-nav">
+    <div class="wrap">
+      <button class="hn active" type="button"><b>01</b><span>Vonkajšie žalúzie</span></button>
+      <button class="hn" type="button"><b>02</b><span>Bioklimatické pergoly</span></button>
+      <button class="hn" type="button"><b>03</b><span>Screenové rolety</span></button>
+      <button class="hn" type="button"><b>04</b><span>Vnútorné tienenie</span></button>
+      <div class="hero-arrows"><button type="button" id="prev" aria-label="Predchádzajúci"><svg width="16" height="16" style="transform:scaleX(-1)"><use href="#i-arr"/></svg></button><button type="button" id="next" aria-label="Ďalší"><svg width="16" height="16"><use href="#i-arr"/></svg></button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ USP ============ -->
+<section class="usp" aria-label="Prečo BROMAR">
+  <div class="wrap">
+    <div class="usp-i rv"><div class="ic"><svg width="24" height="24"><use href="#i-ruler"/></svg></div><div><b>Zameranie zdarma</b><small>Prídeme, poradíme, presne zmeriame</small></div></div>
+    <div class="usp-i rv d1"><div class="ic"><svg width="24" height="24"><use href="#i-tool"/></svg></div><div><b>Vlastná montáž</b><small>Čisto, v dohodnutom termíne</small></div></div>
+    <div class="usp-i rv d2"><div class="ic"><svg width="24" height="24"><use href="#i-wifi"/></svg></div><div><b>Automatika Somfy</b><small>Ovládač, senzory, aplikácia</small></div></div>
+    <div class="usp-i rv d3"><div class="ic"><svg width="24" height="24"><use href="#i-shield"/></svg></div><div><b>Záruka a servis</b><small>Staráme sa aj po montáži</small></div></div>
+  </div>
+</section>
+
+<!-- ============ PRODUCTS ============ -->
+<section class="sec" id="produkty">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow rv">Čo robíme</span><h2 class="h2 rv d1">Tienenie pre dom,<br>terasu aj interiér</h2></div>
+      <p class="lead rv d2">Vyberte si, čo vás zaujíma. Pri každom produkte nájdete typy, možnosti ovládania a to, na čo sa zákazníci pýtajú najčastejšie. Presnú cenu pripravíme po bezplatnom zameraní.</p>
+    </div>
+    <div class="cards">
+      <a class="card rv" href="#zaluzie"><div class="ph"><img src="%%IMG:card-blinds.webp%%" alt="Vonkajšie žalúzie na modernom dome"><span class="tag">Najžiadanejšie</span></div><div class="bd"><h3>Vonkajšie žalúzie</h3><p>Najúčinnejšia ochrana pred prehrievaním. Lamelami regulujete svetlo aj súkromie.</p><ul><li>podomietkové</li><li>C-80 · Z-90</li><li>Somfy</li></ul><div class="go">Typy a ovládanie <i><svg width="14" height="14"><use href="#i-arr"/></svg></i></div></div></a>
+      <a class="card rv d1" href="#screeny"><div class="ph"><img src="%%IMG:card-screen.webp%%" alt="Screenové rolety na veľkých oknách"></div><div class="bd"><h3>Screenové rolety</h3><p>Technická tkanina v bočnom ZIP vedení. Tieni, chráni pred hmyzom a nechá vám výhľad.</p><ul><li>ZIP</li><li>odolné vetru</li><li>veľké plochy</li></ul><div class="go">Typy boxov <i><svg width="14" height="14"><use href="#i-arr"/></svg></i></div></div></a>
+      <a class="card rv d2" href="#rolety"><div class="ph"><img src="%%IMG:card-roller.webp%%" alt="Vonkajšie hliníkové rolety"></div><div class="bd"><h3>Vonkajšie rolety</h3><p>Plastové alebo hliníkové s PUR penou. Úplné zatemnenie, tepelná izolácia aj bezpečnosť.</p><ul><li>plastové</li><li>hliníkové</li><li>predokenný box</li></ul><div class="go">Porovnanie <i><svg width="14" height="14"><use href="#i-arr"/></svg></i></div></div></a>
+      <a class="card rv" href="#pergoly"><div class="ph"><img src="%%IMG:card-pergola.webp%%" alt="Bioklimatická hliníková pergola na terase"><span class="tag">Novinka</span></div><div class="bd"><h3>Bioklimatické pergoly</h3><p>Hliníková konštrukcia s otočnými lamelami, LED osvetlením a odvodom vody v stĺpoch.</p><ul><li>hliník</li><li>LED</li><li>senzor dažďa</li></ul><div class="go">Ako funguje <i><svg width="14" height="14"><use href="#i-arr"/></svg></i></div></div></a>
+      <a class="card rv d1" href="#interier"><div class="ph"><img src="%%IMG:card-interior.webp%%" alt="Vnútorné žalúzie v obývačke"></div><div class="bd"><h3>Vnútorné tienenie</h3><p>Horizontálne žalúzie, látkové rolety, deň a noc, plisé a vertikálne žalúzie.</p><ul><li>žalúzie</li><li>rolety</li><li>plisé</li></ul><div class="go">Prehľad <i><svg width="14" height="14"><use href="#i-arr"/></svg></i></div></div></a>
+      <a class="card rv d2" href="#servis"><div class="ph"><img src="%%IMG:card-service.webp%%" alt="Servis a nastavenie okien"></div><div class="bd"><h3>Servis okien</h3><p>Okná, ktoré sa zle zatvárajú, fúka cez ne alebo drhnú? Nastavíme, premažeme, vymeníme.</p><ul><li>kovanie</li><li>tesnenia</li><li>kľučky</li></ul><div class="go">Čo opravíme <i><svg width="14" height="14"><use href="#i-arr"/></svg></i></div></div></a>
+    </div>
+  </div>
+</section>
+
+<div class="marq" aria-hidden="true"><div class="track" id="marq">
+  <span class="f">Vonkajšie žalúzie</span><span class="star">✦</span><span>Screenové rolety</span><span class="star">✦</span><span class="f">Pergoly</span><span class="star">✦</span><span>Rolety</span><span class="star">✦</span><span class="f">Somfy</span><span class="star">✦</span><span>Servis okien</span><span class="star">✦</span>
+  <span class="f">Vonkajšie žalúzie</span><span class="star">✦</span><span>Screenové rolety</span><span class="star">✦</span><span class="f">Pergoly</span><span class="star">✦</span><span>Rolety</span><span class="star">✦</span>
+</div></div>
+
+<!-- ============ EXTERIOR BLINDS ============ -->
+<section class="sec dive" id="zaluzie">
+  <div class="wrap dive-grid">
+    <div class="demo rv">
+      <div class="win" id="win" style="--tilt:40deg;--drop:70%;--dark:.3">
+        <div class="view" style="background-image:url(%%IMG:view-garden.webp%%)"></div>
+        <div class="slats" id="slats"></div>
+        <div class="shade"></div>
+        <div class="rail l"></div><div class="rail r"></div><div class="lintel"></div><div class="glare"></div>
+      </div>
+      <div class="remote">
+        <div class="keys" aria-label="Ovládač">
+          <button type="button" data-drop="0" aria-label="Hore"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M2 9l5-5 5 5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+          <button type="button" data-drop="stop" aria-label="Stop"><svg width="12" height="12" viewBox="0 0 12 12"><rect x="2" y="2" width="8" height="8" rx="1.5" fill="currentColor"/></svg></button>
+          <button type="button" data-drop="100" aria-label="Dole"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M2 5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+        </div>
+        <div>
+          <label for="tilt">Natočenie lamiel <output id="tiltOut">40°</output></label>
+          <input type="range" id="tilt" min="0" max="85" value="40" style="--v:47%">
+          <div class="meta"><span>Svetlo: <b id="lightOut">stredne</b></span><span>Výhľad: <b id="viewOut">čiastočný</b></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <span class="eyebrow rv">Vonkajšie žalúzie</span>
+      <h2 class="h2 rv d1" style="margin:18px 0 20px">Chránia dom pred teplom ešte predtým, než sa dostane k sklu</h2>
+      <p class="lead rv d2">Vonkajšie žalúzie zachytia slnko pred oknom, preto sú v lete najúčinnejším tienením. Natočením lamiel si sami určíte, koľko svetla pustíte dnu. Vyskúšajte si to na ovládači vľavo.</p>
+
+      <div class="tabs rv d3" role="tablist">
+        <button class="on" type="button" data-tab="t-lam">Typy lamiel</button>
+        <button type="button" data-tab="t-box">Typ boxu</button>
+        <button type="button" data-tab="t-ctl">Ovládanie</button>
+      </div>
+
+      <div class="panel on" id="t-lam">
+        <div class="prof">
+          <div class="pf on" data-tilt="40">
+            <svg viewBox="0 0 200 56"><path d="M20 38 Q100 8 180 38"/></svg>
+            <h4>C-80 <small>zaoblená</small></h4>
+            <p>Klasika s dobrým pomerom ceny a výkonu. Lamely sa dajú plynule natáčať.</p>
+            <div class="rate"><em>Zatemnenie</em><span><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></span><em>Odolnosť vetru</em><span><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></span></div>
+          </div>
+          <div class="pf" data-tilt="75">
+            <svg viewBox="0 0 200 56"><path d="M24 44 L44 44 L156 14 L176 14"/><path d="M44 44 L44 36" /></svg>
+            <h4>Z-90 <small>s tesnením</small></h4>
+            <p>Lamely do seba zapadnú a gumové tesnenie ich utlmí. Najlepšie zatemnenie aj najtichší chod.</p>
+            <div class="rate"><em>Zatemnenie</em><span><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></span><em>Odolnosť vetru</em><span><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></span></div>
+          </div>
+          <div class="pf" data-tilt="55">
+            <svg viewBox="0 0 200 56"><path d="M20 40 C60 40 70 16 100 28 S150 16 180 16"/></svg>
+            <h4>S-90 <small>esovitá</small></h4>
+            <p>Moderný tvar pre architektúru s rovnými líniami. Dobre zatieni a pri zatiahnutí vyzerá elegantne.</p>
+            <div class="rate"><em>Zatemnenie</em><span><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></span><em>Odolnosť vetru</em><span><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></span></div>
+          </div>
+          <div class="pf" data-tilt="20">
+            <svg viewBox="0 0 200 56"><path d="M26 32 L174 24"/><path d="M26 32 q-8 0 -8 -6 M174 24 q8 0 8 6"/></svg>
+            <h4>F-80 <small>plochá</small></h4>
+            <p>Rovná, minimalistická lamela pre moderné domy. Vo vytiahnutom stave zaberie málo miesta.</p>
+            <div class="rate"><em>Zatemnenie</em><span><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></span><em>Odolnosť vetru</em><span><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" id="t-box">
+        <div class="boxes">
+          <div class="bx">
+            <svg viewBox="0 0 150 130" aria-hidden="true">
+              <rect x="20" y="0" width="60" height="130" fill="#d9d2c6"/><rect x="80" y="0" width="30" height="130" fill="#efe9df"/><rect x="110" y="0" width="4" height="130" fill="#cfc6b8"/>
+              <rect x="20" y="42" width="94" height="18" fill="#b9b0a2"/>
+              <rect x="40" y="60" width="26" height="70" fill="#2e3136"/><rect x="46" y="60" width="14" height="70" fill="#9fb3c2"/>
+              <rect x="116" y="42" width="24" height="30" rx="3" fill="#1c2a3e"/><path d="M128 72v58" stroke="#b5302a" stroke-width="3" stroke-dasharray="3 3"/>
+            </svg>
+            <div><span class="pill">Aj do hotového domu</span><h4>Predokenný box</h4><p>Box je namontovaný na fasáde nad oknom a je viditeľný. Najjednoduchšie riešenie, keď sa fasáda už nebude zatepľovať.</p></div>
+          </div>
+          <div class="bx">
+            <svg viewBox="0 0 150 130" aria-hidden="true">
+              <rect x="20" y="0" width="60" height="130" fill="#d9d2c6"/><rect x="80" y="0" width="44" height="130" fill="#efe9df"/><rect x="124" y="0" width="4" height="130" fill="#cfc6b8"/>
+              <rect x="20" y="42" width="60" height="18" fill="#b9b0a2"/>
+              <rect x="40" y="60" width="26" height="70" fill="#2e3136"/><rect x="46" y="60" width="14" height="70" fill="#9fb3c2"/>
+              <rect x="88" y="34" width="30" height="26" rx="3" fill="#1c2a3e"/><path d="M103 60v70" stroke="#b5302a" stroke-width="3" stroke-dasharray="3 3"/>
+            </svg>
+            <div><span class="pill">Najčistejší vzhľad</span><h4>Podomietkový box</h4><p>Box je skrytý v zateplení pod omietkou, na fasáde ostane len úzka štrbina. Ideálne pri novostavbe alebo pri zatepľovaní.</p></div>
+          </div>
+          <div class="bx">
+            <svg viewBox="0 0 150 130" aria-hidden="true">
+              <rect x="20" y="0" width="60" height="130" fill="#d9d2c6"/><rect x="80" y="0" width="30" height="130" fill="#efe9df"/><rect x="110" y="0" width="4" height="130" fill="#cfc6b8"/>
+              <rect x="20" y="30" width="94" height="30" fill="#b9b0a2"/><rect x="72" y="32" width="36" height="26" rx="3" fill="#1c2a3e"/>
+              <rect x="40" y="60" width="26" height="70" fill="#2e3136"/><rect x="46" y="60" width="14" height="70" fill="#9fb3c2"/>
+              <path d="M90 58v72" stroke="#b5302a" stroke-width="3" stroke-dasharray="3 3"/>
+            </svg>
+            <div><span class="pill">Novostavby</span><h4>Box v nadokennom preklade</h4><p>Žalúzia sa ukryje v špeciálnom preklade nad oknom už pri stavbe. Treba s ňou rátať v projekte. Radi to prekonzultujeme s vaším projektantom.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" id="t-ctl">
+        <div class="ctrl">
+          <div class="ct"><div class="ic"><svg width="22" height="22"><use href="#i-hand"/></svg></div><h4>Kľuka</h4><p>Ručné ovládanie bez elektriny. Vhodné na menšie okná a vedľajšie miestnosti.</p></div>
+          <div class="ct"><div class="ic"><svg width="22" height="22"><use href="#i-motor"/></svg></div><h4>Motor + vypínač</h4><p>Tichý motor Somfy a nástenný vypínač pri okne. Jednoduché a spoľahlivé.</p></div>
+          <div class="ct"><div class="ic"><svg width="22" height="22"><use href="#i-remote"/></svg></div><h4>Diaľkový ovládač</h4><p>Jeden alebo viac kanálov, skupiny okien, obľúbená poloha lamiel na jedno stlačenie.</p></div>
+          <div class="ct hl"><div class="ic"><svg width="22" height="22"><use href="#i-mobile"/></svg></div><h4>Mobil a scény</h4><p>Somfy TaHoma: ovládanie odkiaľkoľvek, časové scény a senzory slnka a vetra. Pri silnom vetre sa žalúzie samy vytiahnu.</p></div>
+        </div>
+      </div>
+
+      <div style="margin-top:34px" class="rv"><a class="btn" href="#kontakt">Nacenenie žalúzií <span class="arr"><svg width="14" height="14"><use href="#i-arr"/></svg></span></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCREENS ============ -->
+<section class="sec" id="screeny">
+  <div class="wrap split">
+    <div class="media rv-img" data-par><img src="%%IMG:card-screen-tall.webp%%" alt="Screenové rolety ZIP na terasových oknách"><div class="badge"><svg width="28" height="28" style="color:var(--red)"><use href="#i-wind"/></svg><div><b>ZIP vedenie</b><small>Látka nevylieta z líšt ani vo vetre</small></div></div></div>
+    <div>
+      <span class="eyebrow rv">Screenové rolety</span>
+      <h2 class="h2 rv d1" style="margin:18px 0 20px">Veľké okná bez prehrievania, výhľad zostáva</h2>
+      <p class="lead rv d2">Screenová roleta je technická tkanina navíjaná do boxu nad oknom. Tieni ako žalúzia, ale pôsobí jemne a nenápadne. Obľúbená je hlavne na veľkých presklených stenách a posuvných dverách.</p>
+      <div class="facts">
+        <div class="fact rv"><b>Základný typ</b><p><strong>ZIP screen</strong>: okraje látky sú zasunuté v bočných lištách, takže látka je stále napnutá, odolá vetru a nepustí dnu hmyz.</p></div>
+        <div class="fact rv d1"><b>Typ boxu</b><p><strong>Hranatý</strong> k moderným fasádam, <strong>zaoblený</strong> ku klasickým, alebo <strong>podomietkový</strong> ukrytý v zateplení.</p></div>
+        <div class="fact rv d2"><b>Ovládanie</b><p>Motor Somfy s ovládačom alebo v aplikácii. Ak nie je poruke elektrina, dá sa použiť aj solárny pohon.</p></div>
+        <div class="fact rv d3"><b>Tkaniny</b><p>Priehľadné (výhľad von zostáva) alebo zatemňovacie (blackout). Vzorkovník vám prinesieme na zameranie.
+          <span class="swatches"><span style="background-color:#3b3e42" data-n="Antracit"></span><span style="background-color:#6d6e6c" data-n="Sivá"></span><span style="background-color:#a79c8a" data-n="Piesková"></span><span style="background-color:#6f5f4f" data-n="Bronzová"></span><span style="background-color:#e6e2da" data-n="Perlová"></span><span style="background-color:#1f2c3f" data-n="Tmavomodrá"></span></span></p></div>
+      </div>
+      <a class="link rv" href="#kontakt">Chcem nacenenie screenov <svg width="14" height="14"><use href="#i-arr"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PERGOLA ============ -->
+<section class="sec perg" id="pergoly">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow rv">Bioklimatické pergoly</span><h2 class="h2 rv d1">Vonkajšia obývačka,<br>ktorá funguje za každého počasia</h2></div>
+      <p class="lead rv d2">Hliníková pergola s otočnými lamelami. Otvoríte ich a necháte dnu slnko aj vzduch, alebo ich zatvoríte a máte pevnú strechu. Voda steká cez žľab v stĺpoch preč.</p>
+    </div>
+    <div class="perg-hero rv-img" data-par><img src="%%IMG:perg-dusk.webp%%" alt="Bioklimatická pergola s LED osvetlením večer"></div>
+    <div class="perg-grid">
+      <div class="lam-demo rv" id="lamDemo">
+        <svg viewBox="0 0 520 300" aria-hidden="true">
+          <defs><linearGradient id="sunray" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6d9a8" stop-opacity=".55"/><stop offset="1" stop-color="#f6d9a8" stop-opacity="0"/></linearGradient></defs>
+          <circle cx="440" cy="40" r="22" fill="#f1c27d"/>
+          <g id="rays"></g>
+          <rect x="40" y="96" width="440" height="14" rx="3" fill="#8793a3"/>
+          <rect x="44" y="110" width="12" height="170" fill="#8793a3"/><rect x="464" y="110" width="12" height="170" fill="#8793a3"/>
+          <g id="lams"></g>
+          <rect x="0" y="280" width="520" height="8" fill="#3a4a62"/>
+          <path d="M470 110v160" stroke="#6fb2d8" stroke-width="3" stroke-dasharray="6 7" opacity=".8"><animate attributeName="stroke-dashoffset" from="0" to="-26" dur="1s" repeatCount="indefinite"/></path>
+        </svg>
+        <div class="cap"><span>Natočenie lamiel: <b id="lamDeg">0°</b></span><span>Posúvajte stránku ↓</span></div>
+      </div>
+      <div>
+        <h3 class="rv" style="font-size:30px;margin-bottom:6px">Čo pergola dokáže</h3>
+        <div class="pfeat">
+          <div class="rv"><h4>Otočné lamely</h4><p>Motorom plynule natáčate hliníkové lamely, od plného slnka až po úplne zatvorenú strechu.</p></div>
+          <div class="rv d1"><h4>Senzor dažďa</h4><p>Keď začne pršať, lamely sa samy zatvoria. Nemusíte pritom byť doma.</p></div>
+          <div class="rv d2"><h4>LED osvetlenie</h4><p>Stmievateľné LED pásy v ráme. Večer na terase vytvoria príjemnú atmosféru.</p></div>
+          <div class="rv d3"><h4>Bočné ZIP screeny</h4><p>Po stranách chránia pred vetrom, nízkym slnkom aj pohľadmi susedov.</p></div>
+          <div class="rv"><h4>Odvod vody</h4><p>Voda zo žľabov odteká cez stĺpy, preto na terase nič nekvapká.</p></div>
+          <div class="rv d1"><h4>Na mieru</h4><p>Samostatne stojaca alebo pripojená k domu. Rozmer a farbu RAL prispôsobíme.</p></div>
+        </div>
+        <div style="margin-top:36px" class="rv"><a class="btn btn-light" href="#kontakt">Nacenenie pergoly <span class="arr"><svg width="14" height="14"><use href="#i-arr"/></svg></span></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROLLERS ============ -->
+<section class="sec" id="rolety">
+  <div class="wrap split rev">
+    <div class="media rv-img" data-par><img src="%%IMG:card-roller-tall.webp%%" alt="Vonkajšie rolety na rodinnom dome"></div>
+    <div>
+      <span class="eyebrow rv">Vonkajšie rolety</span>
+      <h2 class="h2 rv d1" style="margin:18px 0 20px">Tma na spanie, ticho a pocit bezpečia</h2>
+      <p class="lead rv d2">Rolety úplne zatemnia miestnosť, stlmia hluk z ulice a v zime pomáhajú udržať teplo. Vyberte si podľa rozpočtu a veľkosti okna.</p>
+      <div class="cmp" style="margin-top:30px">
+        <div class="col rv">
+          <h3>Plastové</h3><div class="sub">PVC lamely</div>
+          <dl><dt>Cena</dt><dd>priaznivejšia</dd><dt>Vhodné pre</dt><dd>menšie a stredné okná</dd><dt>Izolácia</dt><dd>dobrá</dd><dt>Ovládanie</dt><dd>popruh, kľuka, motor</dd></dl>
+        </div>
+        <div class="col alt rv d1">
+          <h3>Hliníkové</h3><div class="sub">Hliník vyplnený PUR penou</div>
+          <dl><dt>Cena</dt><dd>vyššia</dd><dt>Vhodné pre</dt><dd>aj veľké okná a dvere</dd><dt>Izolácia</dt><dd>veľmi dobrá</dd><dt>Bezpečnosť</dt><dd>pevnejšie, odolnejšie</dd></dl>
+        </div>
+      </div>
+      <p class="rv" style="font-size:14px;color:var(--taupe);margin-top:18px">Box môže byť predokenný, podomietkový alebo nadokenný. Pri výmene okien sa dá roleta objednať rovno s oknom.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTERIOR ============ -->
+<section class="sec" id="interier" style="background:var(--sand)">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:0">
+      <div><span class="eyebrow rv">Vnútorné tienenie</span><h2 class="h2 rv d1">Posledný detail, ktorý dotvorí interiér</h2></div>
+      <p class="lead rv d2">Tam, kde nepotrebujete vonkajšie tienenie, alebo ako doplnok k nemu. Pomôžeme vybrať farby a materiály a všetko presne zameriame.</p>
+    </div>
+    <div class="int-grid">
+      <div class="int rv"><svg viewBox="0 0 160 90"><rect x="40" y="10" width="80" height="6" rx="2" fill="#2e3136"/><g stroke="#b9b0a2" stroke-width="4" stroke-linecap="round"><path d="M44 24h72M44 32h72M44 40h72M44 48h72M44 56h72M44 64h72"/></g><path d="M80 16v52" stroke="#8c8377"/></svg><h4>Horizontálne žalúzie</h4><p>Hliníkové alebo drevené, s plynulou reguláciou svetla.</p></div>
+      <div class="int rv d1"><svg viewBox="0 0 160 90"><rect x="38" y="10" width="84" height="8" rx="4" fill="#2e3136"/><rect x="42" y="18" width="76" height="52" fill="#d9cfbf"/><rect x="42" y="68" width="76" height="4" fill="#8c8377"/></svg><h4>Látkové rolety</h4><p>Veľký výber látok, od jemne priesvitných po zatemňovacie.</p></div>
+      <div class="int rv d2"><svg viewBox="0 0 160 90"><rect x="38" y="10" width="84" height="8" rx="4" fill="#2e3136"/><g fill="#cfc6b8"><rect x="42" y="18" width="76" height="8"/><rect x="42" y="34" width="76" height="8"/><rect x="42" y="50" width="76" height="8"/></g><g fill="#efe9df"><rect x="42" y="26" width="76" height="8"/><rect x="42" y="42" width="76" height="8"/><rect x="42" y="58" width="76" height="8"/></g></svg><h4>Deň a noc</h4><p>Dvojitá látka s pruhmi. Posunutím prepínate medzi svetlom a súkromím.</p></div>
+      <div class="int rv d3"><svg viewBox="0 0 160 90"><rect x="40" y="10" width="80" height="5" fill="#2e3136"/><path d="M42 15l76 6-76 6 76 6-76 6 76 6-76 6 76 6-76 6" fill="none" stroke="#b9b0a2" stroke-width="2.4" stroke-linejoin="round"/><rect x="40" y="68" width="80" height="5" fill="#2e3136"/></svg><h4>Plisé</h4><p>Skladaná látka aj na atypické a strešné okná.</p></div>
+      <div class="int rv d4"><svg viewBox="0 0 160 90"><rect x="36" y="10" width="88" height="5" rx="2" fill="#2e3136"/><g fill="#d9cfbf"><rect x="40" y="15" width="10" height="60" rx="2"/><rect x="54" y="15" width="10" height="60" rx="2"/><rect x="68" y="15" width="10" height="60" rx="2"/><rect x="82" y="15" width="10" height="60" rx="2"/><rect x="96" y="15" width="10" height="60" rx="2"/><rect x="110" y="15" width="10" height="60" rx="2"/></g></svg><h4>Vertikálne žalúzie</h4><p>Praktické na veľké okná v kanceláriách a obývačkách.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SMART / SOMFY ============ -->
+<section class="sec smart" id="smart">
+  <div class="wrap split">
+    <div class="rv"><div class="phone"><div class="screen">
+      <div class="hi">Dobrý deň<small>Doma · 24 °C · slnečno</small></div>
+      <div class="scn"><span class="on">☀ Poludnie</span><span>Odchod</span><span>Noc</span><span>Kino</span></div>
+      <div class="dev anim"><div class="di"><svg width="18" height="18"><use href="#i-blind"/></svg></div><div><b>Obývačka – žalúzie</b><small>natočenie 45°</small></div><span class="pc">auto</span><div class="bar"><i></i></div></div>
+      <div class="dev"><div class="di"><svg width="18" height="18"><use href="#i-blind"/></svg></div><div><b>Spálňa – rolety</b><small>zatvorené</small></div><span class="pc">100 %</span><div class="bar"><i style="--w:100%"></i></div></div>
+      <div class="dev"><div class="di"><svg width="18" height="18"><use href="#i-home"/></svg></div><div><b>Terasa – pergola</b><small>lamely otvorené</small></div><span class="pc">35°</span><div class="bar"><i style="--w:38%"></i></div></div>
+      <div class="dev"><div class="di"><svg width="18" height="18"><use href="#i-blind"/></svg></div><div><b>Kuchyňa – screen</b><small>vytiahnutý</small></div><span class="pc">0 %</span><div class="bar"><i style="--w:4%"></i></div></div>
+      <div class="sensor"><div><svg width="16" height="16"><use href="#i-sun"/></svg><b>Silné</b>slnko</div><div><svg width="16" height="16"><use href="#i-wind"/></svg><b>12 km/h</b>vietor</div></div>
+    </div></div></div>
+    <div>
+      <span class="eyebrow rv">Somfy · smart home</span>
+      <h2 class="h2 rv d1" style="margin:18px 0 20px">Celé tienenie v jednom mobile</h2>
+      <p class="lead rv d2">Pracujeme s motormi a automatikou Somfy. Ovládať môžete jedno okno, celú miestnosť alebo celý dom, doma aj na dovolenke.</p>
+      <div class="smart-list">
+        <div class="rv"><div class="ic"><svg width="22" height="22"><use href="#i-mobile"/></svg></div><div><h4>Aplikácia TaHoma</h4><p>Ovládanie odkiaľkoľvek a prehľad o stave všetkých okien. Funguje aj s hlasovými asistentmi.</p></div></div>
+        <div class="rv d1"><div class="ic"><svg width="22" height="22"><use href="#i-clock"/></svg></div><div><h4>Scény a časovače</h4><p>Ráno sa žalúzie otvoria, cez obed pritienia juh, večer sa všetko zatiahne. Automaticky.</p></div></div>
+        <div class="rv d2"><div class="ic"><svg width="22" height="22"><use href="#i-wind"/></svg></div><div><h4>Senzory vetra a slnka</h4><p>Pri silnom vetre sa žalúzie a screeny samy vytiahnu. Pri slnku zatienia ešte skôr, než sa izba prehreje.</p></div></div>
+      </div>
+      <a class="btn rv" href="#kontakt">Poradiť sa o automatike <span class="arr"><svg width="14" height="14"><use href="#i-arr"/></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICE ============ -->
+<section class="sec svc" id="servis">
+  <div class="wrap split rev">
+    <div class="media rv-img" data-par><img src="%%IMG:card-service-tall.webp%%" alt="Servis a nastavenie plastového okna"><div class="badge"><svg width="28" height="28" style="color:var(--red)"><use href="#i-tool"/></svg><div><b>Servis okien</b><small>plastové, drevené aj hliníkové</small></div></div></div>
+    <div>
+      <span class="eyebrow rv">Servis okien</span>
+      <h2 class="h2 rv d1" style="margin:18px 0 20px">Okná, ktoré opäť tesnia a ľahko sa zatvárajú</h2>
+      <p class="lead rv d2">Aj kvalitné okno potrebuje po rokoch údržbu. Prídeme, skontrolujeme ho a opravíme na mieste. Väčšinou bez výmeny celého okna.</p>
+      <div class="svc-list">
+        <div class="rv"><svg width="16" height="16"><use href="#i-check"/></svg>Nastavenie krídiel, ktoré drhnú alebo visia</div>
+        <div class="rv d1"><svg width="16" height="16"><use href="#i-check"/></svg>Výmena opotrebovaných tesnení a odstránenie prievanu</div>
+        <div class="rv d2"><svg width="16" height="16"><use href="#i-check"/></svg>Premazanie a výmena kovania</div>
+        <div class="rv d3"><svg width="16" height="16"><use href="#i-check"/></svg>Výmena kľučiek, aj s detskou poistkou</div>
+        <div class="rv"><svg width="16" height="16"><use href="#i-check"/></svg>Sezónna prehliadka a nastavenie leto / zima</div>
+        <div class="rv d1"><svg width="16" height="16"><use href="#i-check"/></svg>Servis žalúzií, roliet a motorov</div>
+      </div>
+      <a class="btn rv" href="#kontakt">Objednať servis <span class="arr"><svg width="14" height="14"><use href="#i-arr"/></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="sec" id="postup">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow rv">Ako to prebieha</span><h2 class="h2 rv d1">Od prvého telefonátu po hotovú montáž</h2></div>
+      <p class="lead rv d2">Celý proces máme pod kontrolou od zamerania až po servis. Vždy viete, čo bude nasledovať a kedy.</p>
+    </div>
+    <div class="steps" id="steps"><div class="line"></div>
+      <div class="step"><div class="n">1</div><h4>Konzultácia</h4><p>Zavoláte alebo vyplníte formulár. Prejdeme si, čo potrebujete.</p></div>
+      <div class="step"><div class="n">2</div><h4>Zameranie</h4><p>Prídeme k vám, všetko presne zmeriame a ukážeme vzorky. Zdarma.</p></div>
+      <div class="step"><div class="n">3</div><h4>Cenová ponuka</h4><p>Dostanete prehľadnú ponuku bez skrytých položiek.</p></div>
+      <div class="step"><div class="n">4</div><h4>Výroba a montáž</h4><p>Výroba na mieru, montáž našimi technikmi, upratané po sebe.</p></div>
+      <div class="step"><div class="n">5</div><h4>Zaškolenie a servis</h4><p>Ukážeme vám ovládanie a aplikáciu. Po montáži sa o vás naďalej staráme.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="sec" id="realizacie" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow rv">Realizácie</span><h2 class="h2 rv d1">Inšpirácia z našich montáží</h2></div>
+      <p class="lead rv d2">Pozrite si, ako tienenie vyzerá na skutočných domoch. Po kliknutí sa fotka zväčší.</p>
+    </div>
+    <div class="gal">
+      <figure class="g1 rv-img"><img src="%%IMG:hero-house.webp%%" alt=""><figcaption><span><b>Novostavba, podomietkové žalúzie</b>C-80, antracit, Somfy io</span></figcaption></figure>
+      <figure class="g2 rv-img"><img src="%%IMG:card-pergola.webp%%" alt=""><figcaption><span><b>Bioklimatická pergola</b>6,2 × 4,4 m, LED</span></figcaption></figure>
+      <figure class="g3 rv-img"><img src="%%IMG:blinds-detail.webp%%" alt=""><figcaption><span><b>Detail lamiel</b>Z-90 s tesnením</span></figcaption></figure>
+      <figure class="g4 rv-img"><img src="%%IMG:card-screen.webp%%" alt=""><figcaption><span><b>ZIP screeny</b>tkanina antracit</span></figcaption></figure>
+      <figure class="g5 rv-img"><img src="%%IMG:card-interior.webp%%" alt=""><figcaption><span><b>Vnútorné žalúzie</b>obývačka</span></figcaption></figure>
+      <figure class="g6 rv-img"><img src="%%IMG:card-roller.webp%%" alt=""><figcaption><span><b>Hliníkové rolety</b>predokenný box</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+<div class="lb" id="lb"><img alt=""></div>
+
+<!-- ============ FAQ ============ -->
+<section class="sec" id="faq" style="background:var(--paper)">
+  <div class="wrap faq-grid">
+    <div><span class="eyebrow rv">Časté otázky</span><h2 class="h2 rv d1" style="margin:18px 0 20px">Na čo sa nás pýtate najčastejšie</h2><p class="rv d2">Nenašli ste odpoveď? Zavolajte nám, radi poradíme.</p><div class="rv d3" style="margin-top:28px"><a class="link" href="tel:+421900000000">+421 900 000 000 <svg width="14" height="14"><use href="#i-arr"/></svg></a></div></div>
+    <div>
+      <details class="rv" open><summary>Dajú sa vonkajšie žalúzie namontovať aj do hotového domu?</summary><p>Áno. Na hotovú fasádu sa montuje predokenný box. Ak plánujete zatepľovanie, je to ideálny čas na podomietkový box, ktorý ostane skrytý.</p></details>
+      <details class="rv d1"><summary>Aký je rozdiel medzi žalúziou a screenovou roletou?</summary><p>Žalúzia má natáčacie lamely, takže presne regulujete svetlo a dá sa takmer úplne zatemniť. Screen je tkanina: tieni rovnomerne, pôsobí jemnejšie a zachová výhľad von. Hodí sa hlavne na veľké presklenia.</p></details>
+      <details class="rv d2"><summary>Čo sa stane pri silnom vetre?</summary><p>So senzorom vetra Somfy sa žalúzie a screeny pri nárazovom vetre automaticky vytiahnu do boxu, aj keď nie ste doma. ZIP screeny sú vďaka bočnému vedeniu odolnejšie ako bežné rolety.</p></details>
+      <details class="rv d3"><summary>Dá sa tienenie ovládať z mobilu?</summary><p>Áno, cez Somfy TaHoma. Dá sa to doplniť aj k existujúcim motorom Somfy io. Nastavíme vám scény, časovače aj senzory.</p></details>
+      <details class="rv d4"><summary>Robíte servis aj na oknách, ktoré ste nemontovali?</summary><p>Áno, servis robíme na bežných plastových, drevených aj hliníkových oknách. Pri objednávke nám stačí povedať, aký problém s oknom máte.</p></details>
+      <details class="rv d5"><summary>Ako dlho trvá dodanie?</summary><p>Záleží od produktu a sezóny. Presný termín vám povieme pri cenovej ponuke a potom ho dodržíme.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEAD FORM ============ -->
+<section class="sec lead-sec" id="kontakt">
+  <div class="wrap lead-grid">
+    <div>
+      <span class="eyebrow rv">Nezáväzná cenová ponuka</span>
+      <h2 class="h2 rv d1" style="margin:18px 0 20px">Povedzte nám, čo potrebujete. Zvyšok vyriešime my.</h2>
+      <p class="lead rv d2" style="color:#c9d1dc">Vyplňte krátky formulár. Ozveme sa vám, dohodneme termín bezplatného zamerania a pripravíme cenovú ponuku na mieru.</p>
+      <div class="contact-list">
+        <a class="rv" href="tel:+421900000000"><span class="ic"><svg width="20" height="20"><use href="#i-phone"/></svg></span><span><small>Telefón</small>+421 900 000 000</span></a>
+        <a class="rv d1" href="mailto:info@bromar.sk"><span class="ic"><svg width="20" height="20"><use href="#i-mail"/></svg></span><span><small>E-mail</small>info@bromar.sk</span></a>
+        <div class="rv d2"><span class="ic"><svg width="20" height="20"><use href="#i-pin"/></svg></span><span><small>BROMAR s. r. o.</small>Adresa prevádzky, PSČ Mesto</span></div>
+      </div>
+    </div>
+    <form class="lead rv d1" id="leadForm" novalidate>
+      <h3>O čo máte záujem?</h3>
+      <p class="hint">Môžete označiť aj viac možností.</p>
+      <div class="chips">
+        <label><input type="checkbox" name="p" value="zaluzie" checked><span>Vonkajšie žalúzie</span></label>
+        <label><input type="checkbox" name="p" value="screen"><span>Screenové rolety</span></label>
+        <label><input type="checkbox" name="p" value="rolety"><span>Rolety</span></label>
+        <label><input type="checkbox" name="p" value="pergola"><span>Pergola</span></label>
+        <label><input type="checkbox" name="p" value="interier"><span>Vnútorné tienenie</span></label>
+        <label><input type="checkbox" name="p" value="servis"><span>Servis okien</span></label>
+      </div>
+      <div class="fg">
+        <div class="fl"><input id="f-name" placeholder=" " required autocomplete="name"><label for="f-name">Meno a priezvisko</label></div>
+        <div class="fl"><input id="f-tel" type="tel" placeholder=" " required autocomplete="tel"><label for="f-tel">Telefón</label></div>
+        <div class="fl"><input id="f-mail" type="email" placeholder=" " autocomplete="email"><label for="f-mail">E-mail</label></div>
+        <div class="fl"><input id="f-city" placeholder=" "><label for="f-city">Obec / mesto</label></div>
+        <div class="fl full"><textarea id="f-msg" placeholder=" "></textarea><label for="f-msg">Počet okien, rozmery, novostavba či rekonštrukcia…</label></div>
+      </div>
+      <label class="consent"><input type="checkbox" required> <span>Súhlasím so spracovaním osobných údajov na účel vypracovania ponuky. <a href="#">Ochrana osobných údajov</a></span></label>
+      <button class="btn btn-red" type="submit">Odoslať nezáväzný dopyt <span class="arr"><svg width="14" height="14"><use href="#i-arr"/></svg></span></button>
+      <div class="sent"><div class="ok"><svg width="30" height="30"><use href="#i-check"/></svg></div><h3>Ďakujeme, dopyt sme prijali</h3><p style="margin-top:8px">Ozveme sa vám a dohodneme termín zamerania.</p></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-about"><a class="logo" href="#top"><svg viewBox="0 0 250 60" style="height:40px"><use href="#logo"/></svg></a><p>Tieniaca technika na mieru: predaj, zameranie, montáž a servis. Vonkajšie žalúzie, screeny, rolety, pergoly a servis okien.</p><div class="soc"><a href="#" aria-label="Facebook"><svg width="18" height="18"><use href="#i-fb"/></svg></a><a href="#" aria-label="Instagram"><svg width="18" height="18"><use href="#i-ig"/></svg></a></div></div>
+      <div><h5>Produkty</h5><ul><li><a href="#zaluzie">Vonkajšie žalúzie</a></li><li><a href="#screeny">Screenové rolety</a></li><li><a href="#rolety">Vonkajšie rolety</a></li><li><a href="#pergoly">Bioklimatické pergoly</a></li><li><a href="#interier">Vnútorné tienenie</a></li></ul></div>
+      <div><h5>Služby</h5><ul><li><a href="#servis">Servis okien</a></li><li><a href="#smart">Somfy automatika</a></li><li><a href="#postup">Zameranie zdarma</a></li><li><a href="#realizacie">Realizácie</a></li><li><a href="#faq">Časté otázky</a></li></ul></div>
+      <div><h5>Kontakt</h5><ul><li>BROMAR s. r. o.</li><li>Adresa prevádzky, PSČ Mesto</li><li>IČO: 00 000 000</li><li><a href="tel:+421900000000">+421 900 000 000</a></li><li><a href="mailto:info@bromar.sk">info@bromar.sk</a></li></ul></div>
+    </div>
+    <div class="f-bot"><span>© 2026 BROMAR s. r. o. · bromar.sk</span><span><a href="#">Ochrana osobných údajov</a> · <a href="#">Cookies</a></span></div>
+  </div>
+</footer>
+
+<div class="mcta" id="mcta"><a href="tel:+421900000000"><svg width="18" height="18"><use href="#i-phone"/></svg>Zavolať</a><a href="#kontakt">Cenová ponuka</a></div>
+
+<script>
+(() => {
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- header ---- */
+  const hdr = $('#hdr'), mcta = $('#mcta');
+  const onScrollHdr = () => { const y = scrollY; hdr.classList.toggle('solid', y > 40); mcta.classList.toggle('show', y > innerHeight * .7); };
+  addEventListener('scroll', onScrollHdr, { passive: true }); onScrollHdr();
+  const drawer = $('#drawer');
+  $('#burger').onclick = () => drawer.classList.add('open');
+  $('#drawerX').onclick = () => drawer.classList.remove('open');
+  $$('#drawer a').forEach(a => a.addEventListener('click', () => drawer.classList.remove('open')));
+
+  /* ---- hero: split words ---- */
+  $$('[data-split]').forEach(h => {
+    const walk = (node, em) => [...node.childNodes].map(n => n.nodeType === 3
+      ? n.textContent.split(/(\s+)/).map(w => w.trim() ? `<span class="w"><span>${em ? '<em>' + w + '</em>' : w}</span></span>` : w).join('')
+      : walk(n, true)).join('');
+    h.innerHTML = walk(h, false);
+    $$('.w > span', h).forEach((s, i) => s.style.transitionDelay = (i * 0.07) + 's');
+  });
+
+  /* ---- hero slider with "venetian blind" transition ---- */
+  const slides = $$('.slide'), texts = $$('.hero-text'), dots = $$('.hn'), blinds = $('#blinds');
+  const N = 14, DUR = 7000;
+  for (let i = 0; i < N; i++) { const s = document.createElement('i'); s.style.setProperty('--d', (i * 28) + 'ms'); blinds.appendChild(s); }
+  let cur = 0, timer, busy = false;
+  const show = (i) => {
+    slides.forEach((s, k) => s.classList.toggle('active', k === i));
+    texts.forEach((t, k) => { t.classList.toggle('active', k === i); t.classList.remove('in'); });
+    dots.forEach((d, k) => { d.classList.toggle('active', k === i); d.style.setProperty('--dur', DUR + 'ms'); });
+    requestAnimationFrame(() => requestAnimationFrame(() => texts[i].classList.add('in')));
+    cur = i;
+  };
+  const open = () => { blinds.classList.remove('closed'); };
+  const go = (i) => {
+    if (busy || i === cur) return; busy = true; clearTimeout(timer);
+    dots.forEach(d => d.classList.remove('active'));
+    if (reduce) { show(i); busy = false; schedule(); return; }
+    blinds.classList.add('reset'); blinds.classList.remove('closed');
+    void blinds.offsetWidth; blinds.classList.remove('reset');
+    blinds.classList.add('closed');
+    setTimeout(() => { show(i); slides[i].style.transition = 'none'; slides.forEach(s => s.style.transition = 'none'); setTimeout(() => { open(); slides.forEach(s => s.style.transition = ''); busy = false; schedule(); }, 120); }, 560 + N * 28);
+  };
+  const schedule = () => { clearTimeout(timer); timer = setTimeout(() => go((cur + 1) % slides.length), DUR); };
+  dots.forEach((d, k) => d.onclick = () => go(k));
+  $('#next').onclick = () => go((cur + 1) % slides.length);
+  $('#prev').onclick = () => go((cur - 1 + slides.length) % slides.length);
+  // intro: blinds open to reveal the first slide
+  show(0);
+  setTimeout(open, reduce ? 0 : 450);
+  schedule();
+
+  /* smart card in hero */
+  const scSl = $('#scSl'), scPct = $('#scPct');
+  $$('.sc-bar button').forEach(b => b.onclick = () => { scSl.style.setProperty('--p', b.dataset.p + '%'); scPct.textContent = b.dataset.p + ' %'; });
+
+  /* ---- reveal on scroll ---- */
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .14, rootMargin: '0px 0px -40px 0px' });
+  $$('.rv,.rv-img').forEach(el => io.observe(el));
+
+  /* ---- interactive window with exterior blinds ---- */
+  const win = $('#win'), slats = $('#slats'), tilt = $('#tilt');
+  for (let i = 0; i < 26; i++) slats.appendChild(document.createElement('i'));
+  const setTilt = (v) => {
+    v = +v; win.style.setProperty('--tilt', v + 'deg'); tilt.value = v; tilt.style.setProperty('--v', (v / 85 * 100) + '%');
+    $('#tiltOut').textContent = v + '°';
+    const drop = parseFloat(getComputedStyle(win).getPropertyValue('--drop')) || 0;
+    const cover = drop / 100 * (0.25 + 0.75 * Math.sin(v * Math.PI / 180));
+    win.style.setProperty('--dark', (0.05 + cover * 0.55).toFixed(2));
+    $('#lightOut').textContent = v < 25 ? 'veľa' : v < 60 ? 'stredne' : 'málo';
+    $('#viewOut').textContent = v < 25 ? 'áno' : v < 60 ? 'čiastočný' : 'zatemnené';
+  };
+  tilt.oninput = () => setTilt(tilt.value);
+  let dropTimer;
+  $$('.keys button').forEach(b => b.onclick = () => {
+    const cs = getComputedStyle(slats);
+    if (b.dataset.drop === 'stop') { const h = slats.getBoundingClientRect().height / win.getBoundingClientRect().height * 100; win.style.setProperty('--drop', h.toFixed(1) + '%'); return; }
+    win.style.setProperty('--drop', (b.dataset.drop === '0' ? 4 : 100) + '%');
+    clearTimeout(dropTimer); dropTimer = setTimeout(() => setTilt(tilt.value), 2000);
+  });
+  $$('.pf').forEach(p => p.onclick = () => { $$('.pf').forEach(x => x.classList.toggle('on', x === p)); setTilt(p.dataset.tilt); });
+  setTilt(40);
+  // tabs
+  $$('.tabs button').forEach(b => b.onclick = () => {
+    $$('.tabs button').forEach(x => x.classList.toggle('on', x === b));
+    $$('.panel').forEach(p => p.classList.toggle('on', p.id === b.dataset.tab));
+  });
+
+  /* ---- pergola lamellas driven by scroll ---- */
+  const lams = $('#lams'), rays = $('#rays'), lamDemo = $('#lamDemo'), NL = 16;
+  const ns = 'http://www.w3.org/2000/svg';
+  const lamEls = [], rayEls = [];
+  for (let i = 0; i < NL; i++) {
+    const x = 70 + i * 25.5;
+    const r = document.createElementNS(ns, 'rect'); Object.assign(r, {}); r.setAttribute('x', x - 11); r.setAttribute('y', 100); r.setAttribute('width', 22); r.setAttribute('height', 5); r.setAttribute('rx', 2.5); r.setAttribute('fill', '#e9e7e2');
+    lams.appendChild(r); lamEls.push([r, x]);
+    const p = document.createElementNS(ns, 'polygon'); p.setAttribute('fill', 'url(#sunray)'); rays.appendChild(p); rayEls.push([p, x]);
+  }
+  const setLam = (deg) => {
+    lamEls.forEach(([r, x]) => r.setAttribute('transform', `rotate(${-deg} ${x} 102.5)`));
+    const open = Math.sin(deg * Math.PI / 180);
+    rayEls.forEach(([p, x]) => { const w = 9 * open; p.setAttribute('points', `${x + 2 - w},104 ${x + 2 + w},104 ${x - 40 + w * 1.4},280 ${x - 40 - w * 1.4},280`); p.style.opacity = open; });
+    $('#lamDeg').textContent = Math.round(deg) + '°';
+  };
+
+  /* ---- process line ---- */
+  const steps = $('#steps'), stepEls = $$('.step');
+
+  /* ---- marquee + parallax, one rAF loop ---- */
+  const marq = $('#marq'), pars = $$('[data-par] img');
+  const loop = () => {
+    const vh = innerHeight, y = scrollY;
+    marq.style.transform = `translate3d(${-(y * 0.35) % (marq.scrollWidth / 2)}px,0,0)`;
+    if (!reduce) pars.forEach(img => { const r = img.parentElement.getBoundingClientRect(); if (r.bottom < 0 || r.top > vh) return; const p = (r.top + r.height / 2 - vh / 2) / vh; img.style.transform = `translate3d(0,${(-8 + p * -10).toFixed(2)}%,0)`; });
+    const lr = lamDemo.getBoundingClientRect(); const lp = Math.min(1, Math.max(0, (vh - lr.top) / (vh + lr.height * .2)));
+    setLam(lp * 110 > 90 ? 90 : lp * 110);
+    const sr = steps.getBoundingClientRect(); const sp = Math.min(1, Math.max(0, (vh * .75 - sr.top) / (sr.height + vh * .2)));
+    steps.style.setProperty('--p', sp.toFixed(3)); stepEls.forEach((s, i) => s.classList.toggle('lit', sp >= i / (stepEls.length - 1) - .02));
+    requestAnimationFrame(loop);
+  };
+  requestAnimationFrame(loop);
+
+  /* ---- smooth inertial wheel scrolling (desktop) ---- */
+  if (!reduce && matchMedia('(pointer:fine)').matches) {
+    let target = scrollY, curY = scrollY, running = false;
+    const max = () => document.documentElement.scrollHeight - innerHeight;
+    const step = () => { curY += (target - curY) * 0.1; if (Math.abs(target - curY) < 0.5) { curY = target; running = false; } scrollTo(0, curY); if (running) requestAnimationFrame(step); };
+    addEventListener('wheel', e => {
+      if (e.ctrlKey || e.target.closest('.mega,textarea')) return;
+      e.preventDefault();
+      if (!running) { curY = target = scrollY; }
+      target = Math.max(0, Math.min(max(), target + e.deltaY * (e.deltaMode === 1 ? 40 : 1)));
+      if (!running) { running = true; requestAnimationFrame(step); }
+    }, { passive: false });
+    addEventListener('scroll', () => { if (!running) target = curY = scrollY; }, { passive: true });
+    $$('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+      const id = a.getAttribute('href'); const el = id.length > 1 && $(id); if (!el && id !== '#top') return;
+      e.preventDefault(); curY = scrollY; target = id === '#top' ? 0 : Math.min(max(), el.getBoundingClientRect().top + scrollY - 70);
+      if (!running) { running = true; requestAnimationFrame(step); }
+    }));
+  }
+
+  /* ---- gallery lightbox ---- */
+  const lb = $('#lb');
+  $$('.gal figure').forEach(f => f.onclick = () => { lb.firstElementChild.src = $('img', f).src; lb.classList.add('on'); });
+  lb.onclick = () => lb.classList.remove('on');
+  addEventListener('keydown', e => { if (e.key === 'Escape') { lb.classList.remove('on'); drawer.classList.remove('open'); } });
+
+  /* ---- lead form (demo) ---- */
+  $('#leadForm').addEventListener('submit', e => {
+    e.preventDefault(); const f = e.currentTarget;
+    const bad = [...f.querySelectorAll('[required]')].find(i => i.type === 'checkbox' ? !i.checked : !i.value.trim());
+    if (bad) { bad.focus(); (bad.closest('.fl') || bad).animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-6px)' }, { transform: 'translateX(6px)' }, { transform: 'translateX(0)' }], { duration: 300 }); return; }
+    f.classList.add('done');
+  });
+})();
+</script>
+</body>
+</html>

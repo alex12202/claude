@@ -1,0 +1,86 @@
+/*
+Theme Name: Bromar
+Theme URI: https://bromar.sk/
+Description: Child téma pre BROMAR s. r. o. (tieniaca technika) postavená na šablóne Domi. Neutrálna paleta (kriedová, béžová, antracit, tmavomodrá) s červeným akcentom z loga.
+Author: BROMAR s. r. o.
+Template: domi
+Version: 1.0.0
+Requires at least: 5.5
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: bromar
+*/
+
+/* =Paleta BROMAR
+   Rovnaké hodnoty sú nastavené aj ako predvolená farebná schéma Domi (functions.php),
+   takže Customizer a Elementor ich prevezmú. Tu sú pre vlastné CSS triedy.
+------------------------------------------------------------ */
+:root {
+	--bm-bg: #f5f2ed;      /* kriedová – pozadie */
+	--bm-paper: #fbfaf7;   /* karty, formuláre */
+	--bm-sand: #e9e2d7;    /* béžová – striedanie sekcií */
+	--bm-stone: #cfc6b8;   /* greige – linky */
+	--bm-taupe: #8c8377;   /* doplnkový text */
+	--bm-text: #4a4d52;    /* bežný text */
+	--bm-anth: #2e3136;    /* antracit */
+	--bm-navy: #1c2a3e;    /* tmavomodrá */
+	--bm-red: #b5302a;     /* akcent z loga – iba tlačidlá a detaily */
+	--bm-red-dark: #962620;
+	--bm-ease: cubic-bezier(.22, .8, .2, 1);
+}
+
+/* =CSS triedy pre Elementor (Advanced → CSS Classes)
+------------------------------------------------------------ */
+.bm-section-cream { background-color: var(--bm-bg); }
+.bm-section-paper { background-color: var(--bm-paper); }
+.bm-section-sand  { background-color: var(--bm-sand); }
+.bm-section-navy  { background-color: var(--bm-navy); color: #c9d1dc; }
+.bm-section-navy h1, .bm-section-navy h2, .bm-section-navy h3, .bm-section-navy h4 { color: #fff; }
+
+/* malý nadpis nad titulkom s červenou čiarkou */
+.bm-eyebrow, .bm-eyebrow .elementor-heading-title {
+	display: inline-flex; align-items: center; gap: 10px;
+	font: 600 12px/1 "Inter", sans-serif; letter-spacing: .18em; text-transform: uppercase;
+	color: var(--bm-taupe);
+}
+.bm-eyebrow .elementor-heading-title::before, .bm-eyebrow:not(.elementor-widget)::before {
+	content: ""; width: 26px; height: 2px; background: var(--bm-red); border-radius: 2px;
+}
+
+/* tlačidlo s červeným „prelivom“ pri hoveri (na Elementor Button widget) */
+.bm-btn .elementor-button, a.bm-btn {
+	position: relative; overflow: hidden; isolation: isolate; border-radius: 999px;
+	background: var(--bm-navy); color: #fff;
+	transition: transform .35s var(--bm-ease), box-shadow .35s var(--bm-ease);
+}
+.bm-btn .elementor-button::after, a.bm-btn::after {
+	content: ""; position: absolute; inset: 0; z-index: -1; background: var(--bm-red);
+	transform: translateY(101%); transition: transform .45s var(--bm-ease);
+}
+.bm-btn .elementor-button:hover::after, a.bm-btn:hover::after { transform: none; }
+.bm-btn .elementor-button:hover, a.bm-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -12px rgba(181, 48, 42, .55); }
+.bm-btn-red .elementor-button { background: var(--bm-red); }
+
+/* karta produktu (Elementor kontajner s obrázkom) */
+.bm-card { background: var(--bm-paper); border-radius: 18px; overflow: hidden; transition: transform .5s var(--bm-ease), box-shadow .5s var(--bm-ease); }
+.bm-card:hover { transform: translateY(-6px); box-shadow: 0 18px 50px -24px rgba(28, 42, 62, .35); }
+.bm-card img { transition: transform 1.2s var(--bm-ease); }
+.bm-card:hover img { transform: scale(1.07); }
+
+/* zobrazenie pri scrollovaní – pridaj triedu bm-rv (voliteľne bm-d1 … bm-d4 pre oneskorenie) */
+.bm-rv { opacity: 0; transform: translateY(40px); transition: opacity 1s var(--bm-ease), transform 1s var(--bm-ease); }
+.bm-rv.is-in { opacity: 1; transform: none; }
+.bm-d1 { transition-delay: .08s; } .bm-d2 { transition-delay: .16s; } .bm-d3 { transition-delay: .24s; } .bm-d4 { transition-delay: .32s; }
+.elementor-editor-active .bm-rv { opacity: 1; transform: none; }
+
+/* Ken Burns na pozadí sekcie / slidera – trieda bm-kenburns na sekciu s obrázkom na pozadí */
+.bm-kenburns { overflow: hidden; }
+.bm-kenburns > .elementor-background-overlay,
+.bm-kenburns .elementor-background-slideshow__slide__image { animation: bm-kb 12s linear infinite alternate; }
+@keyframes bm-kb { from { transform: scale(1.02); } to { transform: scale(1.14) translate(-2%, -1%); } }
+
+@media (prefers-reduced-motion: reduce) {
+	.bm-rv { opacity: 1; transform: none; transition: none; }
+	.bm-kenburns * { animation: none !important; }
+}

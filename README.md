@@ -1,5 +1,7 @@
 # DANORA – e-shop s bižutériou
 
+> V repozitári je aj návrh webu **BROMAR** (tieniaca technika, šablóna Domi) → [`bromar/`](bromar/README.md)
+
 Dizajn a WordPress child téma pre e-shop **DANORA** postavený na šablóne **Luxrio** (WooCommerce + Elementor).
 
 - **Náhľad návrhu homepage:** `design/danora-homepage.html` (otvor v prehliadači). Vpravo dole je panel na prepnutie variantu **so zlatou / bez zlatej** a podtitulu **Bižutéria a doplnky / Jewelry & Accessories / Collection**.
