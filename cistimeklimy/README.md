@@ -9,15 +9,15 @@ Návrh webu pre čistenie klimatizácií (a novo aj radiátorov), doména **cist
 ## Sekcie homepage (poradie)
 
 1. Hlavička – logo, menu, telefón
-2. Hero so **sliderom** (obrázky sa striedajú a pomaly približujú) + odznak **99,9 % baktérií a plesní**
+2. Hero – **slider cez celú sekciu** (obrázky sa striedajú a pomaly približujú), vľavo tmavý overlay kvôli čitateľnosti textu, odznak **99,9 % baktérií a plesní**; sekundárne tlačidlá sú oranžové
 3. Čierny pás výhod (bez plesní, zásah do 60 min, Bratislava a okolie, odborníci)
 4. **Prečo čistiť** – interaktívne porovnanie *pred / po* (posúvač) + zoznam rizík
 5. **Nestačí vyčistiť len filtre** – filter vs. rotor
 6. Služby (nástenné, kazetové/kanálové, dezinfekcia, **radiátory – nové**)
-7. **Ako prebieha čistenie** – 4 kroky + fotky pred / po „Rozdiel, ktorý je vidieť“
+7. **Ako prebieha čistenie** – 4 kroky s ikonkami (lupa, rozobratá jednotka, sprej, test) + fotky pred / po „Rozdiel, ktorý je vidieť“
 8. **Kedy je čas na čistenie / Ako často čistiť**
 9. **Referencie**
-10. **Mapa pôsobnosti** (Bratislava a okolie) + rýchla objednávka
+10. **Mapa pôsobnosti** (Bratislava a okolie, statický špendlík) + rýchla objednávka
 11. **Pás nad pätičkou** (CTA) a **pätička**
 
 ## Farby (z loga)
@@ -45,7 +45,7 @@ Text: **Manrope**. Ak grafik povie presný názov písma z loga, stačí zmeniť
 
 ## Čo treba doplniť pred spustením
 
-- **Fotky:** obrázky v `assets/img/` sú len zástupné (vystrihnuté z referenčných návrhov, nízke rozlíšenie). Treba vlastné fotky z realizácií – ideálne rovnaký uhol pred a po čistení (pre posúvač).
+- **Fotky:** obrázky v `assets/img/` sú len zástupné – vystrihnuté z referenčných návrhov a 4× zväčšené cez AI (Real-ESRGAN). Na technikovom tričku je ešte logo z referenčného návrhu. Treba vlastné fotky z realizácií – ideálne rovnaký uhol pred a po čistení (pre posúvač).
 - **Referencie:** texty a mená sú ukážkové – nahradiť skutočnými recenziami (Google).
 - **Telefón, e-mail, otváracie hodiny, oblasť** – overiť s klientom.
 - **Formulár** v návrhu nič neodosiela – na webe sa napojí na e-mail (napr. Contact Form 7 / WPForms).

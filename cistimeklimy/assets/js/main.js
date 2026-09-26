@@ -13,11 +13,12 @@
     });
   }
 
-  // Hero slider – obrázky sa striedajú a pomaly „dýchajú“
+  // Hero slider cez celú sekciu – obrázky sa striedajú a pomaly približujú
   var slider = document.querySelector('[data-slider]');
   if (slider) {
     var slides = slider.querySelectorAll('.slide');
     var dotsBox = slider.querySelector('.slider-dots');
+    var caption = slider.querySelector('.slide-caption');
     var i = 0, timer = null;
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var dots = Array.prototype.map.call(slides, function (s, n) {
@@ -34,15 +35,14 @@
       i = (n + slides.length) % slides.length;
       slides[i].classList.add('is-active');
       dots[i].setAttribute('aria-current', 'true');
+      if (caption) caption.textContent = slides[i].getAttribute('data-caption') || '';
     }
     function restart() {
       clearInterval(timer);
-      if (!reduce) timer = setInterval(function () { go(i + 1); }, 5200);
+      if (!reduce) timer = setInterval(function () { go(i + 1); }, 5500);
     }
     go(0);
     restart();
-    slider.addEventListener('mouseenter', function () { clearInterval(timer); });
-    slider.addEventListener('mouseleave', restart);
   }
 
   // Porovnanie pred / po (ťahanie posúvačom)
