@@ -34,15 +34,17 @@
 <!-- HERO: slider cez celú sekciu -->
 <section class="hero" data-slider aria-roledescription="slider" aria-label="Ukážky našej práce">
   <div class="hero-slides">
-    <figure class="slide" data-caption="Hĺbkové čistenie priamo u vás doma" style="--focus: 62% 40%"><img src="assets/img/tech.webp" alt="Technik čistí nástennú klimatizáciu"></figure>
-    <figure class="slide" data-caption="Takto vyzerá výmenník po dvoch rokoch bez čistenia" style="--focus: 50% 50%"><img src="assets/img/coil-dirty.webp" alt="Zanesený výmenník klimatizácie"></figure>
-    <figure class="slide" data-caption="Ventilátor, cez ktorý prechádza vzduch, ktorý dýchate" style="--focus: 50% 55%"><img src="assets/img/rotor.webp" alt="Ventilátor klimatizácie plný nečistôt"></figure>
-    <figure class="slide" data-caption="A takto po našom čistení" style="--focus: 50% 50%"><img src="assets/img/coil-clean.webp" alt="Vyčistený výmenník klimatizácie"></figure>
+    <figure class="slide" data-caption="Čistý vzduch pre celú domácnosť" data-title="Dýchajte doma &lt;em&gt;čistý vzduch&lt;/em&gt;, nie prach a plesne" style="--focus: 60% 45%"><img src="assets/img/hero-home.webp" srcset="assets/img/hero-home-m.webp 960w, assets/img/hero-home.webp 1920w" sizes="100vw" alt="Pár odpočíva na gauči pod klimatizáciou"></figure>
+    <figure class="slide" data-caption="Hĺbkové čistenie priamo u vás doma" data-title="Rozoberieme, vyčistíme a &lt;em&gt;vydezinfikujeme&lt;/em&gt;" style="--focus: 50% 35%"><img src="assets/img/hero-technik.webp" srcset="assets/img/hero-technik-m.webp 960w, assets/img/hero-technik.webp 1920w" sizes="100vw" alt="Technik otvára nástennú klimatizáciu"></figure>
+    <figure class="slide" data-caption="Svieži vzduch hneď po prvom zapnutí" data-title="Cítite ten rozdiel? &lt;em&gt;Svieži vzduch&lt;/em&gt; bez zápachu" style="--focus: 55% 45%"><img src="assets/img/hero-fresh.webp" srcset="assets/img/hero-fresh-m.webp 960w, assets/img/hero-fresh.webp 1920w" sizes="100vw" alt="Ruka pod prúdom vzduchu z klimatizácie"></figure>
+    <figure class="slide" data-caption="Vyčistená klimatizácia chladí rýchlejšie" data-title="Nižšia spotreba, &lt;em&gt;tichší chod&lt;/em&gt;, dlhšia životnosť" style="--focus: 60% 40%"><img src="assets/img/hero-remote.webp" srcset="assets/img/hero-remote-m.webp 960w, assets/img/hero-remote.webp 1920w" sizes="100vw" alt="Muž zapína klimatizáciu ovládačom"></figure>
   </div>
+  <canvas class="hero-air" aria-hidden="true"></canvas>
+  <div class="louvers" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <span class="tagline">Čistý vzduch v každom ročnom období</span>
-      <h1>Klimatizácia, ktorá fúka <em>čistý vzduch</em>, nie prach a plesne</h1>
+      <h1 class="hero-title">Dýchajte doma <em>čistý vzduch</em>, nie prach a plesne</h1>
       <p class="lead">Rozoberieme jednotku, vyčistíme výmenník aj ventilátor a vydezinfikujeme ju. Pracujeme v Bratislave a okolí, na objednávku prídeme do 60 minút.</p>
       <div class="hero-actions">
         <a class="btn" href="#kontakt"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Objednať čistenie</span></a>
@@ -121,15 +123,15 @@
     </div>
     <div class="vs rv">
       <figure>
-        <div class="cap-top">Filter<br>pred čistením</div>
+        <div class="cap-top">Filter<br>vidíte ho</div>
         <img src="assets/img/filter.webp" alt="Zanesený filter klimatizácie">
-        <figcaption>Zachytáva prach a nečistoty zo vzduchu.</figcaption>
+        <figcaption>Zachytí prach zo vzduchu. Opláchnuť ho zvládnete aj sami.</figcaption>
       </figure>
-      <span class="vs-mark">VS</span>
+      <span class="vs-mark" aria-hidden="true">+</span>
       <figure>
-        <div class="cap-top">Rotor (ventilátor)<br>pred čistením</div>
+        <div class="cap-top">Ventilátor<br>skrytý vo vnútri</div>
         <img src="assets/img/rotor.webp" alt="Zanesený rotor ventilátora">
-        <figcaption>Vo vnútri jednotky sa hromadia baktérie, plesne a biofilm.</figcaption>
+        <figcaption>Bez rozobratia sa k nemu nedostanete. Tu sa hromadia baktérie, plesne a biofilm.</figcaption>
       </figure>
     </div>
   </div>

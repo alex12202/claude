@@ -15,36 +15,111 @@
     });
   }
 
-  // Hero slider cez celú sekciu – obrázky sa striedajú a pomaly približujú
+  // Hero slider cez celú sekciu – šikmý prechod snímok, nadpis sa mení so snímkou
   var slider = document.querySelector('[data-slider]');
   if (slider) {
     var slides = slider.querySelectorAll('.slide');
     var dotsBox = slider.querySelector('.slider-dots');
     var caption = slider.querySelector('.slide-caption');
-    var i = 0, timer = null;
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var title = slider.querySelector('.hero-title');
+    var DUR = 6500, i = -1, timer = null;
+    dotsBox.style.setProperty('--dur', DUR + 'ms');
     var dots = Array.prototype.map.call(slides, function (s, n) {
       var b = document.createElement('button');
       b.type = 'button';
       b.setAttribute('aria-label', 'Snímka ' + (n + 1));
-      b.addEventListener('click', function () { go(n); restart(); });
+      b.addEventListener('click', function () { if (n !== i) { go(n, true); restart(); } });
       dotsBox.appendChild(b);
       return b;
     });
-    function go(n) {
-      slides[i].classList.remove('is-active');
-      dots[i].removeAttribute('aria-current');
+    var setTitle = function (html) {
+      if (!title || !html) return;
+      var tmp = document.createElement('div'); tmp.innerHTML = html;
+      var out = [], k = 0;
+      tmp.childNodes.forEach(function (node) {
+        var isEm = node.nodeName === 'EM';
+        node.textContent.split(/(\s+)/).forEach(function (part) {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { out.push(' '); return; }
+          var w = '<span class="w"><span style="--k:' + (k++) + '">' + part + '</span></span>';
+          out.push(isEm ? '<em>' + w + '</em>' : w);
+        });
+      });
+      title.innerHTML = out.join('');
+    };
+    function go(n, animate) {
+      var prev = i;
       i = (n + slides.length) % slides.length;
-      slides[i].classList.add('is-active');
-      dots[i].setAttribute('aria-current', 'true');
+      slides.forEach(function (s, m) {
+        s.classList.toggle('is-active', m === i);
+        s.classList.toggle('is-prev', m === prev && prev !== i);
+        s.classList.remove('wipe');
+      });
+      if (animate && !reduceMotion) { void slides[i].offsetWidth; slides[i].classList.add('wipe'); }
+      dots.forEach(function (d, m) { if (m === i) d.setAttribute('aria-current', 'true'); else d.removeAttribute('aria-current'); });
       if (caption) caption.textContent = slides[i].getAttribute('data-caption') || '';
+      if (animate) setTitle(slides[i].getAttribute('data-title'));
     }
     function restart() {
       clearInterval(timer);
-      if (!reduce) timer = setInterval(function () { go(i + 1); }, 5500);
+      if (!reduceMotion) timer = setInterval(function () { go(i + 1, true); }, DUR);
     }
-    go(0);
+    go(0, false);
+    if (!reduceMotion) setTitle(slides[0].getAttribute('data-title'));
     restart();
+
+    // intro lamely – po otvorení ich skryť
+    var louvers = slider.querySelector('.louvers');
+    if (louvers) setTimeout(function () { louvers.classList.add('done'); }, 1500);
+
+    // prúdy chladného vzduchu
+    var cv = slider.querySelector('.hero-air');
+    if (cv && cv.getContext && !reduceMotion) {
+      var ctx = cv.getContext('2d'), W = 0, H = 0, dpr = Math.min(2, window.devicePixelRatio || 1), streaks = [], visible = true;
+      var resize = function () {
+        W = cv.clientWidth; H = cv.clientHeight;
+        cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      };
+      var spawn = function (s, fresh) {
+        s.x = fresh ? Math.random() * W : W + Math.random() * W * .3;
+        s.y = Math.random() * H * .85;
+        s.len = 60 + Math.random() * 160;
+        s.v = .6 + Math.random() * 1.4;
+        s.a = .05 + Math.random() * .12;
+        s.phase = Math.random() * Math.PI * 2;
+        s.amp = 6 + Math.random() * 18;
+        return s;
+      };
+      resize();
+      for (var n = 0; n < 38; n++) streaks.push(spawn({}, true));
+      window.addEventListener('resize', resize);
+      new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }).observe(slider);
+      var t = 0;
+      var draw = function () {
+        requestAnimationFrame(draw);
+        if (!visible) return;
+        t += 0.016;
+        ctx.clearRect(0, 0, W, H);
+        ctx.lineCap = 'round';
+        streaks.forEach(function (s) {
+          s.x -= s.v * 2.2; s.y += s.v * .35;
+          if (s.x + s.len < 0 || s.y > H) spawn(s, false);
+          ctx.beginPath();
+          for (var q = 0; q <= 10; q++) {
+            var px = s.x + (q / 10) * s.len;
+            var py = s.y + Math.sin(px / 140 + s.phase + t) * s.amp;
+            if (q === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+          }
+          var g = ctx.createLinearGradient(s.x, 0, s.x + s.len, 0);
+          g.addColorStop(0, 'rgba(190,225,255,0)');
+          g.addColorStop(.5, 'rgba(190,225,255,' + s.a + ')');
+          g.addColorStop(1, 'rgba(190,225,255,0)');
+          ctx.strokeStyle = g; ctx.lineWidth = 1.6;
+          ctx.stroke();
+        });
+      };
+      requestAnimationFrame(draw);
+    }
   }
 
   // Porovnanie pred / po (ťahanie posúvačom)

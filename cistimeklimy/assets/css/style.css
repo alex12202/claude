@@ -251,8 +251,8 @@ p { margin: 0; }
 .vs figcaption { padding: 14px 18px 18px; font-size: .92rem; text-align: center; color: var(--muted); }
 .vs .vs-mark {
   position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
-  width: 64px; height: 64px; border-radius: 50%; background: var(--orange); color: #fff;
-  display: grid; place-items: center; font: italic 800 1.3rem/1 var(--f-display);
+  width: 52px; height: 52px; border-radius: 50%; background: var(--orange); color: #fff;
+  display: grid; place-items: center; font: 800 1.9rem/1 var(--f-body);
   box-shadow: 0 0 0 6px #fff; z-index: 2;
 }
 
@@ -474,7 +474,7 @@ p { margin: 0; }
   .panel-when { grid-template-columns: 1fr; }
   .panel-when img { max-width: 220px; }
   .refs-grid, .area-grid, .foot-grid, .types, .fact-row { grid-template-columns: 1fr; }
-  .vs { grid-template-columns: 1fr; }
+  .vs { grid-template-columns: 1fr; row-gap: 44px; }
   .vs .vs-mark { top: 50%; }
   .visible-diff { grid-template-columns: 1fr; }
   .perks ul { grid-template-columns: 1fr; }
@@ -525,3 +525,53 @@ p { margin: 0; }
   .anim .rv-img { clip-path: none; }
   [data-par] img { transform: none; }
 }
+
+/* ---------- hero: zaujímavejší úvod ----------
+   1) intro: lamely ako klapka klimatizácie sa otvoria a odhalia fotku
+   2) prechod snímok šikmým „stieračom“ v sklone loga
+   3) nadpis sa mení so snímkou, slová nabehnú postupne
+   4) jemné prúdy chladného vzduchu (canvas) */
+.slide { opacity: 0; transition: none; }
+.slide.is-active, .slide.is-prev { opacity: 1; }
+.slide.is-prev { z-index: 1; }
+.slide.is-active { z-index: 2; }
+.slide.is-active.wipe { animation: slideWipe 1.15s var(--ease) both; }
+@keyframes slideWipe {
+  from { clip-path: polygon(125% 0, 130% 0, 130% 100%, 105% 100%); }
+  to   { clip-path: polygon(0% 0, 130% 0, 130% 100%, -25% 100%); }
+}
+.hero-air { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; mix-blend-mode: screen; }
+
+.louvers { position: absolute; inset: 0; z-index: 6; display: grid; grid-template-rows: repeat(8, 1fr); perspective: 1200px; pointer-events: none; }
+.louvers i {
+  display: block; transform-origin: 50% 0;
+  background: linear-gradient(180deg, #f7fbff 0%, #e3eef8 70%, #c9dcee 100%);
+  box-shadow: inset 0 -2px 0 rgba(14, 44, 74, .12);
+}
+.anim .louvers i { animation: louverOpen .9s var(--ease) forwards; }
+.anim .louvers i:nth-child(2) { animation-delay: .06s; } .anim .louvers i:nth-child(3) { animation-delay: .12s; }
+.anim .louvers i:nth-child(4) { animation-delay: .18s; } .anim .louvers i:nth-child(5) { animation-delay: .24s; }
+.anim .louvers i:nth-child(6) { animation-delay: .30s; } .anim .louvers i:nth-child(7) { animation-delay: .36s; }
+.anim .louvers i:nth-child(8) { animation-delay: .42s; }
+@keyframes louverOpen { 60% { opacity: 1; } to { transform: rotateX(-92deg); opacity: 0; } }
+.louvers.done, html:not(.anim) .louvers { display: none; }
+/* obsah hero nabehne až po otvorení lamiel */
+.anim .hero-copy > * { animation-delay: calc(.55s + var(--i, 0) * .1s); }
+.anim .hero-copy > :nth-child(1) { --i: 0; } .anim .hero-copy > :nth-child(2) { --i: 1; }
+.anim .hero-copy > :nth-child(3) { --i: 2; } .anim .hero-copy > :nth-child(4) { --i: 3; }
+.anim .hero-copy > :nth-child(5) { --i: 4; }
+.anim .hero-side { animation-delay: 1s; }
+
+.hero-title .w { display: inline-block; overflow: hidden; vertical-align: bottom; padding-right: .06em; margin-right: -.06em; }
+.hero-title .w > span { display: inline-block; animation: wordUp .8s var(--ease) both; animation-delay: calc(var(--k) * 55ms); }
+@keyframes wordUp { from { transform: translateY(105%); opacity: 0; } }
+
+/* priebeh snímky v prepínačoch */
+.slider-dots button { position: relative; overflow: hidden; }
+.slider-dots button[aria-current="true"] { background: rgba(255, 255, 255, .35); }
+.slider-dots button[aria-current="true"]::after {
+  content: ""; position: absolute; inset: 0; background: var(--orange);
+  transform-origin: 0 50%; animation: dotProg var(--dur, 6s) linear forwards;
+}
+@keyframes dotProg { from { transform: scaleX(0); } }
+@media (prefers-reduced-motion: reduce) { .louvers { display: none; } .hero-air { display: none; } }

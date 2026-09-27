@@ -9,10 +9,10 @@ Návrh webu pre čistenie klimatizácií (a novo aj radiátorov), doména **cist
 ## Sekcie homepage (poradie)
 
 1. Hlavička – logo, menu, telefón
-2. Hero – **slider cez celú sekciu** (obrázky sa striedajú a pomaly približujú), vľavo tmavý overlay kvôli čitateľnosti textu, odznak **99,9 % baktérií a plesní**; sekundárne tlačidlá sú oranžové
+2. Hero – **slider cez celú sekciu** so 4 fotkami z fotobanky. Úvod: lamely ako klapka klimatizácie sa otvoria a odhalia fotku; snímky sa striedajú šikmým prechodom v sklone loga; nadpis sa mení so snímkou (slová nabehnú postupne); po fotke jemne prúdi „chladný vzduch“. Vľavo tmavý overlay kvôli čitateľnosti, odznak **99,9 %**, sekundárne tlačidlá oranžové
 3. Čierny pás výhod (bez plesní, zásah do 60 min, Bratislava a okolie, odborníci)
 4. **Prečo čistiť** – interaktívne porovnanie *pred / po* (posúvač) + zoznam rizík
-5. **Nestačí vyčistiť len filtre** – filter vs. rotor
+5. **Nestačí vyčistiť len filtre** – filter (vidíte ho) + ventilátor (skrytý vo vnútri)
 6. Služby (nástenné, kazetové/kanálové, dezinfekcia, **radiátory – nové**)
 7. **Ako prebieha čistenie** – 4 kroky s ikonkami (lupa, rozobratá jednotka, sprej, test) + fotky pred / po „Rozdiel, ktorý je vidieť“
 8. **Kedy je čas na čistenie / Ako často čistiť**
@@ -59,7 +59,7 @@ Ak grafička pozná presný názov písma loga a má naň licenciu na web, stač
 
 ## Čo treba doplniť pred spustením
 
-- **Fotky:** do úvodného slidera treba fotky z fotobanky alebo vlastné (na šírku, min. 1920 px). Obrázky v `assets/img/` sú len zástupné – vystrihnuté z referenčných návrhov a 4× zväčšené cez AI (Real-ESRGAN). Na technikovom tričku je ešte logo z referenčného návrhu. Treba vlastné fotky z realizácií – ideálne rovnaký uhol pred a po čistení (pre posúvač).
+- **Fotky:** v slideri sú fotky z fotobanky (`assets/img/hero-*.webp`, fotka s technikom je zrkadlovo otočená) – pred spustením overiť licenciu. Ostatné obrázky v `assets/img/` sú zástupné – vystrihnuté z referenčných návrhov a 4× zväčšené cez AI (Real-ESRGAN). Treba vlastné fotky z realizácií – ideálne rovnaký uhol pred a po čistení (pre posúvač).
 - **Referencie:** texty a mená sú ukážkové – nahradiť skutočnými recenziami (Google).
 - **Telefón, e-mail, otváracie hodiny, oblasť** – overiť s klientom.
 - **Formulár** v návrhu nič neodosiela – na webe sa napojí na e-mail (napr. Contact Form 7 / WPForms).
