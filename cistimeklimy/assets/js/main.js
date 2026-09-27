@@ -118,35 +118,4 @@
     };
     requestAnimationFrame(loop);
   }
-
-  // Plynulé scrollovanie kolieskom myši so zotrvačnosťou (iba počítač)
-  if (!reduceMotion && window.matchMedia('(pointer: fine)').matches) {
-    var target = window.scrollY, curY = window.scrollY, running = false;
-    var max = function () { return document.documentElement.scrollHeight - window.innerHeight; };
-    var step = function () {
-      curY += (target - curY) * 0.1;
-      if (Math.abs(target - curY) < 0.5) { curY = target; running = false; }
-      window.scrollTo(0, curY);
-      if (running) requestAnimationFrame(step);
-    };
-    var go = function () { if (!running) { running = true; requestAnimationFrame(step); } };
-    window.addEventListener('wheel', function (e) {
-      if (e.ctrlKey || e.target.closest('select, textarea')) return;
-      e.preventDefault();
-      if (!running) curY = target = window.scrollY;
-      target = Math.max(0, Math.min(max(), target + e.deltaY * (e.deltaMode === 1 ? 40 : 1)));
-      go();
-    }, { passive: false });
-    window.addEventListener('scroll', function () { if (!running) target = curY = window.scrollY; }, { passive: true });
-    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
-      a.addEventListener('click', function (e) {
-        var id = a.getAttribute('href'), el = id.length > 1 && document.querySelector(id);
-        if (!el) return;
-        e.preventDefault();
-        curY = window.scrollY;
-        target = Math.min(max(), el.getBoundingClientRect().top + window.scrollY - 84);
-        go();
-      });
-    });
-  }
 })();

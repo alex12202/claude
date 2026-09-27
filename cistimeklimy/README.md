@@ -27,7 +27,6 @@ Návrh webu pre čistenie klimatizácií (a novo aj radiátorov), doména **cist
 - **Parallax** fotiek v referenciách a pred/po
 - **Čiara postupu** v krokoch čistenia sa pri scrollovaní vyplní a kroky sa rozsvietia
 - Úvodný nábeh textu v hero a odznak **99,9 %** napočíta od nuly
-- **Plynulé scrollovanie** kolieskom myši (iba počítač)
 - Kto má v systéme zapnuté „obmedziť pohyb“, animácie nevidí; bez JavaScriptu je stránka celá viditeľná
 
 ## Farby (z loga)
