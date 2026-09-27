@@ -575,3 +575,7 @@ p { margin: 0; }
 }
 @keyframes dotProg { from { transform: scaleX(0); } }
 @media (prefers-reduced-motion: reduce) { .louvers { display: none; } .hero-air { display: none; } }
+
+/* čiara krokov ide za ikonkami, nie cez ne */
+.steps::before, .steps::after { z-index: 0; }
+.steps li { z-index: 1; }
