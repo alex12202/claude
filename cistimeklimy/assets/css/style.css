@@ -485,3 +485,43 @@ p { margin: 0; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* ---------- animácie pri scrollovaní (podľa návrhu BROMAR) ----------
+   Skrývajú sa iba vtedy, keď beží JavaScript (trieda .anim na <html>),
+   takže bez JS je stránka vždy celá viditeľná. */
+:root { --ease: cubic-bezier(.2, .7, .1, 1); }
+.anim .rv { opacity: 0; transform: translateY(40px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+.anim .rv.in { opacity: 1; transform: none; }
+.anim .rv-img { clip-path: inset(12% 12% 12% 12% round 22px); transition: clip-path 1.4s var(--ease); }
+.anim .rv-img.in { clip-path: inset(0 0 0 0 round 0); }
+.anim .d1 { transition-delay: .08s; } .anim .d2 { transition-delay: .16s; }
+.anim .d3 { transition-delay: .24s; } .anim .d4 { transition-delay: .32s; }
+
+/* úvod: text v hero nabehne postupne */
+.anim .hero-copy > * { animation: heroIn 1s var(--ease) both; }
+.anim .hero-copy > :nth-child(2) { animation-delay: .1s; }
+.anim .hero-copy > :nth-child(3) { animation-delay: .2s; }
+.anim .hero-copy > :nth-child(4) { animation-delay: .3s; }
+.anim .hero-copy > :nth-child(5) { animation-delay: .4s; }
+.anim .hero-side { animation: heroIn 1.2s .35s var(--ease) both; }
+@keyframes heroIn { from { opacity: 0; transform: translateY(28px); } }
+
+/* parallax fotiek */
+[data-par] { overflow: hidden; }
+[data-par] img { transform: scale(1.16); will-change: transform; }
+
+/* čiara postupu v krokoch sa pri scrollovaní vyplní */
+.steps { --p: 0; }
+.steps::after {
+  content: ""; position: absolute; left: 12%; top: 46px; height: 3px; border-radius: 3px;
+  width: calc(76% * var(--p)); background: linear-gradient(90deg, var(--blue), var(--orange));
+}
+.steps li .step-ico { transition: background .4s, color .4s; }
+.steps li.lit:not(:last-child) .step-ico { background: var(--blue-deep); color: #fff; }
+@media (max-width: 900px) { .steps::after { display: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim .rv { opacity: 1; transform: none; }
+  .anim .rv-img { clip-path: none; }
+  [data-par] img { transform: none; }
+}

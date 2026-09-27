@@ -20,6 +20,16 @@ Návrh webu pre čistenie klimatizácií (a novo aj radiátorov), doména **cist
 10. **Mapa pôsobnosti** (Bratislava a okolie, statický špendlík) + rýchla objednávka
 11. **Pás nad pätičkou** (CTA) a **pätička**
 
+## Animácie (podľa návrhu BROMAR)
+
+- **Postupné zobrazovanie** nadpisov, textov, kariet a krokov pri scrollovaní (s malým oneskorením medzi kartami)
+- **Odkrývanie fotiek** – porovnanie pred/po, mapa, fotky „Rozdiel, ktorý je vidieť“ sa „rozbalia“ z rámika
+- **Parallax** fotiek v referenciách a pred/po
+- **Čiara postupu** v krokoch čistenia sa pri scrollovaní vyplní a kroky sa rozsvietia
+- Úvodný nábeh textu v hero a odznak **99,9 %** napočíta od nuly
+- **Plynulé scrollovanie** kolieskom myši (iba počítač)
+- Kto má v systéme zapnuté „obmedziť pohyb“, animácie nevidí; bez JavaScriptu je stránka celá viditeľná
+
 ## Farby (z loga)
 
 | Názov | HEX | Použitie |
@@ -50,7 +60,7 @@ Ak grafička pozná presný názov písma loga a má naň licenciu na web, stač
 
 ## Čo treba doplniť pred spustením
 
-- **Fotky:** obrázky v `assets/img/` sú len zástupné – vystrihnuté z referenčných návrhov a 4× zväčšené cez AI (Real-ESRGAN). Na technikovom tričku je ešte logo z referenčného návrhu. Treba vlastné fotky z realizácií – ideálne rovnaký uhol pred a po čistení (pre posúvač).
+- **Fotky:** do úvodného slidera treba fotky z fotobanky alebo vlastné (na šírku, min. 1920 px). Obrázky v `assets/img/` sú len zástupné – vystrihnuté z referenčných návrhov a 4× zväčšené cez AI (Real-ESRGAN). Na technikovom tričku je ešte logo z referenčného návrhu. Treba vlastné fotky z realizácií – ideálne rovnaký uhol pred a po čistení (pre posúvač).
 - **Referencie:** texty a mená sú ukážkové – nahradiť skutočnými recenziami (Google).
 - **Telefón, e-mail, otváracie hodiny, oblasť** – overiť s klientom.
 - **Formulár** v návrhu nič neodosiela – na webe sa napojí na e-mail (napr. Contact Form 7 / WPForms).
