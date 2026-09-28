@@ -10,7 +10,7 @@ Klikateľný návrh e-shopu s orechmi, lyofilizovaným ovocím a sušenou zeleni
 
 Štruktúra podľa šablóny Getstall (Elementor kit): slider hore, kruhové kategórie, akciové bannery, vybrané produkty, veľký banner s výzvou.
 
-1. **Slider hore** so 4 ponukami: jahody 6,90 €, 2 + 1 zdarma, darček od 30 € (živý stav košíka), vlašské orechy XXL 1 kg. Mení sa sám každých 6,5 s, pri prejdení myšou zastaví, má šípky, tlačidlo pauzy, potiahnutie prstom a popisy ponúk.
+1. **Slider hore z bannerov cez celú šírku obrazovky** (5 fotiek s textom a cenou): všetky dobroty od 0,99 €, 2 + 1 na ovocie, orechy XXL 1 kg za 22,69 €, sušená zelenina od 2,49 €, darček od 30 € (živý stav košíka). Mení sa sám každých 6,5 s s pomalým priblížením fotky, pri prejdení myšou zastaví, má šípky, pauzu, posun prstom a popisy ponúk. Fotky sú vyrezané z dodaného obrázka (`assets/banners/`), na spustenie ich treba nahradiť skutočnými fotkami v šírke aspoň 1920 px.
 2. **Pás s darčekom** pod sliderom: koľko chýba do ďalšieho darčeka, s ukazovateľom.
 3. **Kategórie v kruhoch** s cenou „od“.
 4. **Akciové bannery:** 2 + 1 zdarma, XXL −35 %, vzorky od 0,99 €, darček zdarma (živý stav).
