@@ -131,7 +131,8 @@
   });
 
   // Formulár objednávky – v návrhu iba potvrdenie na stránke
-  document.querySelectorAll('form[data-order]').forEach(function (form) {
+  // (vo WordPress téme formulár odosiela server – tu len pre statický náhľad s data-demo)
+  document.querySelectorAll('form[data-order][data-demo]').forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var ok = form.querySelector('.form-ok');

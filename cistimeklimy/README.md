@@ -5,6 +5,7 @@ Návrh webu pre čistenie klimatizácií (a novo aj radiátorov), doména **cist
 - **Homepage:** `index.html` (otvor v prehliadači)
 - **Podstránka:** `radiatory.html` – čistenie zaprášených radiátorov / vykurovacích telies
 - **Náhľady:** `previews/` (desktop 1440 px, mobil 390 px)
+- **WordPress téma:** `wordpress/` – hotový ZIP `wordpress/dist/cistimeklimy.zip`, návod na spustenie na Websupporte a nasadenie cez SSH v `wordpress/README.md`
 
 ## Sekcie homepage (poradie)
 
