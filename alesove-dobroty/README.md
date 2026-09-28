@@ -2,7 +2,26 @@
 
 Klikateľný návrh e-shopu s orechmi, lyofilizovaným ovocím a sušenou zeleninou. Otvor `index.html` v prehliadači.
 
-## Čo návrh ukazuje
+- `index.html` – úvodná stránka
+- `obchod.html` – obchod s filtrami
+- `assets/app.css`, `assets/app.js` – spoločný vzhľad, produkty, košík, darčeky a rýchly náhľad (košík sa prenáša medzi stránkami)
+
+## Úvodná stránka
+
+Štruktúra podľa šablóny Getstall (Elementor kit): slider hore, kruhové kategórie, akciové bannery, vybrané produkty, veľký banner s výzvou.
+
+1. **Slider hore** so 4 ponukami: jahody 6,90 €, 2 + 1 zdarma, darček od 30 € (živý stav košíka), vlašské orechy XXL 1 kg. Mení sa sám každých 6,5 s, pri prejdení myšou zastaví, má šípky, tlačidlo pauzy, potiahnutie prstom a popisy ponúk.
+2. **Pás s darčekom** pod sliderom: koľko chýba do ďalšieho darčeka, s ukazovateľom.
+3. **Kategórie v kruhoch** s cenou „od“.
+4. **Akciové bannery:** 2 + 1 zdarma, XXL −35 %, vzorky od 0,99 €, darček zdarma (živý stav).
+5. **Produkty so záložkami:** Najpredávanejšie, Akcia 2 + 1, Orechy, Do 3 €, Novinky. Posúvanie šípkami, rýchly náhľad pri prejdení myšou.
+6. **Ponuka týždňa** s odpočítavaním do nedele 23:59 a stavom zásob.
+7. **Výhodné balíčky** (raňajkový, športový, kuchynský) s úsporou oproti jednotlivým vreckám.
+8. **Darčeky podľa sumy**, pôvod, postup výroby, newsletter −10 %, výhody (faktúra, eKasa, platba, doručenie).
+
+V hlavičke je na každej stránke políčko „Ešte X € do darčeka“ s ukazovateľom. V košíku je ukazovateľ s troma hranicami (30 €, 50 €, 80 €), získané darčeky sa zobrazia ako položky za 0,00 € a pri prekročení hranice vyskočí oznam.
+
+## Obchod
 
 - **Cena je hlavný nadpis.** Na úvode je veľká cena produktu (jahody 100 g za 6,90 €), cena za 10 g, akcia 2 + 1 a štyri cenové skratky: vzorky od 0,99 €, 2 + 1 zdarma, XXL orechy od 1,81 € / 100 g, 0 g pridaného cukru.
 - **Rýchly náhľad (obraz v obraze).** Na počítači stačí prejsť myšou po produkte a vedľa neho sa otvorí malé okno s fotkou, pôvodom, výberom gramáže, počtom kusov a tlačidlom *Pridať do košíka*. Na mobile sa po ťuknutí vysunie zospodu.
