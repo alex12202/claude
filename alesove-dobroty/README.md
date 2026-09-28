@@ -33,7 +33,7 @@ V hlavičke je na každej stránke políčko „Ešte X € do darčeka“ s uka
 - **Pôvod:** každý produkt z inej krajiny (mango a banány z Ugandy, vlašské orechy z Uzbekistanu…).
 - **Automatická faktúra a eKasa** sú uvedené pri košíku a v sekcii výhod.
 - Produkty bez rámčekov: fotka vrecka stojí na farebnej škvrne vo farbe ovocia alebo orecha, každá má iný tvar.
-- Prírodné zemité farby (kraft papier, orech, zelený list, jahodová červená na ceny), svetlý aj tmavý režim.
+- Prírodné zemité farby (kraft papier, orech, zelený list, jahodová červená na ceny). Iba svetlý režim.
 
 ## Čo je len ukážka
 

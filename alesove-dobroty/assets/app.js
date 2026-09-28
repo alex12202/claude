@@ -106,9 +106,6 @@ if (top) top.outerHTML = `
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       <input id="q" type="search" placeholder="Hľadaj: jahody, kešu, mango…" autocomplete="off">
     </label>
-    <button class="theme-t" id="themeT" type="button" aria-label="Prepnúť svetlý a tmavý režim">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-    </button>
     <button class="gift-pill" id="giftPill" type="button" aria-label="Otvoriť košík a zobraziť darčeky">
       ${ICON_GIFT}<span><span data-gift-short>Darček od 30 €</span><span class="mini"><i data-gift-fill></i></span></span>
     </button>
@@ -394,11 +391,7 @@ document.addEventListener('click', e => {
   if (e.target.closest('[data-open-cart]')) openCart();
 });
 
-/* ================= THEME + SEARCH ================= */
-$('#themeT').addEventListener('click', () => {
-  const r = document.documentElement, cur = r.dataset.theme || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
-  r.dataset.theme = cur === 'dark' ? 'light' : 'dark';
-});
+/* ================= SEARCH ================= */
 if (page !== 'shop') {
   $('#q').addEventListener('keydown', e => { if (e.key==='Enter') { const v = e.target.value.trim().toLowerCase(); const m = P.find(p=>(p.name+' '+p.kind).toLowerCase().includes(v)); location.href = 'obchod.html' + (m ? '#p-'+m.id : ''); } });
 }
