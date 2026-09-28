@@ -23,7 +23,7 @@ V hlavičke je na každej stránke políčko „Ešte X € do darčeka“ s uka
 
 ## Obchod
 
-- **Cena je hlavný nadpis.** Na úvode je veľká cena produktu (jahody 100 g za 6,90 €), cena za 10 g, akcia 2 + 1 a štyri cenové skratky: vzorky od 0,99 €, 2 + 1 zdarma, XXL orechy od 1,81 € / 100 g, 0 g pridaného cukru.
+- **Cena je najväčší prvok** na kartách produktov aj v slidri, pri každom produkte je aj cena za 100 g.
 - **Rýchly náhľad (obraz v obraze).** Na počítači stačí prejsť myšou po produkte a vedľa neho sa otvorí malé okno s fotkou, pôvodom, výberom gramáže, počtom kusov a tlačidlom *Pridať do košíka*. Na mobile sa po ťuknutí vysunie zospodu.
 - **Kategórie a podkategórie.** Ovocie (lyofilizované, sušené, čerstvé sezónne), Orechy (natural, v čokoláde), Zelenina (sušená). Menu v hlavičke sa rozbalí s produktmi a cenou „od“.
 - **Filtre na boku:** kategória, gramáž (30 g, 100 g, 250 g, 500 g, 1 kg, XXL), cena do, BIO, bez cukru, akcia 2 + 1, krajina pôvodu. Zoradenie aj podľa ceny za 100 g.
