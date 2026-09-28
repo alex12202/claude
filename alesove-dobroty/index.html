@@ -1,0 +1,929 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!--ARTIFACT-START-->
+<title>Alešove dobroty e-shop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..800,50..100&family=Figtree:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap">
+<style>
+:root{
+  --paper:#f4ede1; --paper-2:#ebe0cc; --kraft:#d6bf97; --kraft-deep:#b99a68;
+  --walnut:#34251a; --bark:#6a5140; --muted:#8a7461;
+  --leaf:#2f6b3a; --leaf-soft:#dfe8d2; --berry:#b8322a; --berry-soft:#f6ddd5;
+  --honey:#e3a43a; --honey-soft:#f8e7c4;
+  --surface:#fbf7ef; --line:rgba(52,37,26,.14); --shadow:0 18px 50px -18px rgba(52,37,26,.45);
+  --ink-on-accent:#fff;
+  --f-display:"Fraunces", Georgia, "Times New Roman", serif;
+  --f-body:"Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-hand:"Caveat", "Comic Sans MS", cursive;
+  --gutter:clamp(16px,3.5vw,40px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#1d1611; --paper-2:#261d16; --kraft:#4a3a2a; --kraft-deep:#7b6243;
+    --walnut:#f1e6d4; --bark:#d2bfa6; --muted:#a8937b;
+    --leaf:#8cc08f; --leaf-soft:#233124; --berry:#f0776a; --berry-soft:#3a201c;
+    --honey:#f0bd5e; --honey-soft:#3a2d17;
+    --surface:#2a2119; --line:rgba(241,230,212,.14); --shadow:0 18px 50px -18px rgba(0,0,0,.7);
+    --ink-on-accent:#1d1611;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1d1611; --paper-2:#261d16; --kraft:#4a3a2a; --kraft-deep:#7b6243;
+  --walnut:#f1e6d4; --bark:#d2bfa6; --muted:#a8937b;
+  --leaf:#8cc08f; --leaf-soft:#233124; --berry:#f0776a; --berry-soft:#3a201c;
+  --honey:#f0bd5e; --honey-soft:#3a2d17;
+  --surface:#2a2119; --line:rgba(241,230,212,.14); --shadow:0 18px 50px -18px rgba(0,0,0,.7);
+  --ink-on-accent:#1d1611;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--walnut);font:16px/1.55 var(--f-body);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--leaf);outline-offset:3px;border-radius:6px}
+[hidden]{display:none!important}
+.wrap{max-width:1280px;margin-inline:auto;padding-inline:var(--gutter)}
+.price{font-family:var(--f-display);font-variation-settings:"SOFT" 100;font-weight:750;font-variant-numeric:tabular-nums lining-nums;letter-spacing:-.01em}
+.hand{font-family:var(--f-hand);font-weight:700}
+.eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--leaf)}
+h1,h2,h3{font-family:var(--f-display);font-variation-settings:"SOFT" 100;text-wrap:balance;margin:0;line-height:1.08}
+h2{font-size:clamp(1.7rem,3.2vw,2.6rem);font-weight:650}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;border:0;border-radius:999px;padding:.8em 1.4em;font-weight:700;background:var(--walnut);color:var(--paper);text-decoration:none;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.berry{background:var(--berry);color:var(--ink-on-accent)}
+.btn.ghost{background:transparent;color:var(--walnut);box-shadow:inset 0 0 0 1.5px var(--walnut)}
+.btn svg{width:18px;height:18px}
+
+/* promo line */
+.promo{background:var(--leaf);color:#fff}
+:root[data-theme="dark"] .promo{color:#10200f}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .promo{color:#10200f}}
+.promo .wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:.3em 2em;padding-block:.5em;font-size:.86rem;font-weight:600}
+.promo b{font-weight:800}
+
+/* header */
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:clamp(12px,2vw,28px);padding-block:.6rem}
+.logo{display:flex;align-items:center;gap:.7rem;text-decoration:none;flex:none}
+.logo img{width:58px;height:58px;border-radius:50%;box-shadow:0 0 0 2px var(--kraft)}
+.logo span{font-family:var(--f-hand);font-size:1.7rem;line-height:.9;color:var(--walnut)}
+.logo small{display:block;font-family:var(--f-body);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--leaf);font-weight:700}
+.search{flex:1;display:flex;align-items:center;gap:.5rem;background:var(--surface);border-radius:999px;padding:.55rem 1rem;box-shadow:inset 0 0 0 1px var(--line);min-width:0}
+.search input{border:0;background:transparent;outline:0;width:100%;min-width:0}
+.search svg{width:18px;height:18px;color:var(--muted);flex:none}
+.cart-btn{display:flex;align-items:center;gap:.6rem;border:0;background:var(--walnut);color:var(--paper);border-radius:999px;padding:.45rem .5rem .45rem 1rem;font-weight:700;flex:none}
+.cart-btn .sum{font-family:var(--f-display);font-variant-numeric:tabular-nums}
+.cart-btn .count{background:var(--berry);color:var(--ink-on-accent);border-radius:999px;min-width:28px;height:28px;display:grid;place-items:center;font-size:.85rem}
+.theme-t{border:0;background:transparent;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;flex:none}
+.theme-t svg{width:20px;height:20px}
+nav.cats{display:flex;gap:.2rem;overflow-x:auto;scrollbar-width:none;padding-bottom:.35rem}
+nav.cats::-webkit-scrollbar{display:none}
+.cat{position:relative}
+.cat>button{border:0;background:transparent;padding:.45rem .8rem;border-radius:999px;font-weight:600;white-space:nowrap;display:flex;align-items:center;gap:.35em}
+.cat>button:hover,.cat.open>button{background:var(--paper-2)}
+.cat>button.hot{color:var(--berry)}
+.cat>button .n{font-size:.75rem;color:var(--muted);font-weight:500}
+.mega{position:fixed;left:50%;transform:translateX(-50%);width:min(880px,calc(100vw - 32px));background:var(--surface);border-radius:22px;box-shadow:var(--shadow);padding:1.4rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1.2rem;z-index:50}
+.mega h4{margin:0 0 .5rem;font-family:var(--f-display);font-size:1.05rem}
+.mega ul{list-style:none;margin:0;padding:0;display:grid;gap:.3rem}
+.mega li button{border:0;background:none;padding:0;text-align:left;color:var(--bark)}
+.mega li button:hover{color:var(--berry);text-decoration:underline}
+.mega .soon{color:var(--muted);font-size:.85rem}
+
+/* hero */
+.hero{position:relative;overflow:hidden}
+.hero .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(20px,4vw,60px);align-items:center;padding-block:clamp(28px,5vw,64px) clamp(20px,3vw,40px)}
+.hero-copy .eyebrow{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
+.tag{display:inline-flex;align-items:center;gap:.3em;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:.25em .6em;border-radius:999px}
+.tag.bio{background:var(--leaf-soft);color:var(--leaf)}
+.tag.deal{background:var(--honey);color:#2a1c05}
+.tag.nosugar{background:var(--berry-soft);color:var(--berry)}
+.hero h1{font-size:clamp(1.5rem,2.6vw,2.1rem);font-weight:600;margin-top:.8rem;color:var(--bark)}
+.hero .big{display:flex;align-items:flex-end;gap:.25em;line-height:.82;margin:.1em 0 .35em;color:var(--berry)}
+.hero .big .price{font-size:clamp(5rem,15vw,11.5rem)}
+.hero .big .unit{font-family:var(--f-display);font-size:clamp(1.2rem,2.5vw,1.9rem);font-weight:600;color:var(--walnut);padding-bottom:.6em}
+.hero .per{color:var(--bark);font-size:1.05rem;max-width:34ch}
+.hero .per b{color:var(--walnut)}
+.hero .deal-line{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;margin:1.1rem 0 1.4rem}
+.hero .deal-line .hand{font-size:1.6rem;color:var(--leaf);line-height:1}
+.hero-cta{display:flex;gap:.7rem;flex-wrap:wrap}
+.hero-art{position:relative;aspect-ratio:1/1;max-width:560px;width:100%;justify-self:center}
+.blob{position:absolute;inset:6%;border-radius:47% 53% 42% 58%/55% 44% 56% 45%;background:radial-gradient(circle at 35% 30%,var(--berry-soft),transparent 70%),var(--paper-2)}
+.hero-art img{position:absolute;inset:4% 14% 0;width:72%;height:92%;object-fit:cover;object-position:top;border-radius:28px 28px 46% 46%/28px 28px 18% 18%;-webkit-mask-image:linear-gradient(#000 78%,transparent);mask-image:linear-gradient(#000 78%,transparent);filter:drop-shadow(0 30px 30px rgba(52,37,26,.35))}
+.sticker{position:absolute;background:var(--surface);border-radius:18px;padding:.6rem .9rem;box-shadow:var(--shadow);font-size:.85rem;line-height:1.3}
+.sticker .price{font-size:1.5rem;color:var(--berry);display:block}
+.sticker.s1{left:0;top:16%;transform:rotate(-4deg)}
+.sticker.s2{right:0;bottom:18%;transform:rotate(3deg)}
+.sticker.s2 .price{color:var(--leaf)}
+.leaders{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.6vw,20px);padding-bottom:clamp(28px,4vw,48px)}
+.leader{display:flex;align-items:center;gap:.8rem;text-align:left;border:0;background:var(--paper-2);border-radius:20px;padding:.8rem 1rem;color:var(--walnut)}
+.leader:hover{background:var(--kraft)}
+.leader .price{font-size:1.55rem;color:var(--berry);line-height:1}
+.leader small{display:block;color:var(--bark);font-size:.82rem;line-height:1.3}
+.leader svg{width:30px;height:30px;flex:none;color:var(--leaf)}
+
+/* gifts */
+.gifts{background:var(--walnut);color:var(--paper);border-radius:32px;padding:clamp(22px,3.5vw,40px);display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(18px,3vw,40px);align-items:center}
+.gifts h2{color:var(--paper)}
+.gifts p{color:color-mix(in srgb,var(--paper) 75%,transparent);margin:.6rem 0 0}
+.track{position:relative;padding-top:.4rem}
+.track .rail{height:10px;border-radius:99px;background:color-mix(in srgb,var(--paper) 18%,transparent);overflow:hidden}
+.track .fill{height:100%;width:0;background:linear-gradient(90deg,var(--honey),var(--berry));border-radius:99px;transition:width .5s}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:1rem}
+.tier{background:color-mix(in srgb,var(--paper) 8%,transparent);border-radius:18px;padding:.8rem .9rem;transition:background .3s}
+.tier .price{font-size:1.5rem;color:var(--honey);display:block;line-height:1.1}
+.tier span{font-size:.88rem;color:color-mix(in srgb,var(--paper) 82%,transparent)}
+.tier.got{background:var(--leaf);}
+.tier.got .price,.tier.got span{color:#fff}
+.gift-now{margin-top:.9rem;font-size:.92rem}
+.gift-now b{color:var(--honey)}
+
+/* shop */
+section{padding-block:clamp(36px,6vw,72px)}
+.shop-head{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap;margin-bottom:1.4rem}
+.shop-head p{margin:.4rem 0 0;color:var(--bark)}
+.shop{display:grid;grid-template-columns:250px 1fr;gap:clamp(20px,3vw,44px);align-items:start}
+aside.filters{position:sticky;top:150px;display:grid;gap:1.4rem;max-height:calc(100vh - 170px);overflow:auto;padding-right:.4rem}
+.fgroup h3{font-family:var(--f-body);font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem}
+.fgroup label{display:flex;align-items:center;gap:.55rem;padding:.2rem 0;cursor:pointer;font-size:.95rem}
+.fgroup label .c{margin-left:auto;color:var(--muted);font-size:.8rem;font-variant-numeric:tabular-nums}
+.fgroup .sub{padding-left:1.5rem}
+input[type=checkbox]{accent-color:var(--leaf);width:17px;height:17px}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chip{border:0;background:var(--paper-2);border-radius:999px;padding:.35rem .75rem;font-size:.85rem;font-weight:600}
+.chip[aria-pressed="true"]{background:var(--walnut);color:var(--paper)}
+.chip.xxl{font-weight:800}
+.range{display:grid;gap:.4rem}
+.range input{width:100%;accent-color:var(--berry)}
+.range .out{display:flex;justify-content:space-between;font-size:.9rem;color:var(--bark)}
+.range .out b{font-family:var(--f-display);color:var(--berry);font-size:1.1rem}
+.toolbar{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-bottom:1rem}
+.toolbar .found{color:var(--bark);font-size:.92rem}
+.toolbar select{margin-left:auto;border:0;background:var(--surface);border-radius:999px;padding:.5rem .9rem;box-shadow:inset 0 0 0 1px var(--line)}
+.fbtn{display:none}
+.active-f{display:flex;gap:.35rem;flex-wrap:wrap}
+.active-f button{border:0;background:var(--leaf-soft);color:var(--leaf);border-radius:999px;font-size:.8rem;font-weight:700;padding:.25rem .6rem}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:clamp(22px,2.6vw,36px) clamp(16px,2vw,26px)}
+.card{position:relative;display:flex;flex-direction:column;gap:.35rem;outline:0}
+.card .art{position:relative;aspect-ratio:4/4.3;border:0;padding:0;background:none;display:block;width:100%}
+.card .art::before{content:"";position:absolute;inset:12% 4% 0;border-radius:var(--r,52% 48% 44% 56%/58% 50% 50% 42%);background:var(--tint);opacity:.55;transition:transform .4s,opacity .3s}
+.card .art img{position:absolute;left:11%;top:0;width:78%;height:100%;object-fit:cover;object-position:top;border-radius:22px 22px 40% 40%/22px 22px 14% 14%;-webkit-mask-image:linear-gradient(#000 80%,transparent);mask-image:linear-gradient(#000 80%,transparent);transition:transform .35s}
+.card:hover .art img,.card:focus-within .art img{transform:translateY(-6px) rotate(-1.5deg)}
+.card:hover .art::before{transform:scale(1.06) rotate(4deg);opacity:.8}
+.card .badges{position:absolute;top:6px;left:0;display:flex;flex-direction:column;gap:.3rem;align-items:flex-start;z-index:2}
+.card .kind{font-size:.78rem;color:var(--muted);font-weight:600;display:flex;gap:.4em;align-items:center;flex-wrap:wrap}
+.card h3{font-size:1.2rem;font-weight:650}
+.card .desc{margin:0;color:var(--bark);font-size:.9rem;line-height:1.4}
+.card .buy{display:flex;align-items:flex-end;justify-content:space-between;gap:.5rem;margin-top:.3rem}
+.card .price{font-size:1.9rem;color:var(--berry);line-height:1}
+.card .p100{display:block;font-size:.78rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.card .w{font-family:var(--f-body);font-size:.85rem;font-weight:600;color:var(--bark);margin-left:.2em}
+.add{border:0;width:46px;height:46px;border-radius:50%;background:var(--walnut);color:var(--paper);display:grid;place-items:center;flex:none;transition:transform .15s,background .15s}
+.add:hover{background:var(--berry);color:var(--ink-on-accent);transform:scale(1.06)}
+.add svg{width:22px;height:22px}
+.card .wts{display:flex;gap:.3rem;flex-wrap:wrap}
+.card .wts .chip{padding:.2rem .55rem;font-size:.78rem}
+.empty{grid-column:1/-1;padding:3rem 1rem;text-align:center;color:var(--bark)}
+
+/* PiP quick view */
+.pip{position:fixed;z-index:60;width:380px;max-width:calc(100vw - 24px);background:var(--surface);border-radius:26px;box-shadow:var(--shadow),0 0 0 1px var(--line);padding:1rem;display:grid;grid-template-columns:130px 1fr;gap:.9rem;opacity:0;transform:scale(.96);transform-origin:var(--ox,left) top;transition:opacity .16s,transform .16s;pointer-events:none}
+.pip.show{opacity:1;transform:none;pointer-events:auto}
+.pip .pimg{grid-row:span 2;position:relative;border-radius:18px;overflow:hidden;background:var(--tint);aspect-ratio:3/4}
+.pip .pimg img{width:100%;height:100%;object-fit:cover;object-position:top}
+.pip .pimg .live{position:absolute;left:8px;bottom:8px;font-size:.7rem;font-weight:800;background:rgba(0,0,0,.55);color:#fff;border-radius:99px;padding:.15rem .5rem}
+.pip h3{font-size:1.2rem}
+.pip .origin{font-size:.82rem;color:var(--bark)}
+.pip p{margin:.35rem 0 0;font-size:.86rem;color:var(--bark);line-height:1.4}
+.pip .ctrl{grid-column:1/-1;display:grid;gap:.6rem}
+.pip .row{display:flex;align-items:center;gap:.6rem;justify-content:space-between;flex-wrap:wrap}
+.pip .price{font-size:2.2rem;color:var(--berry);line-height:1}
+.qty{display:flex;align-items:center;background:var(--paper-2);border-radius:999px}
+.qty button{border:0;background:none;width:36px;height:36px;font-size:1.2rem;font-weight:700}
+.qty output{min-width:1.6em;text-align:center;font-weight:700;font-variant-numeric:tabular-nums}
+.pip .close{position:absolute;top:8px;right:8px;border:0;background:var(--paper-2);width:32px;height:32px;border-radius:50%;display:none;place-items:center}
+.pip .note{font-size:.8rem;color:var(--leaf);font-weight:600}
+@media (hover:none),(max-width:760px){
+  .pip{left:0!important;right:0;top:auto!important;bottom:0;width:100%;max-width:none;border-radius:26px 26px 0 0;padding:1.1rem 16px calc(1.1rem + env(safe-area-inset-bottom,0px));transform:translateY(100%);grid-template-columns:110px 1fr}
+  .pip.show{transform:none}
+  .pip .close{display:grid}
+}
+.scrim{position:fixed;inset:0;background:rgba(20,14,9,.45);z-index:55;opacity:0;pointer-events:none;transition:opacity .2s}
+.scrim.show{opacity:1;pointer-events:auto}
+
+/* origins */
+.origins{background:var(--paper-2)}
+.origin-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin-top:1.8rem}
+.org{display:grid;grid-template-columns:auto 1fr;gap:.2rem .9rem;align-items:start;padding:1rem 0;border-top:1.5px solid var(--kraft-deep)}
+.org .flag{grid-row:span 3;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:.9rem;background:var(--surface);color:var(--leaf)}
+.org h3{font-size:1.25rem}
+.org .what{font-size:.92rem;color:var(--bark)}
+.org .geo{font-size:.78rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.disclaim{font-size:.8rem;color:var(--muted);margin-top:1rem}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,28px);margin-top:1.8rem;counter-reset:s}
+.step{counter-increment:s}
+.step::before{content:counter(s);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--leaf);color:#fff;font-family:var(--f-display);font-weight:700;margin-bottom:.7rem}
+.step h3{font-size:1.15rem;margin-bottom:.3rem}
+.step p{margin:0;color:var(--bark);font-size:.93rem}
+.step .price{color:var(--berry)}
+
+/* samples/xxl */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,24px)}
+.pane{border-radius:30px;padding:clamp(22px,3vw,36px);display:grid;gap:.6rem;align-content:start;position:relative;overflow:hidden}
+.pane.sample{background:var(--honey-soft)}
+.pane.xxl{background:var(--leaf-soft)}
+.pane .price{font-size:clamp(2.6rem,6vw,4.2rem);line-height:1;color:var(--berry)}
+.pane.xxl .price{color:var(--leaf)}
+.pane p{margin:0;color:var(--bark);max-width:42ch}
+.pane .btn{justify-self:start;margin-top:.4rem}
+.pane .hand{font-size:1.5rem;color:var(--walnut)}
+.b2b{margin-top:clamp(14px,2vw,24px);display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;border-radius:30px;padding:1.2rem clamp(22px,3vw,36px);box-shadow:inset 0 0 0 1.5px var(--kraft-deep)}
+.b2b p{margin:0;color:var(--bark)}
+
+/* trust */
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+.trust div{display:grid;gap:.25rem}
+.trust svg{width:30px;height:30px;color:var(--leaf);margin-bottom:.3rem}
+.trust b{font-size:1rem}
+.trust span{font-size:.88rem;color:var(--bark)}
+
+footer{background:var(--walnut);color:var(--paper);padding-block:2.6rem calc(2rem + env(safe-area-inset-bottom,0px));margin-top:clamp(36px,6vw,72px)}
+footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:1.6rem}
+footer h4{margin:0 0 .6rem;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--honey)}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:.35rem;font-size:.92rem;color:color-mix(in srgb,var(--paper) 78%,transparent)}
+footer .hand{font-size:2rem;color:var(--paper)}
+footer .legal{margin-top:2rem;padding-top:1rem;border-top:1px solid color-mix(in srgb,var(--paper) 16%,transparent);font-size:.8rem;color:color-mix(in srgb,var(--paper) 60%,transparent)}
+
+/* cart drawer */
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100vw);background:var(--surface);z-index:70;box-shadow:var(--shadow);transform:translateX(105%);transition:transform .28s;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.drawer.show{transform:none}
+.drawer header{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 1.2rem;border-bottom:1px solid var(--line)}
+.drawer header h2{font-size:1.5rem}
+.drawer .x{border:0;background:var(--paper-2);width:36px;height:36px;border-radius:50%}
+.drawer .gbar{padding:.9rem 1.2rem;background:var(--honey-soft);font-size:.9rem}
+.drawer .gbar .rail{height:8px;border-radius:99px;background:color-mix(in srgb,var(--walnut) 12%,transparent);margin-top:.4rem;overflow:hidden}
+.drawer .gbar .fill{height:100%;background:linear-gradient(90deg,var(--honey),var(--berry));width:0;transition:width .4s}
+.lines{flex:1;overflow:auto;padding:.6rem 1.2rem;display:grid;align-content:start;gap:.9rem}
+.line{display:grid;grid-template-columns:62px 1fr auto;gap:.8rem;align-items:center}
+.line img{width:62px;height:72px;object-fit:cover;object-position:top;border-radius:12px}
+.line b{display:block;font-size:.95rem}
+.line small{color:var(--muted)}
+.line .price{font-size:1.15rem;text-align:right}
+.line .free{display:block;font-family:var(--f-body);font-size:.72rem;color:var(--leaf);font-weight:800}
+.line .qty button{width:30px;height:30px;font-size:1rem}
+.sumbox{padding:1rem 1.2rem;border-top:1px solid var(--line);display:grid;gap:.4rem}
+.sumbox .r{display:flex;justify-content:space-between;font-size:.95rem}
+.sumbox .r.total{font-size:1.1rem;font-weight:700;align-items:baseline}
+.sumbox .r.total .price{font-size:2rem;color:var(--berry)}
+.sumbox .r.save{color:var(--leaf);font-weight:700}
+.sumbox .inv{font-size:.8rem;color:var(--muted);display:flex;gap:.4rem;align-items:center}
+.sumbox .inv svg{width:16px;height:16px;flex:none;color:var(--leaf)}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,140%);background:var(--walnut);color:var(--paper);padding:.7rem 1.1rem;border-radius:999px;z-index:80;font-weight:600;transition:transform .25s;max-width:calc(100vw - 32px);text-align:center}
+.toast.show{transform:translate(-50%,0)}
+
+@media (max-width:1020px){
+  .shop{grid-template-columns:1fr}
+  aside.filters{position:fixed;inset:0 auto 0 0;width:min(340px,88vw);background:var(--surface);z-index:65;padding:calc(1.2rem + env(safe-area-inset-top,0px)) 1.2rem 1.2rem;max-height:none;transform:translateX(-105%);transition:transform .25s;box-shadow:var(--shadow)}
+  aside.filters.show{transform:none}
+  .fbtn{display:inline-flex}
+  .leaders{grid-template-columns:repeat(2,1fr)}
+  .steps,.trust{grid-template-columns:repeat(2,1fr)}
+  footer .cols{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  .hero .hero-grid{grid-template-columns:1fr}
+  .hero-art{max-width:380px;order:-1}
+  .gifts{grid-template-columns:1fr}
+  .tiers{grid-template-columns:1fr}
+  .duo{grid-template-columns:1fr}
+  .search{display:none}
+  .promo span+span{display:none}
+  .bar{justify-content:space-between}
+  .logo span{font-size:1.4rem}
+  .logo img{width:48px;height:48px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .card h3{font-size:1.02rem}
+  .card .desc{display:none}
+  .card .price{font-size:1.5rem}
+  .add{width:40px;height:40px}
+}
+@media (max-width:420px){
+  .leaders,.steps,.trust,footer .cols{grid-template-columns:1fr}
+  .cart-btn .sum{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+
+<div class="promo"><div class="wrap">
+  <span><b>2 + 1 zdarma</b> na všetko lyofilizované ovocie</span>
+  <span>Darček ku každému nákupu od <b>30 €</b></span>
+  <span>Doprava zdarma od <b>49 €</b></span>
+</div></div>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="logo" href="#top" aria-label="Alešove dobroty, úvod">
+      <img src="assets/logo.webp" alt="">
+      <span>Alešove<small>dobroty</small></span>
+    </a>
+    <label class="search" for="q">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Hľadaj: jahody, kešu, mango…" autocomplete="off">
+    </label>
+    <button class="theme-t" id="themeT" aria-label="Prepnúť svetlý a tmavý režim">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <button class="cart-btn" id="cartBtn" aria-label="Otvoriť košík">
+      <span class="sum price" id="cartSum">0,00 €</span>
+      <span class="count" id="cartCount">0</span>
+    </button>
+  </div>
+  <div class="wrap"><nav class="cats" id="cats" aria-label="Kategórie"></nav></div>
+</header>
+<div class="mega" id="mega" hidden></div>
+
+<main id="top">
+<section class="hero" style="padding:0">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow">Lyofilizované jahody · 100 g
+        <span class="tag bio">BIO</span><span class="tag nosugar">bez cukru</span></div>
+      <h1>Celé jahody, len bez vody. Chrumkavé ako čerstvo odtrhnuté.</h1>
+      <div class="big"><span class="price">6,90</span><span class="unit">€</span></div>
+      <div class="per"><b>0,69 € za 10 g.</b> Z 1 kg čerstvých jahôd je 100 g lyofilizovaných.</div>
+      <div class="deal-line">
+        <span class="tag deal">2 + 1 zdarma</span>
+        <span class="hand">3 vrecká za 13,80 €</span>
+      </div>
+      <div class="hero-cta">
+        <button class="btn berry" data-add="jahody">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>
+          Pridať do košíka</button>
+        <a class="btn ghost" href="#obchod">Všetky ceny</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="blob"></div>
+      <img src="assets/products/jahody.webp" alt="Vrecko lyofilizovaných jahôd Alešove dobroty">
+      <div class="sticker s1">Vzorka 30 g<span class="price">2,49 €</span></div>
+      <div class="sticker s2">XXL 500 g<span class="price">26,89 €</span></div>
+    </div>
+  </div>
+  <div class="wrap leaders">
+    <button class="leader" data-jump="vzorky">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 3h10l-1 4H8zM8 7l-1 14h10L16 7"/></svg>
+      <span><span class="price">od 0,99 €</span><small>Skúšobné balenie 30 g</small></span></button>
+    <button class="leader" data-jump="akcia">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M12 8v13M3 12h18M12 8S10 3 7.5 4.5 9 8 12 8zm0 0s2-5 4.5-3.5S15 8 12 8z"/></svg>
+      <span><span class="price">2 + 1</span><small>Tretie vrecko ovocia zdarma</small></span></button>
+    <button class="leader" data-jump="xxl">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16l-1.5 13h-13zM9 7V5a3 3 0 0 1 6 0v2"/></svg>
+      <span><span class="price">XXL 1 kg</span><small>Orechy od 1,81 € / 100 g</small></span></button>
+    <button class="leader" data-jump="bio">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 19c0-8 5-14 15-15-1 10-7 15-15 15zM5 19l7-7"/></svg>
+      <span><span class="price">0 g</span><small>pridaného cukru, BIO kvalita</small></span></button>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="gifts" id="darceky">
+    <div>
+      <div class="eyebrow" style="color:var(--honey)">Darček podľa ceny nákupu</div>
+      <h2>Čím viac, tým väčšia dobrota navyše</h2>
+      <p>Darček sa pridá do košíka sám, keď prejdeš hranicou.</p>
+    </div>
+    <div class="track">
+      <div class="rail"><div class="fill" id="giftFill"></div></div>
+      <div class="tiers" id="tiers"></div>
+      <div class="gift-now" id="giftNow"></div>
+    </div>
+  </div>
+</div>
+
+<section id="obchod">
+  <div class="wrap">
+    <div class="shop-head">
+      <div>
+        <div class="eyebrow">Obchod</div>
+        <h2>Ovocie, orechy a zelenina za férovú cenu</h2>
+        <p>Prejdi myšou alebo ťukni na produkt. Otvorí sa malé okno s detailom, kde ho hneď pridáš do košíka.</p>
+      </div>
+    </div>
+    <div class="shop">
+      <aside class="filters" id="filters" aria-label="Filtre">
+        <div class="fgroup"><h3>Kategória</h3><div id="fCats"></div></div>
+        <div class="fgroup"><h3>Gramáž</h3><div class="chips" id="fWeights"></div></div>
+        <div class="fgroup"><h3>Cena do</h3>
+          <div class="range"><input type="range" id="fPrice" min="2" max="40" step="1" value="40" aria-label="Maximálna cena">
+          <div class="out"><span>2 €</span><b id="fPriceOut">40 €</b></div></div></div>
+        <div class="fgroup"><h3>Vlastnosti</h3><div id="fProps"></div></div>
+        <div class="fgroup"><h3>Pôvod</h3><div id="fOrigin"></div></div>
+        <button class="btn ghost" id="fReset" type="button">Zrušiť filtre</button>
+        <button class="btn fbtn" id="fClose" type="button">Zobraziť produkty</button>
+      </aside>
+      <div>
+        <div class="toolbar">
+          <button class="btn ghost fbtn" id="fOpen" type="button" style="padding:.5em 1em">Filtre</button>
+          <span class="found" id="found"></span>
+          <div class="active-f" id="activeF"></div>
+          <select id="sort" aria-label="Zoradiť">
+            <option value="cheap">Najlacnejšie</option>
+            <option value="p100">Najnižšia cena za 100 g</option>
+            <option value="exp">Najdrahšie</option>
+            <option value="name">Podľa názvu</option>
+          </select>
+        </div>
+        <div class="grid" id="grid"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="origins" id="povod">
+  <div class="wrap">
+    <div class="eyebrow">Pôvod</div>
+    <h2>Každý produkt je z iného konca sveta</h2>
+    <p style="color:var(--bark);max-width:60ch;margin:.6rem 0 0">Nakupujeme z plantáží v oblastiach, ktoré sa danej plodine venujú celé generácie. Mango a banány z Ugandy, vlašské orechy z Uzbekistanu.</p>
+    <div class="origin-grid" id="originGrid"></div>
+    <div class="disclaim">Pôvod ostatných produktov je v návrhu ilustračný. Doplní sa podľa dodávateľa.</div>
+  </div>
+</section>
+
+<section id="ako">
+  <div class="wrap">
+    <div class="eyebrow">Ako vznikajú</div>
+    <h2>Čerstvo vysušené, precízne zabalené</h2>
+    <div class="steps">
+      <div class="step"><h3>Zber v plnej zrelosti</h3><p>Ovocie sa trhá zrelé, keď má najviac chuti. Orechy po prirodzenom dozretí na strome.</p></div>
+      <div class="step"><h3>Lyofilizácia</h3><p>Zmrazenie a odparenie vody vo vákuu. Tvar, farba a vitamíny ostanú, voda odíde. Z <span class="price">1 kg</span> jahôd je <span class="price">100 g</span>.</p></div>
+      <div class="step"><h3>Balenie</h3><p>Do vrecka so zipsom a okienkom, ktoré drží chrumkavosť aj po otvorení.</p></div>
+      <div class="step"><h3>Expedícia do 24 h</h3><p>Objednávka odchádza z nášho skladu na Slovensku v ten istý alebo nasledujúci pracovný deň.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="duo">
+      <div class="pane sample" id="vzorky">
+        <div class="eyebrow">Skúšobné balenia</div>
+        <h2>Najprv ochutnaj</h2>
+        <span class="price">od 0,99 €</span>
+        <p>Každý produkt aj ako vzorka 30 g. Nevieš sa rozhodnúť? Zober 5 vzoriek a vyber si obľúbenú.</p>
+        <button class="btn" data-weight="30">Zobraziť vzorky</button>
+      </div>
+      <div class="pane xxl" id="xxl">
+        <div class="eyebrow">XXL balenia</div>
+        <h2>Najnižšia cena za 100 g</h2>
+        <span class="price">až −35 %</span>
+        <p>Orechy v 1 kg a ovocie v 500 g baleniach. Pre rodiny, do kuchyne a do práce.</p>
+        <button class="btn" data-xxl>Zobraziť XXL</button>
+      </div>
+    </div>
+    <div class="b2b">
+      <div><b style="font-family:var(--f-display);font-size:1.25rem">Pre obchody, kaviarne a firmy</b>
+        <p>Veľkoobchodné ceny, vzorky zdarma a dlhodobá spolupráca s pravidelným odberom.</p></div>
+      <a class="btn ghost" href="#kontakt">Napísať nám</a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap trust">
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l4 4v16H6z"/><path d="M14 2v5h5M9 13h7M9 17h5"/></svg>
+      <b>Faktúra automaticky</b><span>Po zaplatení príde faktúra do e-mailu. Firmy zadajú IČO a DIČ v košíku.</span></div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 7h6M9 11h6M9 15h3"/></svg>
+      <b>Doklad z eKasy</b><span>Pri platbe na dobierku alebo osobnom odbere dostaneš pokladničný doklad z eKasy.</span></div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+      <b>Platba kartou</b><span>Apple Pay, Google Pay, karta, prevod aj dobierka.</span></div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+      <b>Doručenie do 2 dní</b><span>Packeta Z-BOX od 2,90 €, kuriér od 3,90 €. Nad 49 € zdarma.</span></div>
+  </div>
+</section>
+</main>
+
+<footer id="kontakt">
+  <div class="wrap">
+    <div class="cols">
+      <div><div class="hand">Alešove dobroty</div>
+        <ul><li>Orechy · lyofilizované ovocie · zdravá výživa</li><li>info@alesovedobroty.sk</li><li>+421 900 000 000</li></ul></div>
+      <div><h4>Obchod</h4><ul><li>Lyofilizované ovocie</li><li>Orechy</li><li>Sušená zelenina</li><li>XXL balenia</li><li>Vzorky</li></ul></div>
+      <div><h4>Nákup</h4><ul><li>Doprava a platba</li><li>Reklamácie a vrátenie</li><li>Darčeky k nákupu</li><li>Veľkoobchod</li></ul></div>
+      <div><h4>Informácie</h4><ul><li>Obchodné podmienky</li><li>Ochrana osobných údajov</li><li>Cookies</li><li>SOI · Alternatívne riešenie sporov</li></ul></div>
+    </div>
+    <div class="legal">Návrh e-shopu. Ceny, pôvod a údaje prevádzkovateľa sú ukážkové.</div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<div class="pip" id="pip" role="dialog" aria-label="Rýchly náhľad produktu"></div>
+<aside class="drawer" id="drawer" aria-label="Košík">
+  <header><h2>Košík</h2><button class="x" id="closeCart" aria-label="Zavrieť košík">✕</button></header>
+  <div class="gbar" id="dGift"></div>
+  <div class="lines" id="lines"></div>
+  <div class="sumbox" id="sumbox"></div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+const CATS = [
+  {id:'ovocie', name:'Ovocie', subs:[
+    {id:'lyo', name:'Lyofilizované ovocie'},
+    {id:'susene', name:'Sušené ovocie', soon:true},
+    {id:'cerstve', name:'Čerstvé ovocie (sezónne)', soon:true}]},
+  {id:'orechy', name:'Orechy', subs:[
+    {id:'natural', name:'Orechy natural'},
+    {id:'cokolada', name:'Orechy v čokoláde'}]},
+  {id:'zelenina', name:'Zelenina', subs:[
+    {id:'susena', name:'Sušená zelenina'}]}
+];
+const W = {
+  lyo:[[30,.36],[100,1],[250,2.3],[500,3.9]],
+  natural:[[100,1],[250,2.25],[500,4.1],[1000,6.5]],
+  cokolada:[[100,1],[250,2.3],[500,4.2]],
+  susena:[[30,.4],[100,1],[250,2.35]]
+};
+const P = [
+  {id:'jahody',   name:'Jahody',        kind:'Lyofilizované · Fragaria ananassa', sub:'lyo', p:6.9, o:'Poľsko', desc:'Celé plátky, sladkokyslé. Do müsli, jogurtu aj len tak.', tint:'#e9a9a0', promo:true, bio:true, nosugar:true},
+  {id:'maliny',   name:'Maliny',        kind:'Lyofilizované · Rubus idaeus', sub:'lyo', p:7.9, o:'Srbsko', desc:'Aromatické maliny z Arilje, rozpadnú sa na jazyku.', tint:'#e59aa7', promo:true, bio:true, nosugar:true},
+  {id:'cucoriedky',name:'Čučoriedky',   kind:'Lyofilizované · Vaccinium', sub:'lyo', p:8.9, o:'Poľsko', desc:'Celé bobule, jemne kyslé. Plné antioxidantov.', tint:'#a9b3dc', promo:true, bio:true, nosugar:true},
+  {id:'banany',   name:'Banány',        kind:'Lyofilizované · Musa', sub:'lyo', p:4.9, o:'Uganda', desc:'Krémová sladkosť bez pridaného cukru. Pre deti aj športovcov.', tint:'#f0d98f', promo:true, bio:true, nosugar:true},
+  {id:'mango',    name:'Mango',         kind:'Lyofilizované · Mangifera indica', sub:'lyo', p:5.9, o:'Uganda', desc:'Zrelé mango z ugandských plantáží. Tropická chuť v každom kúsku.', tint:'#f3c46b', promo:true, bio:true, nosugar:true},
+  {id:'visne',    name:'Višne',         kind:'Lyofilizované · Prunus cerasus', sub:'lyo', p:7.5, o:'Maďarsko', desc:'Výrazne kyslé višne bez kôstok. Skvelé do pečenia.', tint:'#d98c8c', promo:true, bio:true, nosugar:true},
+  {id:'jablka',   name:'Jablká',        kind:'Lyofilizované · Malus domestica', sub:'lyo', p:3.9, o:'Slovensko', desc:'Tenké krúžky zo slovenských sadov. Chrumkavý chips bez oleja.', tint:'#cfe0a3', promo:true, bio:true, nosugar:true},
+  {id:'vlasske',  name:'Vlašské orechy',kind:'Orechy · Juglans regia', sub:'natural', p:3.49, o:'Uzbekistan', desc:'Svetlé polovičky z údolia Fergana. Jemná, nehorká chuť.', tint:'#d8bb8a', bio:true, nosugar:true},
+  {id:'lieskove', name:'Lieskové orechy',kind:'Orechy · Corylus avellana', sub:'natural', p:2.99, o:'Turecko', desc:'Oblé lieskovce z pobrežia Čierneho mora.', tint:'#cfa682', bio:true, nosugar:true},
+  {id:'mandle',   name:'Mandle',        kind:'Orechy · Prunus dulcis', sub:'natural', p:2.79, o:'Španielsko', desc:'Celé mandle so šupkou. Z Valencie, zbierané ručne.', tint:'#d9ae86', bio:true, nosugar:true},
+  {id:'kesu',     name:'Kešu orechy',   kind:'Orechy · Anacardium occidentale', sub:'natural', p:3.29, o:'Vietnam', desc:'Celé jadrá W320, maslová chuť.', tint:'#eadbb8', bio:true, nosugar:true},
+  {id:'mandle-cokolada', name:'Mandle v čokoláde', kind:'V mliečnej čokoláde', sub:'cokolada', p:3.9, o:'Španielsko', desc:'Pražená mandľa v hrubej vrstve mliečnej čokolády.', tint:'#b98c6c', bio:true},
+  {id:'lieskove-cokolada', name:'Lieskovce v čokoláde', kind:'V mliečnej čokoláde', sub:'cokolada', p:3.9, o:'Turecko', desc:'Celé lieskovce, jemná belgická čokoláda.', tint:'#b58a6f', bio:true},
+  {id:'arasidy-cokolada', name:'Arašidy v čokoláde', kind:'V mliečnej čokoláde', sub:'cokolada', p:2.49, o:'Argentína', desc:'Klasika do kina. Chrumkavé arašidy v čokoláde.', tint:'#a98166'},
+  {id:'paprika',  name:'Paprika',       kind:'Sušená zelenina · Capsicum', sub:'susena', p:3.9, o:'Španielsko', desc:'Sladká červená paprika na kocky. Do polievok a omáčok.', tint:'#e7988a', bio:true, nosugar:true},
+  {id:'cibula',   name:'Cibuľa',        kind:'Sušená zelenina · Allium cepa', sub:'susena', p:2.49, o:'Egypt', desc:'Sušené lupienky. Plná chuť bez plakania.', tint:'#eee0bd', bio:true, nosugar:true},
+  {id:'cesnak',   name:'Cesnak',        kind:'Sušená zelenina · Allium sativum', sub:'susena', p:3.49, o:'Španielsko', desc:'Plátky cesnaku, stačí hodiť do panvice.', tint:'#e9e2cf', bio:true, nosugar:true},
+  {id:'mrkva',    name:'Mrkva',         kind:'Sušená zelenina · Daucus carota', sub:'susena', p:2.49, o:'Slovensko', desc:'Kocky mrkvy do vývarov, rizot a na výlety.', tint:'#f0b27f', bio:true, nosugar:true},
+  {id:'cuketa',   name:'Cuketa',        kind:'Sušená zelenina · Cucurbita pepo', sub:'susena', p:3.2, o:'Taliansko', desc:'Plátky cukety na chipsy aj do jedál.', tint:'#c5d9a1', bio:true, nosugar:true},
+  {id:'paradajka',name:'Paradajky',     kind:'Sušená zelenina · Solanum lycopersicum', sub:'susena', p:3.6, o:'Taliansko', desc:'Kocky paradajok z Apúlie. Intenzívna chuť leta.', tint:'#e58f7c', bio:true, nosugar:true},
+];
+const ORIGINS = {
+  'Uganda':['UG','0.35° S, 32.6° V','6 080 km'], 'Uzbekistan':['UZ','40.4° S, 71.8° V','4 150 km'],
+  'Turecko':['TR','41.0° S, 38.9° V','1 900 km'], 'Španielsko':['ES','39.5° S, 0.4° Z','1 850 km'],
+  'Vietnam':['VN','11.9° S, 108.4° V','8 900 km'], 'Poľsko':['PL','50.0° S, 20.9° V','250 km'],
+  'Srbsko':['RS','43.8° S, 20.1° V','700 km'], 'Maďarsko':['HU','46.9° S, 19.7° V','300 km'],
+  'Slovensko':['SK','48.1° S, 17.1° V','u nás'], 'Taliansko':['IT','41.1° S, 16.9° V','1 250 km'],
+  'Egypt':['EG','30.0° S, 31.2° V','2 700 km'], 'Argentína':['AR','32.9° J, 60.6° Z','11 700 km']
+};
+const GIFTS = [[30,'Vzorka 30 g podľa výberu'],[50,'Doprava zdarma + lyofilizované maliny 30 g'],[80,'Darčeková tuba s orechovým mixom 250 g']];
+const WEIGHT_CHIPS = [30,100,250,500,1000];
+const RADII = ['52% 48% 44% 56%/58% 50% 50% 42%','46% 54% 58% 42%/48% 56% 44% 52%','58% 42% 50% 50%/44% 58% 42% 56%','44% 56% 48% 52%/56% 42% 58% 44%'];
+const XXL_MIN = {lyo:500, natural:1000, cokolada:500, susena:250};
+
+const $ = s => document.querySelector(s);
+const fmt = n => n.toLocaleString('sk-SK',{minimumFractionDigits:2,maximumFractionDigits:2}) + ' €';
+const wlabel = g => g >= 1000 ? (g/1000)+' kg' : g+' g';
+const round9 = v => Math.max(0.99, Math.round(v*10)/10 - 0.01);
+const priceOf = (p,g) => { const f = W[p.sub].find(x=>x[0]===g); return f[1]===1 ? p.p : round9(p.p * f[1]); };
+const weightsOf = p => W[p.sub].map(x=>x[0]);
+const subOf = id => CATS.flatMap(c=>c.subs.map(s=>({...s,cat:c.id}))).find(s=>s.id===id);
+const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const ICON_PLUS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>';
+
+let store = {};
+try { store = JSON.parse(localStorage.getItem('ad-cart')||'{}') || {}; } catch(e) { store = {}; }
+const cart = store && typeof store === 'object' ? store : {};
+const saveCart = () => { try { localStorage.setItem('ad-cart', JSON.stringify(cart)); } catch(e){} };
+
+const F = {subs:new Set(), weight:null, max:40, props:new Set(), origins:new Set(), q:'', sort:'cheap', xxl:false};
+const sel = {}; // chosen weight per product
+P.forEach(p => sel[p.id] = weightsOf(p).includes(100) ? 100 : weightsOf(p)[0]);
+
+/* ---------- nav + mega ---------- */
+const nav = $('#cats');
+const count = sub => P.filter(p=>p.sub===sub).length;
+nav.innerHTML = CATS.map(c => `<div class="cat" data-cat="${c.id}"><button type="button" aria-expanded="false">${c.name} <span class="n">${c.subs.reduce((a,s)=>a+count(s.id),0)}</span></button></div>`).join('') +
+  `<div class="cat"><button type="button" class="hot" data-quick="promo">2 + 1 zdarma</button></div>
+   <div class="cat"><button type="button" data-quick="xxl">XXL balenia</button></div>
+   <div class="cat"><button type="button" data-quick="30">Vzorky 30 g</button></div>
+   <div class="cat"><button type="button" data-quick="povod">Pôvod</button></div>`;
+const mega = $('#mega');
+let megaT;
+function openMega(el){
+  const c = CATS.find(x=>x.id===el.dataset.cat);
+  mega.innerHTML = `<div><h4>${c.name}</h4><ul><li><button data-cat="${c.id}">Všetko (${c.subs.reduce((a,s)=>a+count(s.id),0)})</button></li></ul></div>` +
+    c.subs.map(s=>`<div><h4>${s.name}</h4><ul>${s.soon?'<li class="soon">Pripravujeme</li>':
+      P.filter(p=>p.sub===s.id).map(p=>`<li><button data-open="${p.id}">${p.name} <span style="color:var(--muted)">od ${fmt(Math.min(...weightsOf(p).map(g=>priceOf(p,g))))}</span></button></li>`).join('') +
+      `<li><button data-sub="${s.id}" style="font-weight:700;color:var(--leaf)">Zobraziť všetko →</button></li>`}</ul></div>`).join('');
+  const r = el.getBoundingClientRect();
+  mega.style.top = (r.bottom + 6) + 'px';
+  mega.hidden = false;
+  document.querySelectorAll('.cat').forEach(x=>{x.classList.toggle('open',x===el); x.firstElementChild.setAttribute('aria-expanded', x===el)});
+}
+function closeMega(){ mega.hidden = true; document.querySelectorAll('.cat').forEach(x=>{x.classList.remove('open'); x.firstElementChild.setAttribute('aria-expanded','false')}); }
+nav.addEventListener('mouseover', e => { const c = e.target.closest('.cat[data-cat]'); if (c && matchMedia('(hover:hover)').matches){ clearTimeout(megaT); openMega(c);} });
+nav.addEventListener('mouseleave', () => { megaT = setTimeout(closeMega, 220); });
+mega.addEventListener('mouseenter', () => clearTimeout(megaT));
+mega.addEventListener('mouseleave', () => { megaT = setTimeout(closeMega, 220); });
+nav.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  const c = b.closest('.cat[data-cat]');
+  if (c) { mega.hidden || !c.classList.contains('open') ? openMega(c) : closeMega(); return; }
+  const q = b.dataset.quick;
+  if (q === 'povod') { $('#povod').scrollIntoView(); return; }
+  resetF(false);
+  if (q === 'promo') F.props.add('promo');
+  if (q === 'xxl') F.xxl = true;
+  if (q === '30') F.weight = 30;
+  syncFilterUI(); render(); $('#obchod').scrollIntoView();
+});
+mega.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.open) { closeMega(); const card = document.querySelector(`.card[data-id="${b.dataset.open}"]`); resetF(false); syncFilterUI(); render(); setTimeout(()=>{ const c2=document.querySelector(`.card[data-id="${b.dataset.open}"]`); c2.scrollIntoView({block:'center'}); showPip(c2, true); }, 30); return; }
+  resetF(false);
+  if (b.dataset.sub) F.subs.add(b.dataset.sub);
+  if (b.dataset.cat) CATS.find(c=>c.id===b.dataset.cat).subs.forEach(s=>{ if(!s.soon) F.subs.add(s.id); });
+  closeMega(); syncFilterUI(); render(); $('#obchod').scrollIntoView();
+});
+document.addEventListener('click', e => { if (!mega.hidden && !e.target.closest('#mega,#cats')) closeMega(); });
+
+/* ---------- filters ---------- */
+$('#fCats').innerHTML = CATS.map(c => `<label><input type="checkbox" data-fcat="${c.id}"> <b>${c.name}</b></label>` +
+  c.subs.filter(s=>!s.soon).map(s=>`<label class="sub"><input type="checkbox" data-fsub="${s.id}"> ${s.name}<span class="c">${count(s.id)}</span></label>`).join('')).join('');
+$('#fWeights').innerHTML = WEIGHT_CHIPS.map(g=>`<button type="button" class="chip" data-fw="${g}" aria-pressed="false">${wlabel(g)}</button>`).join('') +
+  `<button type="button" class="chip xxl" data-fxxl aria-pressed="false">XXL</button>`;
+const PROPS = [['bio','BIO'],['nosugar','Bez pridaného cukru'],['promo','Akcia 2 + 1 zdarma']];
+$('#fProps').innerHTML = PROPS.map(([k,l])=>`<label><input type="checkbox" data-fprop="${k}"> ${l}<span class="c">${P.filter(p=>p[k]).length}</span></label>`).join('');
+const origins = [...new Set(P.map(p=>p.o))].sort((a,b)=>a.localeCompare(b,'sk'));
+$('#fOrigin').innerHTML = origins.map(o=>`<label><input type="checkbox" data-forig="${esc(o)}"> ${o}<span class="c">${P.filter(p=>p.o===o).length}</span></label>`).join('');
+
+$('#filters').addEventListener('change', e => {
+  const t = e.target;
+  if (t.dataset.fcat) { CATS.find(c=>c.id===t.dataset.fcat).subs.forEach(s=>{ if(!s.soon){ t.checked ? F.subs.add(s.id) : F.subs.delete(s.id);} }); }
+  if (t.dataset.fsub) t.checked ? F.subs.add(t.dataset.fsub) : F.subs.delete(t.dataset.fsub);
+  if (t.dataset.fprop) t.checked ? F.props.add(t.dataset.fprop) : F.props.delete(t.dataset.fprop);
+  if (t.dataset.forig) t.checked ? F.origins.add(t.dataset.forig) : F.origins.delete(t.dataset.forig);
+  syncFilterUI(); render();
+});
+$('#filters').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.fw) { const g = +b.dataset.fw; F.weight = F.weight===g ? null : g; F.xxl = false; }
+  if ('fxxl' in b.dataset) { F.xxl = !F.xxl; F.weight = null; }
+  if (b.id === 'fReset') resetF(true);
+  if (b.id === 'fClose') { $('#filters').classList.remove('show'); scrim(false); return; }
+  syncFilterUI(); render();
+});
+$('#fPrice').addEventListener('input', e => { F.max = +e.target.value; syncFilterUI(); render(); });
+$('#q').addEventListener('input', e => { F.q = e.target.value.trim().toLowerCase(); render(); if (F.q) $('#obchod').scrollIntoView({block:'start'}); });
+$('#sort').addEventListener('change', e => { F.sort = e.target.value; render(); });
+$('#fOpen').addEventListener('click', () => { $('#filters').classList.add('show'); scrim(true); });
+
+function resetF(all){ F.subs.clear(); F.props.clear(); F.origins.clear(); F.weight=null; F.xxl=false; F.max=40; if (all){ F.q=''; $('#q').value=''; } }
+function syncFilterUI(){
+  document.querySelectorAll('[data-fsub]').forEach(i=>i.checked=F.subs.has(i.dataset.fsub));
+  document.querySelectorAll('[data-fcat]').forEach(i=>{ const s=CATS.find(c=>c.id===i.dataset.fcat).subs.filter(x=>!x.soon); i.checked = s.every(x=>F.subs.has(x.id)); i.indeterminate = !i.checked && s.some(x=>F.subs.has(x.id)); });
+  document.querySelectorAll('[data-fprop]').forEach(i=>i.checked=F.props.has(i.dataset.fprop));
+  document.querySelectorAll('[data-forig]').forEach(i=>i.checked=F.origins.has(i.dataset.forig));
+  document.querySelectorAll('[data-fw]').forEach(b=>b.setAttribute('aria-pressed', F.weight===+b.dataset.fw));
+  document.querySelector('[data-fxxl]').setAttribute('aria-pressed', F.xxl);
+  $('#fPrice').value = F.max; $('#fPriceOut').textContent = F.max>=40 ? 'bez limitu' : F.max+' €';
+  const act = [];
+  F.subs.forEach(s=>act.push(['sub',s,subOf(s).name]));
+  if (F.weight) act.push(['w',F.weight,wlabel(F.weight)]);
+  if (F.xxl) act.push(['xxl',1,'XXL']);
+  F.props.forEach(k=>act.push(['prop',k,PROPS.find(x=>x[0]===k)[1]]));
+  F.origins.forEach(o=>act.push(['orig',o,o]));
+  if (F.max<40) act.push(['max',1,'do '+F.max+' €']);
+  $('#activeF').innerHTML = act.map(([t,v,l])=>`<button type="button" data-rm="${t}" data-v="${esc(v)}" aria-label="Zrušiť filter ${esc(l)}">${esc(l)} ✕</button>`).join('');
+}
+$('#activeF').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  const {rm, v} = b.dataset;
+  if (rm==='sub') F.subs.delete(v); if (rm==='w') F.weight=null; if (rm==='xxl') F.xxl=false;
+  if (rm==='prop') F.props.delete(v); if (rm==='orig') F.origins.delete(v); if (rm==='max') F.max=40;
+  syncFilterUI(); render();
+});
+
+/* ---------- grid ---------- */
+function visible(){
+  let list = P.filter(p => {
+    if (F.subs.size && !F.subs.has(p.sub)) return false;
+    if (F.weight && !weightsOf(p).includes(F.weight)) return false;
+    for (const k of F.props) if (!p[k]) return false;
+    if (F.origins.size && !F.origins.has(p.o)) return false;
+    if (F.q && !(p.name+' '+p.kind+' '+p.o+' '+subOf(p.sub).name).toLowerCase().includes(F.q)) return false;
+    const g = shownWeight(p);
+    if (F.max < 40 && priceOf(p,g) > F.max) return false;
+    return true;
+  });
+  const key = { cheap: p=>priceOf(p,shownWeight(p)), exp: p=>-priceOf(p,shownWeight(p)), p100: p=>priceOf(p,shownWeight(p))/shownWeight(p), name: p=>p.name };
+  const k = key[F.sort];
+  return list.sort((a,b)=> F.sort==='name' ? a.name.localeCompare(b.name,'sk') : k(a)-k(b));
+}
+function shownWeight(p){
+  if (F.weight && weightsOf(p).includes(F.weight)) return F.weight;
+  if (F.xxl) return XXL_MIN[p.sub];
+  return sel[p.id];
+}
+function cardHTML(p,i){
+  const g = shownWeight(p), pr = priceOf(p,g);
+  const badges = [p.promo?'<span class="tag deal">2 + 1</span>':'', g>=XXL_MIN[p.sub]?'<span class="tag deal" style="background:var(--leaf);color:#fff">XXL</span>':'', p.bio?'<span class="tag bio">BIO</span>':''].join('');
+  return `<article class="card" data-id="${p.id}" style="--tint:${p.tint};--r:${RADII[i%4]}">
+    <button class="art" type="button" aria-label="Rýchly náhľad: ${esc(p.name)}"><span class="badges">${badges}</span><img src="assets/products/${p.id}.webp" alt="" loading="lazy"></button>
+    <div class="kind">${esc(p.kind)}</div>
+    <h3>${esc(p.name)}</h3>
+    <p class="desc">${esc(p.desc)}</p>
+    <div class="kind">Pôvod: ${esc(p.o)}</div>
+    <div class="wts">${weightsOf(p).map(w=>`<button type="button" class="chip" data-w="${w}" aria-pressed="${w===g}">${wlabel(w)}</button>`).join('')}</div>
+    <div class="buy">
+      <div><span class="price">${fmt(pr)}</span><span class="w">/ ${wlabel(g)}</span><span class="p100">${fmt(pr/g*100)} za 100 g</span></div>
+      <button class="add" type="button" data-add="${p.id}" aria-label="Pridať ${esc(p.name)} ${wlabel(g)} do košíka">${ICON_PLUS}</button>
+    </div>
+  </article>`;
+}
+function render(){
+  const list = visible();
+  $('#grid').innerHTML = list.length ? list.map(cardHTML).join('') : '<div class="empty"><b>Nič sme nenašli.</b><br>Skús zrušiť niektorý filter.</div>';
+  $('#found').textContent = list.length + (list.length===1?' produkt':list.length<5&&list.length>1?' produkty':' produktov');
+}
+$('#grid').addEventListener('click', e => {
+  const card = e.target.closest('.card'); if (!card) return;
+  const p = P.find(x=>x.id===card.dataset.id);
+  const w = e.target.closest('[data-w]');
+  if (w) { sel[p.id] = +w.dataset.w; F.weight = null; F.xxl = false; syncFilterUI(); render(); return; }
+  if (e.target.closest('.art')) { showPip(card, true); return; }
+});
+
+/* ---------- PiP quick view ---------- */
+const pip = $('#pip');
+let pipFor = null, pipQty = 1, pipW = 100, hoverT, leaveT;
+const touchMode = () => matchMedia('(hover:none),(max-width:760px)').matches;
+function pipHTML(p){
+  const pr = priceOf(p,pipW);
+  return `<button class="close" type="button" aria-label="Zavrieť">✕</button>
+  <div class="pimg" style="--tint:${p.tint}"><img src="assets/products/${p.id}.webp" alt="${esc(p.name)}"><span class="live">Náhľad</span></div>
+  <div><div class="kind" style="font-size:.76rem;color:var(--muted);font-weight:600">${esc(p.kind)}</div><h3>${esc(p.name)}</h3>
+    <div class="origin">Pôvod: <b>${esc(p.o)}</b>${ORIGINS[p.o]?' · '+ORIGINS[p.o][2]:''}</div>
+    <p>${esc(p.desc)}</p></div>
+  <div style="display:flex;gap:.3rem;flex-wrap:wrap;align-content:start">${p.bio?'<span class="tag bio">BIO</span>':''}${p.nosugar?'<span class="tag nosugar">bez cukru</span>':''}${p.promo?'<span class="tag deal">2 + 1</span>':''}</div>
+  <div class="ctrl">
+    <div class="chips">${weightsOf(p).map(w=>`<button type="button" class="chip" data-pw="${w}" aria-pressed="${w===pipW}">${wlabel(w)}${w>=XXL_MIN[p.sub]?' XXL':''}</button>`).join('')}</div>
+    <div class="row"><div><span class="price">${fmt(pr*pipQty)}</span><div style="font-size:.78rem;color:var(--muted)">${fmt(pr/pipW*100)} za 100 g</div></div>
+      <div class="qty"><button type="button" data-q="-1" aria-label="Menej">−</button><output>${pipQty}</output><button type="button" data-q="1" aria-label="Viac">+</button></div></div>
+    <button class="btn berry" type="button" data-padd style="width:100%">${ICON_PLUS} Pridať do košíka</button>
+    ${p.promo?`<div class="note">Vlož 3 vrecká ovocia, najlacnejšie máš zdarma.</div>`:''}
+  </div>`;
+}
+function placePip(card){
+  if (touchMode()) return;
+  const r = card.getBoundingClientRect(), pw = pip.offsetWidth, ph = pip.offsetHeight, vw = innerWidth, vh = innerHeight;
+  let left = r.right + 12, ox = 'left';
+  if (left + pw > vw - 12) { left = r.left - pw - 12; ox = 'right'; }
+  if (left < 12) { left = Math.max(12, r.left + (r.width-pw)/2); ox = 'center'; }
+  let top = Math.min(Math.max(r.top, 12), vh - ph - 12);
+  pip.style.left = left+'px'; pip.style.top = Math.max(12,top)+'px'; pip.style.setProperty('--ox', ox);
+}
+function showPip(card, fromClick){
+  const p = P.find(x=>x.id===card.dataset.id);
+  if (pipFor !== p.id) { pipQty = 1; pipW = shownWeight(p); }
+  pipFor = p.id;
+  pip.innerHTML = pipHTML(p);
+  pip.dataset.card = p.id;
+  placePip(card);
+  pip.classList.add('show');
+  if (touchMode()) scrim(true);
+  if (fromClick) pip.querySelector('[data-padd]').focus({preventScroll:true});
+}
+function hidePip(){ pip.classList.remove('show'); pipFor = null; if (!$('#drawer').classList.contains('show') && !$('#filters').classList.contains('show')) scrim(false); }
+$('#grid').addEventListener('mouseover', e => {
+  if (touchMode()) return;
+  const card = e.target.closest('.card'); if (!card) return;
+  clearTimeout(leaveT);
+  if (pipFor === card.dataset.id && pip.classList.contains('show')) return;
+  clearTimeout(hoverT);
+  hoverT = setTimeout(()=>showPip(card), pip.classList.contains('show') ? 60 : 280);
+});
+$('#grid').addEventListener('mouseout', e => {
+  if (touchMode()) return;
+  const card = e.target.closest('.card'); if (!card || card.contains(e.relatedTarget)) return;
+  clearTimeout(hoverT);
+  if (e.relatedTarget && pip.contains(e.relatedTarget)) return;
+  leaveT = setTimeout(hidePip, 180);
+});
+pip.addEventListener('mouseenter', () => clearTimeout(leaveT));
+pip.addEventListener('mouseleave', e => { if (touchMode()) return; const c = e.relatedTarget && e.relatedTarget.closest && e.relatedTarget.closest('.card'); if (c && c.dataset.id===pipFor) return; leaveT = setTimeout(hidePip, 180); });
+pip.addEventListener('click', e => {
+  const p = P.find(x=>x.id===pipFor); if (!p) return;
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.classList.contains('close')) { hidePip(); return; }
+  if (b.dataset.pw) pipW = +b.dataset.pw;
+  if (b.dataset.q) pipQty = Math.max(1, Math.min(20, pipQty + +b.dataset.q));
+  if ('padd' in b.dataset) { addToCart(p.id, pipW, pipQty); if (touchMode()) { hidePip(); return; } pipQty = 1; }
+  const card = document.querySelector(`.card[data-id="${p.id}"]`);
+  pip.innerHTML = pipHTML(p); if (card) placePip(card);
+});
+addEventListener('scroll', () => { if (!touchMode() && pip.classList.contains('show')) hidePip(); }, {passive:true});
+addEventListener('keydown', e => { if (e.key==='Escape') { hidePip(); closeCart(); closeMega(); $('#filters').classList.remove('show'); scrim(false); } });
+
+/* ---------- cart ---------- */
+function key(id,g){ return id+'|'+g; }
+function addToCart(id, g, q=1){
+  const p = P.find(x=>x.id===id); if (!p) return;
+  if (!weightsOf(p).includes(g)) g = sel[id];
+  const k = key(id,g); cart[k] = (cart[k]||0) + q; saveCart(); updateCart();
+  toast(`${p.name} ${wlabel(g)} v košíku · spolu ${fmt(totals().total)}`);
+  bump();
+}
+function totals(){
+  const lines = Object.entries(cart).filter(([,q])=>q>0).map(([k,q])=>{ const [id,g]=k.split('|'); const p=P.find(x=>x.id===id); return p?{k,p,g:+g,q,unit:priceOf(p,+g)}:null; }).filter(Boolean);
+  const promoUnits = lines.filter(l=>l.p.promo).flatMap(l=>Array(l.q).fill(l)).sort((a,b)=>a.unit-b.unit);
+  const freeN = Math.floor(promoUnits.length/3);
+  const freeMap = {}; let save = 0;
+  promoUnits.slice(0,freeN).forEach(l=>{ freeMap[l.k]=(freeMap[l.k]||0)+1; save+=l.unit; });
+  const sub = lines.reduce((a,l)=>a+l.unit*l.q,0);
+  return {lines, sub, save, total: Math.max(0, sub-save), freeMap, count: lines.reduce((a,l)=>a+l.q,0), promoN: promoUnits.length};
+}
+function giftState(t){
+  const next = GIFTS.find(g=>t<g[0]); const got = GIFTS.filter(g=>t>=g[0]);
+  return {next, got, pct: Math.min(100, t/GIFTS[GIFTS.length-1][0]*100)};
+}
+function updateCart(){
+  const T = totals();
+  $('#cartSum').textContent = fmt(T.total); $('#cartCount').textContent = T.count;
+  const G = giftState(T.total);
+  $('#giftFill').style.width = G.pct+'%';
+  $('#tiers').innerHTML = GIFTS.map(g=>`<div class="tier ${T.total>=g[0]?'got':''}"><span class="price">${T.total>=g[0]?'✓ ':''}od ${g[0]} €</span><span>${g[1]}</span></div>`).join('');
+  const gtxt = G.next ? `Do ďalšieho darčeka ti chýba <b>${fmt(G.next[0]-T.total)}</b>: ${G.next[1].toLowerCase()}.` : `<b>Máš všetky darčeky.</b> Pribalíme ich k objednávke.`;
+  $('#giftNow').innerHTML = (T.total ? `V košíku máš ${fmt(T.total)}. ` : '') + gtxt;
+  $('#dGift').innerHTML = gtxt + `<div class="rail"><div class="fill" style="width:${G.pct}%"></div></div>`;
+  $('#lines').innerHTML = T.lines.length ? T.lines.map(l=>`<div class="line" data-k="${l.k}">
+      <img src="assets/products/${l.p.id}.webp" alt="">
+      <div><b>${esc(l.p.name)}</b><small>${wlabel(l.g)} · ${fmt(l.unit)} / ks</small>
+        <div class="qty" style="margin-top:.3rem;width:max-content"><button type="button" data-lq="-1" aria-label="Menej">−</button><output>${l.q}</output><button type="button" data-lq="1" aria-label="Viac">+</button></div></div>
+      <div class="price">${fmt(l.unit*l.q - (T.freeMap[l.k]||0)*l.unit)}${T.freeMap[l.k]?`<span class="free">${T.freeMap[l.k]}× zdarma</span>`:''}</div>
+    </div>`).join('') +
+    G.got.map(g=>`<div class="line"><div style="width:62px;height:62px;border-radius:50%;background:var(--honey-soft);display:grid;place-items:center;font-size:1.6rem" aria-hidden="true">🎁</div><div><b>Darček</b><small>${g[1]}</small></div><div class="price" style="color:var(--leaf)">0,00 €</div></div>`).join('')
+    : '<p style="color:var(--bark)">Košík je prázdny. Začni jahodami za 6,90 €.</p>';
+  const promoHint = T.promoN % 3 ? `<div class="r" style="color:var(--bark);font-size:.85rem">Pridaj ešte ${3 - T.promoN%3} ${3-T.promoN%3===1?'vrecko':'vrecká'} ovocia a najlacnejšie máš zdarma.</div>` : '';
+  const ship = T.total >= 49 || T.total === 0 ? 0 : 2.9;
+  $('#sumbox').innerHTML = `
+    <div class="r"><span>Medzisúčet</span><span>${fmt(T.sub)}</span></div>
+    ${T.save?`<div class="r save"><span>Akcia 2 + 1 zdarma</span><span>−${fmt(T.save)}</span></div>`:''}${promoHint}
+    <div class="r"><span>Doprava (Packeta)</span><span>${ship?fmt(ship):'zdarma'}</span></div>
+    <div class="r total"><span>Spolu s DPH</span><span class="price">${fmt(T.total+ship)}</span></div>
+    <button class="btn berry" type="button" id="checkout" ${T.count?'':'disabled'} style="width:100%;margin-top:.3rem">Pokračovať k platbe</button>
+    <div class="inv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Faktúra príde automaticky e-mailom, pri dobierke aj doklad z eKasy.</div>`;
+}
+$('#lines').addEventListener('click', e => {
+  const b = e.target.closest('[data-lq]'); if (!b) return;
+  const k = b.closest('.line').dataset.k; cart[k] = (cart[k]||0) + +b.dataset.lq; if (cart[k]<=0) delete cart[k];
+  saveCart(); updateCart();
+});
+$('#sumbox').addEventListener('click', e => { if (e.target.id==='checkout') toast('V návrhu tu nasleduje pokladňa: doprava, platba, fakturačné údaje.'); });
+function openCart(){ hidePip(); $('#drawer').classList.add('show'); scrim(true); }
+function closeCart(){ $('#drawer').classList.remove('show'); if (!pip.classList.contains('show')) scrim(false); }
+$('#cartBtn').addEventListener('click', openCart);
+$('#closeCart').addEventListener('click', closeCart);
+function scrim(on){ $('#scrim').classList.toggle('show', on); }
+$('#scrim').addEventListener('click', () => { hidePip(); closeCart(); $('#filters').classList.remove('show'); scrim(false); });
+function bump(){ const b = $('#cartBtn'); b.animate?.([{transform:'scale(1)'},{transform:'scale(1.12)'},{transform:'scale(1)'}],{duration:300}); }
+let toastT; function toast(t){ const el=$('#toast'); el.textContent=t; el.classList.add('show'); clearTimeout(toastT); toastT=setTimeout(()=>el.classList.remove('show'),2400); }
+
+document.addEventListener('click', e => {
+  const a = e.target.closest('[data-add]'); if (a) { const p = P.find(x=>x.id===a.dataset.add); addToCart(p.id, a.closest('.card') ? shownWeight(p) : 100); return; }
+  const j = e.target.closest('[data-jump]');
+  if (j) { const t = j.dataset.jump; resetF(false);
+    if (t==='akcia') F.props.add('promo'); if (t==='bio') { F.props.add('bio'); F.props.add('nosugar'); }
+    if (t==='vzorky') F.weight = 30; if (t==='xxl') F.xxl = true;
+    syncFilterUI(); render(); $('#obchod').scrollIntoView(); return; }
+  const w = e.target.closest('.pane [data-weight]'); if (w) { resetF(false); F.weight = 30; syncFilterUI(); render(); $('#obchod').scrollIntoView(); return; }
+  if (e.target.closest('.pane [data-xxl]')) { resetF(false); F.xxl = true; syncFilterUI(); render(); $('#obchod').scrollIntoView(); }
+});
+
+/* ---------- origins ---------- */
+const byO = {}; P.forEach(p => (byO[p.o] ||= []).push(p.name));
+const order = ['Uganda','Uzbekistan','Vietnam','Turecko','Španielsko','Srbsko','Poľsko','Taliansko','Egypt','Argentína','Maďarsko','Slovensko'];
+$('#originGrid').innerHTML = order.filter(o=>byO[o]).map(o => `<div class="org"><span class="flag">${ORIGINS[o][0]}</span><h3>${o}</h3><span class="what">${byO[o].join(', ')}</span><span class="geo">${ORIGINS[o][1]} · ${ORIGINS[o][2]==='u nás'?'u nás':ORIGINS[o][2]+' od Bratislavy'}</span></div>`).join('');
+
+/* ---------- theme ---------- */
+$('#themeT').addEventListener('click', () => {
+  const r = document.documentElement, cur = r.dataset.theme || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+  r.dataset.theme = cur === 'dark' ? 'light' : 'dark';
+});
+
+syncFilterUI(); render(); updateCart();
+})();
+</script>
+<!--ARTIFACT-END-->
+</body>
+</html>
