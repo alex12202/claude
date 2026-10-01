@@ -122,7 +122,7 @@ page("zaluzie", "Vonkajšie žalúzie na mieru | BROMAR", "Vonkajšie žalúzie 
          ("home", "Súkromie", "Cez natočené lamely vidíte von, no zvonka do domu nie."),
          ("wind", "Odolné", "Hliníkové lamely v bočnom vedení. So senzorom vetra sa pri víchrici samy vytiahnu.")])
      + "{{> sections/zaluzie}}\n" + RAL
-     + gallery("Vonkajšie žalúzie z našich montáží", [("real-corner.webp", "Rohové žalúzie na terase"), ("real-bungalow.webp", "Novostavba so žalúziami"), ("real-terrace.webp", "Žalúzie na terase", "tall"), ("real-loggia.webp", "Žalúzie na lodžii"), ("real-brown.webp", "Hnedé žalúzie k dreveným oknám"), ("real-carport.webp", "Žalúzie na terasovej stene"), ("real-blinds-card.webp", "Rodinný dom, predokenný box")])
+     + gallery("Vonkajšie žalúzie z našich montáží", [("real-corner.webp", "Rohové žalúzie na terase"), ("real-bungalow.webp", "Novostavba so žalúziami"), ("real-terrace.webp", "Žalúzie na terase", "tall"), ("real-loggia.webp", "Žalúzie na lodžii"), ("real-brown.webp", "Hnedé žalúzie k dreveným oknám"), ("real-carport.webp", "Žalúzie na terasovej stene"), ("real-black.webp", "Čierne žalúzie"), ("real-silver.webp", "Strieborné lamely"), ("real-blinds-card.webp", "Rodinný dom, predokenný box")])
      + faq([("Dajú sa vonkajšie žalúzie namontovať aj do hotového domu?", "Áno. Na hotovú fasádu sa montuje predokenný box. Ak plánujete zatepľovanie, je to ideálny čas na podomietkový box, ktorý ostane skrytý."),
             ("Koľko stojí vonkajšia žalúzia?", "Cena závisí od rozmeru okna, typu lamely, boxu a ovládania. Po bezplatnom zameraní dostanete presnú ponuku bez skrytých položiek."),
             ("Čo sa stane pri silnom vetre?", "So senzorom vetra Somfy sa žalúzie pri nárazovom vetre samy vytiahnu do boxu, aj keď nie ste doma."),
@@ -131,7 +131,7 @@ page("zaluzie", "Vonkajšie žalúzie na mieru | BROMAR", "Vonkajšie žalúzie 
 page("screeny", "Screenové rolety ZIP | BROMAR", "Screenové rolety so ZIP vedením na veľké okná a terasy. Tienenie s výhľadom, ochrana pred hmyzom, motory Somfy.", "screen",
      hero("Screenové rolety", "Screenové rolety ZIP", "Tienenie, cez ktoré <em>vidíte von</em>",
           "Technická tkanina vo ZIP vedení zachytí väčšinu slnečného tepla a pritom zachová výhľad. Ideálne na veľké presklené steny, posuvné dvere a terasy.",
-          photo("real-screen.webp", "ZIP screen na terase rodinného domu – realizácia BROMAR", "Realizácia BROMAR", "ZIP screen, antracit", "50% 50%"),
+          photo("real-screen-terrace.webp", "ZIP screen na terase s posedením – realizácia BROMAR", "Realizácia BROMAR", "ZIP screen, antracit", "45% 50%"),
           ["ZIP vedenie", "Aj na veľké plochy", "Motory Somfy"])
      + feats("Prečo screen", "Jemné tienenie pre veľké okná", [
          ("sun", "Menej tepla", "Tkanina zastaví slnko pred sklom, miestnosť sa neprehrieva."),
@@ -146,6 +146,7 @@ page("screeny", "Screenové rolety ZIP | BROMAR", "Screenové rolety so ZIP vede
        <span class="swatches rv" style="margin-top:22px"><span style="background-color:#3b3e42" data-n="Antracit"></span><span style="background-color:#6d6e6c" data-n="Sivá"></span><span style="background-color:#a79c8a" data-n="Piesková"></span><span style="background-color:#6f5f4f" data-n="Bronzová"></span><span style="background-color:#e6e2da" data-n="Perlová"></span><span style="background-color:#1f2c3f" data-n="Tmavomodrá"></span></span></div>
        <div class="spec-wrap rv"><table class="spec"><thead><tr><th>Vlastnosť</th><th>Priehľadná</th><th>Blackout</th></tr></thead><tbody><tr><td>Výhľad von</td><td>áno</td><td>nie</td></tr><tr><td>Tienenie</td><td>vysoké</td><td>úplné</td></tr><tr><td>Vhodné do</td><td>obývačky, kuchyne, kancelárie</td><td>spálne, detské izby</td></tr><tr><td>Ovládanie</td><td colspan="2">motor Somfy s ovládačom alebo vypínačom</td></tr></tbody></table></div></div></section>
 """
+     + gallery("Screeny z našich montáží", [("real-screen-terrace.webp", "Screen vytiahnutý, terasa otvorená"), ("real-screen.webp", "Screen zatiahnutý")])
      + faq([("Aký je rozdiel medzi žalúziou a screenovou roletou?", "Žalúzia má natáčacie lamely a dá sa takmer úplne zatemniť. Screen je tkanina, tieni rovnomerne, pôsobí jemne a zachová výhľad von."),
             ("Vydrží screen vietor?", "Vďaka ZIP vedeniu je látka po celej výške uchytená v bočných lištách, preto je odolnejšia ako bežná roleta. Pri víchrici ho odporúčame vytiahnuť, so senzorom vetra sa to stane samo."),
             ("Dá sa screen namontovať aj na existujúce okno?", "Áno, hranatý alebo zaoblený box sa montuje na fasádu alebo do ostenia aj na hotový dom.")]))
