@@ -16,7 +16,7 @@ def hero(crumb, eyebrow, title, lead, media, checks, cta="Nezáväzná ponuka"):
       <span class="eyebrow">{eyebrow}</span>
       <h1>{title}</h1>
       <p class="lead">{lead}</p>
-      <div class="ph-btns"><a class="btn btn-red" href="#kontakt">{cta} <span class="arr">{ARR}</span></a><a class="btn btn-out" href="tel:+421900000000">Zavolať +421 900 000 000</a></div>
+      <div class="ph-btns"><a class="btn btn-red" href="#kontakt">{cta} <span class="arr">{ARR}</span></a><a class="btn btn-out" href="tel:+421919049010">Zavolať +421 919 049 010</a></div>
       <div class="ph-checks">{checks_html}</div>
     </div>
     {media}
@@ -82,7 +82,7 @@ def faq(items):
     det = "".join(f'<details class="rv"{" open" if i == 0 else ""}><summary>{q}</summary><p>{a}</p></details>' for i, (q, a) in enumerate(items))
     return f"""<section class="sec-sm" style="background:var(--paper)">
   <div class="wrap faq-grid">
-    <div><span class="eyebrow rv">Časté otázky</span><h2 class="h2 rv d1" style="margin:18px 0 20px">Na čo sa pýtate</h2><p class="rv d2">Nenašli ste odpoveď? Zavolajte nám na <a class="link" href="tel:+421900000000">+421 900 000 000</a></p></div>
+    <div><span class="eyebrow rv">Časté otázky</span><h2 class="h2 rv d1" style="margin:18px 0 20px">Na čo sa pýtate</h2><p class="rv d2">Nenašli ste odpoveď? Zavolajte nám na <a class="link" href="tel:+421919049010">+421 919 049 010</a></p></div>
     <div>{det}</div>
   </div>
 </section>
@@ -99,6 +99,7 @@ def box_svg(kind):
 
 
 def page(slug, title, description, product, body):
+    title = title.replace("| BROMAR", "| BROMAR Trnava") if "Trnava" not in title else title
     head = f'<!--page title="{title}" description="{description}" product="{product}" -->\n'
     (PAGES / f"{slug}.html").write_text(head + body + "{{> partials/form}}\n{{> partials/next}}\n", encoding="utf-8")
 
@@ -255,5 +256,26 @@ page("servis", "Servis okien a 5 rokov servis zdarma | BROMAR", "Servis okien: n
      + faq([("Na čo sa vzťahuje 5 rokov servis zdarma?", "Na všetko, čo u vás namontujeme: kontrolu, nastavenie a drobné opravy bez poplatku za výjazd a prácu. Materiál pri poškodení (napr. po búrke) sa účtuje zvlášť."),
             ("Robíte servis aj na oknách, ktoré ste nemontovali?", "Áno, na bežných plastových, drevených aj hliníkových oknách. Takýto servis je platený, cenu vám povieme vopred."),
             ("Ako často treba okná nastaviť?", "Odporúčame raz za rok skontrolovať a premazať kovanie a na jeseň prepnúť okná do zimného režimu.")]))
+
+page("realizacie", "Realizácie – fotky a videá z montáží | BROMAR Trnava", "Fotky a videá vonkajších žalúzií, screenov, roliet a pergol z našich montáží v Trnave a okolí.", "",
+     hero("Realizácie", "Realizácie", "Inšpirácia z <em>našich montáží</em>",
+          "Vonkajšie žalúzie, screeny, rolety, pergoly aj vnútorné tienenie na rodinných a bytových domoch v Trnave a okolí.",
+          photo("real-screen-terrace.webp", "ZIP screen na terase – realizácia BROMAR", "Realizácia BROMAR", "ZIP screen na terase", "45% 50%"),
+          ["Rodinné domy", "Bytové domy", "Novostavby aj rekonštrukcie"])
+     + "{{> sections/realizacie}}\n{{> partials/reviews}}\n")
+
+page("kontakt", "Kontakt – BROMAR s. r. o., Trnava", "BROMAR s. r. o., Na hlinách 6863/64, 917 01 Trnava. Tel. +421 919 049 010. Zameranie, montáž a servis v Trnave a okolí do 40 km.", "",
+     hero("Kontakt", "Kontakt", "Zavolajte alebo nám <em>napíšte</em>",
+          "Dohodneme termín bezplatného zamerania a pripravíme cenovú ponuku na mieru. Pôsobíme v Trnave a okolí do 40 km.",
+          photo("real-bungalow.webp", "Realizácia BROMAR v okolí Trnavy", "BROMAR s. r. o.", "Na hlinách 6863/64, 917 01 Trnava", "50% 50%"),
+          ["Zameranie zdarma", "Trnava a okolie do 40 km", "5 rokov servis zdarma"], cta="Napísať dopyt")
+     + """<section class="sec-sm"><div class="wrap"><div class="contact-cards">
+  <a class="cc rv" href="tel:+421919049010"><span class="ic"><svg width="22" height="22"><use href="#i-phone"/></svg></span><small>Telefón</small><b>+421 919 049 010</b></a>
+  <a class="cc rv d1" href="mailto:info@bromar.sk"><span class="ic"><svg width="22" height="22"><use href="#i-mail"/></svg></span><small>E-mail</small><b>info@bromar.sk</b></a>
+  <div class="cc rv d2"><span class="ic"><svg width="22" height="22"><use href="#i-pin"/></svg></span><small>Sídlo</small><b>Na hlinách 6863/64<br>917 01 Trnava</b></div>
+  <div class="cc rv d3"><span class="ic"><svg width="22" height="22"><use href="#i-shield"/></svg></span><small>Firemné údaje</small><b>BROMAR s. r. o.<br>IČO: 57 819 408</b></div>
+</div></div></section>
+{{> partials/area}}
+""")
 
 print("subpages written")

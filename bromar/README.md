@@ -33,27 +33,25 @@ Každý produkt má vlastnú podstránku s fotkou, výhodami, typmi, galériou, 
 | `interier.html` | Vnútorné tienenie: typy, ako vybrať |
 | `somfy.html` | Motory Somfy: prečo Somfy, ovládač / vypínač / senzor, demo ovládača |
 | `servis.html` | Servis okien a tienenia, 5 rokov servis zdarma na montáž |
+| `realizacie.html` | Všetky fotky a videá z montáží, recenzie |
+| `kontakt.html` | Telefón, e-mail, sídlo, IČO, mapa pôsobnosti (Trnava + 40 km), formulár |
 
 ## Štruktúra homepage
 
-1. Horná lišta (telefón, e-mail) a hlavička. Pri scrollovaní sa zmení na bielu so sklenným efektom.
-2. Hero slider: 4 snímky (žalúzie, pergola, screeny, bytové domy), každá s vlastným textom a tlačidlami.
+Hlavná stránka je krátka rozcestník, detaily sú na podstránkach.
+
+1. Horná lišta (Trnava a okolie do 40 km, 5 rokov servis zdarma, telefón, e-mail) a hlavička
+2. Hero slider: 4 snímky (žalúzie, pergola, screeny, bytové domy) s prechodom ako žalúzia
 3. Výhody: zameranie zdarma, vlastná montáž, motory Somfy, 5 rokov servis zdarma
-4. Predstavenie firmy: *Kompletné riešenia tienenia…* a heslo **Komfort · Kvalita · Detail**
-5. Produktové karty (ako na climax.cz): 6 hlavných kategórií s odkazmi na podstránky, pod nimi siete proti hmyzu, zasklenia a motory Somfy
-6. **Vonkajšie žalúzie:** typy lamiel, typ boxu (predokenný / podomietkový / v preklade), ovládanie (kľuka, motor, ovládač, senzory)
-7. **Screenové rolety:** základný typ (ZIP), typ boxu, ovládanie, tkaniny s ukážkou farieb
-8. **Hliníkové pergoly** (tmavomodrá sekcia): fotka realizácie, animácia otočných lamiel, LED, bočné screeny, odvod vody
-9. **Zasklenia:** animované posuvné sklá, zasklenie terás a pergol, balkóny, zimné záhrady
-10. **Rolety:** porovnanie plastové vs. hliníkové
-11. **Vnútorné tienenie:** horizontálne žalúzie, látkové rolety, deň a noc, plisé, vertikálne žalúzie
-12. **Motory Somfy:** prečo Somfy (kvalita, tichý a presný chod), interaktívny ovládač, vypínač, senzory. Aplikácia v návrhu nie je, BROMAR ju neponúka.
-13. **Servis okien:** nastavenie, tesnenia, kovanie, kľučky, sezónna prehliadka, servis tienenia, blok **5 rokov servis zdarma**
-14. Postup v 5 krokoch (od konzultácie po servis)
-15. Realizácie: galéria so zväčšením fotiek
-16. Časté otázky
-17. Formulár na **nezáväznú cenovú ponuku**: výber produktov, meno, telefón, e-mail, obec, poznámka a súhlas GDPR
-18. Pätička s kontaktmi a údajmi firmy
+4. Predstavenie firmy a heslo **Komfort · Kvalita · Detail**
+5. Produktové karty s odkazmi na podstránky (+ siete, zasklenia, Somfy)
+6. Postup v 5 krokoch
+7. Výber realizácií (6 fotiek) s odkazom na celú galériu
+8. Recenzie (zatiaľ ukážkové karty)
+9. Kde pôsobíme: mapa Trnava a okolie do 40 km, zoznam miest, adresa
+10. Časté otázky
+11. Formulár na nezáväznú cenovú ponuku
+12. Pätička s firemnými údajmi
 
 Sekcie na homepage sú krátke ukážky, odkaz „Všetko o …“ vedie na podstránku produktu.
 
@@ -78,7 +76,8 @@ Neutrálny základ, červená iba ako akcent (hlavné tlačidlo „Nezáväzná 
 ## Čo treba doplniť od klienta
 
 - **Logo** – v návrhu je logo **prekreslené do SVG** podľa dodaného obrázka (štít s „B“, BROMAR, TIENIACA TECHNIKA): `bromar-child/assets/img/bromar-logo.svg` (na svetlé pozadie) a `bromar-logo-negative.svg` (na tmavé). Písmo nápisu je približné. Ak existuje originálny vektor od grafika (SVG/PDF/AI), treba ho použiť.
-- **Kontakty** – telefón `+421 900 000 000`, adresa a IČO sú **vymyslené zástupné údaje**. E-mail `info@bromar.sk` treba overiť.
+- **Kontakty** – BROMAR s. r. o., Na hlinách 6863/64, 917 01 Trnava, IČO 57 819 408, tel. +421 919 049 010. Pôsobnosť: Trnava a okolie do 40 km. E-mail `info@bromar.sk` treba overiť.
+- **Recenzie** – sekcia Recenzie má zatiaľ 3 **ukážkové karty** (označené „Ukážka“). Pred spustením sem treba dať skutočné recenzie z Google/Facebooku a odkaz na Google profil firmy.
 - **Fotky a videá** – hero slider (žalúzie, screeny, bytové domy), karty produktov, sekcie Screeny a Rolety a galéria Realizácie (12 fotiek a 2 videá) používajú **skutočné zábery z montáží BROMAR**. Fotky sú orezané bez ŠPZ áut a bez materiálu po montáži (`tools/build_photos.py`), videá sú skrátené a orezané cez ffmpeg (`design/assets/video-*.mp4` + `.webm`). Pergola je už tiež skutočná fotka (pevná strecha). Ako **3D vizualizácie** zostali len bioklimatická pergola, servis okien a pohľad cez interaktívne okno. Na video do hero by sa hodil vodorovný záber v 4K.
 - **Texty o produktoch** sú všeobecné. Parametre (max. rozmery, farby RAL, typy boxov, záruky, dodacie lehoty) treba zosúladiť s tým, čo BROMAR od CLIMAXu reálne predáva. Obsah sa dá prevziať z climax.cz (so súhlasom), ale nie doslovne skopírovať.
 - **Hodnotenia v návrhu** (zatemnenie / odolnosť vetru pri lamelách) sú orientačné. Treba ich overiť podľa katalógu.
