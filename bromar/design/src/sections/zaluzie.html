@@ -1,0 +1,110 @@
+<!-- ============ EXTERIOR BLINDS ============ -->
+<section class="sec dive" id="zaluzie">
+  <div class="wrap dive-grid">
+    <div class="demo rv">
+      <div class="win" id="win" style="--tilt:40deg;--drop:70%;--dark:.3">
+        <div class="view" style="background-image:url(%%IMG:view-garden.webp%%)"></div>
+        <div class="slats" id="slats"></div>
+        <div class="shade"></div>
+        <div class="rail l"></div><div class="rail r"></div><div class="lintel"></div><div class="glare"></div>
+      </div>
+      <div class="remote">
+        <div class="keys" aria-label="Ovládač">
+          <button type="button" data-drop="0" aria-label="Hore"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M2 9l5-5 5 5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+          <button type="button" data-drop="stop" aria-label="Stop"><svg width="12" height="12" viewBox="0 0 12 12"><rect x="2" y="2" width="8" height="8" rx="1.5" fill="currentColor"/></svg></button>
+          <button type="button" data-drop="100" aria-label="Dole"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M2 5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button>
+        </div>
+        <div>
+          <label for="tilt">Natočenie lamiel <output id="tiltOut">40°</output></label>
+          <input type="range" id="tilt" min="0" max="85" value="40" style="--v:47%">
+          <div class="meta"><span>Svetlo: <b id="lightOut">stredne</b></span><span>Výhľad: <b id="viewOut">čiastočný</b></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <span class="eyebrow rv">Vonkajšie žalúzie</span>
+      <h2 class="h2 rv d1" style="margin:18px 0 20px">Chránia dom pred teplom ešte predtým, než sa dostane k sklu</h2>
+      <p class="lead rv d2">Vonkajšie žalúzie zachytia slnko pred oknom, preto sú v lete najúčinnejším tienením. Natočením lamiel si sami určíte, koľko svetla pustíte dnu. Vyskúšajte si to na ovládači vľavo.</p>
+
+      <div class="tabs rv d3" role="tablist">
+        <button class="on" type="button" data-tab="t-lam">Typy lamiel</button>
+        <button type="button" data-tab="t-box">Typ boxu</button>
+        <button type="button" data-tab="t-ctl">Ovládanie</button>
+      </div>
+
+      <div class="panel on" id="t-lam">
+        <div class="prof">
+          <div class="pf on" data-tilt="40">
+            <svg viewBox="0 0 200 56"><path d="M20 38 Q100 8 180 38"/></svg>
+            <h4>C-80 <small>zaoblená</small></h4>
+            <p>Klasika s dobrým pomerom ceny a výkonu. Lamely sa dajú plynule natáčať.</p>
+            <div class="rate"><em>Zatemnenie</em><span><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></span><em>Odolnosť vetru</em><span><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></span></div>
+          </div>
+          <div class="pf" data-tilt="75">
+            <svg viewBox="0 0 200 56"><path d="M24 44 L44 44 L156 14 L176 14"/><path d="M44 44 L44 36" /></svg>
+            <h4>Z-90 <small>s tesnením</small></h4>
+            <p>Lamely do seba zapadnú a gumové tesnenie ich utlmí. Najlepšie zatemnenie aj najtichší chod.</p>
+            <div class="rate"><em>Zatemnenie</em><span><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></span><em>Odolnosť vetru</em><span><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></span></div>
+          </div>
+          <div class="pf" data-tilt="55">
+            <svg viewBox="0 0 200 56"><path d="M20 40 C60 40 70 16 100 28 S150 16 180 16"/></svg>
+            <h4>S-90 <small>esovitá</small></h4>
+            <p>Moderný tvar pre architektúru s rovnými líniami. Dobre zatieni a pri zatiahnutí vyzerá elegantne.</p>
+            <div class="rate"><em>Zatemnenie</em><span><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></span><em>Odolnosť vetru</em><span><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></span></div>
+          </div>
+          <div class="pf" data-tilt="20">
+            <svg viewBox="0 0 200 56"><path d="M26 32 L174 24"/><path d="M26 32 q-8 0 -8 -6 M174 24 q8 0 8 6"/></svg>
+            <h4>F-80 <small>plochá</small></h4>
+            <p>Rovná, minimalistická lamela pre moderné domy. Vo vytiahnutom stave zaberie málo miesta.</p>
+            <div class="rate"><em>Zatemnenie</em><span><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></span><em>Odolnosť vetru</em><span><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" id="t-box">
+        <div class="boxes">
+          <div class="bx">
+            <svg viewBox="0 0 150 130" aria-hidden="true">
+              <rect x="20" y="0" width="60" height="130" fill="#d9d2c6"/><rect x="80" y="0" width="30" height="130" fill="#efe9df"/><rect x="110" y="0" width="4" height="130" fill="#cfc6b8"/>
+              <rect x="20" y="42" width="94" height="18" fill="#b9b0a2"/>
+              <rect x="40" y="60" width="26" height="70" fill="#2e3136"/><rect x="46" y="60" width="14" height="70" fill="#9fb3c2"/>
+              <rect x="116" y="42" width="24" height="30" rx="3" fill="#1c2a3e"/><path d="M128 72v58" stroke="#c0141c" stroke-width="3" stroke-dasharray="3 3"/>
+            </svg>
+            <div><span class="pill">Aj do hotového domu</span><h4>Predokenný box</h4><p>Box je namontovaný na fasáde nad oknom a je viditeľný. Najjednoduchšie riešenie, keď sa fasáda už nebude zatepľovať.</p></div>
+          </div>
+          <div class="bx">
+            <svg viewBox="0 0 150 130" aria-hidden="true">
+              <rect x="20" y="0" width="60" height="130" fill="#d9d2c6"/><rect x="80" y="0" width="44" height="130" fill="#efe9df"/><rect x="124" y="0" width="4" height="130" fill="#cfc6b8"/>
+              <rect x="20" y="42" width="60" height="18" fill="#b9b0a2"/>
+              <rect x="40" y="60" width="26" height="70" fill="#2e3136"/><rect x="46" y="60" width="14" height="70" fill="#9fb3c2"/>
+              <rect x="88" y="34" width="30" height="26" rx="3" fill="#1c2a3e"/><path d="M103 60v70" stroke="#c0141c" stroke-width="3" stroke-dasharray="3 3"/>
+            </svg>
+            <div><span class="pill">Najčistejší vzhľad</span><h4>Podomietkový box</h4><p>Box je skrytý v zateplení pod omietkou, na fasáde ostane len úzka štrbina. Ideálne pri novostavbe alebo pri zatepľovaní.</p></div>
+          </div>
+          <div class="bx">
+            <svg viewBox="0 0 150 130" aria-hidden="true">
+              <rect x="20" y="0" width="60" height="130" fill="#d9d2c6"/><rect x="80" y="0" width="30" height="130" fill="#efe9df"/><rect x="110" y="0" width="4" height="130" fill="#cfc6b8"/>
+              <rect x="20" y="30" width="94" height="30" fill="#b9b0a2"/><rect x="72" y="32" width="36" height="26" rx="3" fill="#1c2a3e"/>
+              <rect x="40" y="60" width="26" height="70" fill="#2e3136"/><rect x="46" y="60" width="14" height="70" fill="#9fb3c2"/>
+              <path d="M90 58v72" stroke="#c0141c" stroke-width="3" stroke-dasharray="3 3"/>
+            </svg>
+            <div><span class="pill">Novostavby</span><h4>Box v nadokennom preklade</h4><p>Žalúzia sa ukryje v špeciálnom preklade nad oknom už pri stavbe. Treba s ňou rátať v projekte. Radi to prekonzultujeme s vaším projektantom.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel" id="t-ctl">
+        <div class="ctrl">
+          <div class="ct"><div class="ic"><svg width="22" height="22"><use href="#i-hand"/></svg></div><h4>Kľuka</h4><p>Ručné ovládanie bez elektriny. Vhodné na menšie okná a vedľajšie miestnosti.</p></div>
+          <div class="ct"><div class="ic"><svg width="22" height="22"><use href="#i-motor"/></svg></div><h4>Motor + vypínač</h4><p>Tichý motor Somfy a nástenný vypínač pri okne. Jednoduché a spoľahlivé.</p></div>
+          <div class="ct"><div class="ic"><svg width="22" height="22"><use href="#i-remote"/></svg></div><h4>Diaľkový ovládač</h4><p>Jeden alebo viac kanálov, skupiny okien, obľúbená poloha lamiel na jedno stlačenie.</p></div>
+          <div class="ct hl"><div class="ic"><svg width="22" height="22"><use href="#i-wind"/></svg></div><h4>Senzory a skupiny</h4><p>Senzor vetra Somfy žalúzie pri silnom vetre sám vytiahne. Jedným tlačidlom ovládate celé poschodie.</p></div>
+        </div>
+      </div>
+
+      <div style="margin-top:34px;display:flex;gap:18px;align-items:center;flex-wrap:wrap" class="rv"><a class="btn" href="#kontakt">Nacenenie žalúzií <span class="arr"><svg width="14" height="14"><use href="#i-arr"/></svg></span></a><a class="link" href="zaluzie.html">Všetko o žalúziách <svg width="14" height="14"><use href="#i-arr"/></svg></a></div>
+    </div>
+  </div>
+</section>
+
