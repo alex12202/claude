@@ -1,0 +1,16 @@
+BROMAR – web na nahratie na doménu (bromar.sk)
+================================================
+
+1. Obsah tohto priečinka (nie priečinok samotný) nahraj cez FTP / správcu súborov
+   hostingu do koreňového adresára webu (zvyčajne public_html, www alebo web).
+   Úvodná stránka je index.html.
+2. Musia sa nahrať všetky súbory: *.html, style.css, main.js, favicon.svg a priečinok assets.
+3. Web je statický (HTML/CSS/JS), nepotrebuje PHP ani databázu.
+
+PRED SPUSTENÍM
+- Formulár zatiaľ nič neodosiela (je to ukážka). Treba ho napojiť napr. na Formspree,
+  Web3Forms alebo na PHP skript hostingu, aby dopyty chodili na info@bromar.sk.
+- Recenzie sú ukážkové karty – nahradiť skutočnými recenziami.
+- Odkazy na Facebook, Instagram, Ochranu osobných údajov a Cookies sú zatiaľ prázdne (#).
+- Pre Google Ads treba pridať cookie lištu a meranie konverzií (Google tag).
+- Overiť e-mail info@bromar.sk.

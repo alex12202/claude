@@ -27,6 +27,7 @@ HEAD = """<!doctype html>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Stack+Sans+Headline:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
 </head>
 <body class="{body}" data-product="{product}">
@@ -65,7 +66,7 @@ for page in sorted((SRC / "pages").glob("*.html")):
     html += expand("{{> partials/sprite}}\n{{> partials/header}}\n<main id=\"top\">\n" + body + "</main>\n{{> partials/footer}}\n") + TAIL
     (OUT / page.name).write_text(html, encoding="utf-8")
     print(f"{page.name:18s} {len(html) // 1024:4d} KB")
-for f in ("style.css", "main.js"):
+for f in ("style.css", "main.js", "favicon.svg", "NAHRATIE-NA-DOMENU.txt"):
     shutil.copy(SRC / f, OUT / f)
 for name in sorted(used):
     shutil.copy(ASSETS / name, OUT / "assets" / name)
