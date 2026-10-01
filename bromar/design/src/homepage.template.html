@@ -81,8 +81,8 @@ header.site.solid .wrap{height:70px}
 .logo svg{height:46px;width:auto}
 .logo{--lw:#fff;--ls:#f0a3a0}
 header.site.solid .logo{--lw:#1d1e20;--ls:var(--red)}
-nav.main{display:flex;gap:4px;margin-left:auto}
-nav.main>a,nav.main>.dd>button{position:relative;padding:10px 14px;font:500 15px/1 var(--body);color:#fff;background:none;border:0;cursor:pointer;display:flex;align-items:center;gap:6px;transition:color .3s}
+nav.main{display:flex;gap:0;margin-left:auto}
+nav.main>a,nav.main>.dd>button{position:relative;white-space:nowrap;padding:10px 12px;font:500 15px/1 var(--body);color:#fff;background:none;border:0;cursor:pointer;display:flex;align-items:center;gap:6px;transition:color .3s}
 header.site.solid nav.main>a,header.site.solid nav.main>.dd>button{color:var(--navy)}
 nav.main>a::after,nav.main>.dd>button::after{content:"";position:absolute;left:14px;right:14px;bottom:4px;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
 nav.main>a:hover::after,nav.main>.dd:hover>button::after{transform:none}
@@ -106,7 +106,8 @@ header.site.solid .burger{background:var(--sand)}
 .burger span:nth-child(3){width:17px}
 .burger:hover span{width:20px}
 header.site.solid .burger span{background:var(--navy)}
-@media (max-width:1180px){nav.main,.h-cta{display:none}.burger{display:grid}}
+@media (max-width:1300px){nav.main>a[href="#smart"],nav.main>a[href="#realizacie"]{display:none}}
+@media (max-width:1120px){nav.main,.h-cta{display:none}.burger{display:grid}}
 .drawer{position:fixed;inset:0;z-index:60;background:var(--navy);color:#fff;padding:100px 28px 40px;transform:translateX(100%);transition:transform .55s var(--ease);display:flex;flex-direction:column;gap:6px;overflow:auto}
 .drawer.open{transform:none}
 .drawer a{font:500 24px/1.2 var(--head);padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1)}
@@ -413,7 +414,7 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
 .gal figure::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,26,36,.7),transparent 55%);opacity:0;transition:.4s}
 .gal figure:hover::after,.gal figure:hover figcaption{opacity:1;transform:none}
 .gal figcaption{z-index:1}
-.g1{grid-column:span 7;grid-row:span 4}.g2{grid-column:span 5;grid-row:span 2}.g3{grid-column:span 5;grid-row:span 2}.g4{grid-column:span 4;grid-row:span 3}.g5{grid-column:span 4;grid-row:span 3}.g6{grid-column:span 4;grid-row:span 3}
+.g1{grid-column:span 7;grid-row:span 4}.g2{grid-column:span 5;grid-row:span 2}.g3{grid-column:span 5;grid-row:span 2}.g4,.g5,.g6,.g7,.g8,.g9{grid-column:span 4;grid-row:span 3}
 @media (max-width:860px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:170px}.gal figure{grid-column:span 1!important;grid-row:span 1!important}.gal .g1{grid-column:span 2!important;grid-row:span 2!important}.gal figcaption{opacity:1;transform:none}.gal figure::after{opacity:1}}
 .lb{position:fixed;inset:0;z-index:80;background:rgba(12,16,22,.92);display:none;place-items:center;padding:30px;cursor:zoom-out}
 .lb.on{display:grid;animation:fadeup .4s}
@@ -557,11 +558,11 @@ footer .logo{--lw:#fff;--ls:#f0a3a0}
       <div class="dd">
         <button type="button">Produkty <svg class="chev" viewBox="0 0 10 10"><path d="M2 3.5 5 6.5l3-3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
         <div class="mega">
-          <a href="#zaluzie"><img src="%%IMG:card-blinds.webp%%" alt=""><span><b>Vonkajšie žalúzie</b><small>Lamely C-80, Z-90, S-90, F-80</small></span></a>
-          <a href="#screeny"><img src="%%IMG:card-screen.webp%%" alt=""><span><b>Screenové rolety</b><small>ZIP systém, odolné vetru</small></span></a>
-          <a href="#rolety"><img src="%%IMG:card-roller.webp%%" alt=""><span><b>Vonkajšie rolety</b><small>Plastové a hliníkové</small></span></a>
+          <a href="#zaluzie"><img src="%%IMG:real-terrace-card.webp%%" alt=""><span><b>Vonkajšie žalúzie</b><small>Lamely C-80, Z-90, S-90, F-80</small></span></a>
+          <a href="#screeny"><img src="%%IMG:real-screen.webp%%" alt=""><span><b>Screenové rolety</b><small>ZIP systém, odolné vetru</small></span></a>
+          <a href="#rolety"><img src="%%IMG:real-rollers.webp%%" alt=""><span><b>Vonkajšie rolety</b><small>Plastové a hliníkové</small></span></a>
           <a href="#pergoly"><img src="%%IMG:card-pergola.webp%%" alt=""><span><b>Bioklimatické pergoly</b><small>Hliníkové, otočné lamely</small></span></a>
-          <a href="#interier"><img src="%%IMG:card-interior.webp%%" alt=""><span><b>Vnútorné tienenie</b><small>Žalúzie, rolety, plisé</small></span></a>
+          <a href="#interier"><img src="%%IMG:real-interior.webp%%" alt=""><span><b>Vnútorné tienenie</b><small>Žalúzie, rolety, plisé</small></span></a>
           <a href="#servis"><img src="%%IMG:card-service.webp%%" alt=""><span><b>Servis okien</b><small>Nastavenie, tesnenia, kovanie</small></span></a>
         </div>
       </div>
@@ -672,11 +673,11 @@ footer .logo{--lw:#fff;--ls:#f0a3a0}
       <p class="lead rv d2">Vyberte si, čo vás zaujíma. Pri každom produkte nájdete typy, možnosti ovládania a to, na čo sa zákazníci pýtajú najčastejšie. Presnú cenu pripravíme po bezplatnom zameraní.</p>
     </div>
     <div class="cards">
-      <a class="card rv" href="#zaluzie"><div class="ph"><img src="%%IMG:card-blinds.webp%%" alt="Vonkajšie žalúzie na modernom dome"><span class="tag">Najžiadanejšie</span></div><div class="bd"><h3>Vonkajšie žalúzie</h3><p>Najúčinnejšia ochrana pred prehrievaním. Lamelami regulujete svetlo aj súkromie.</p><ul><li>podomietkové</li><li>C-80 · Z-90</li><li>Somfy</li></ul><div class="go">Typy a ovládanie <i><svg width="14" height="14"><use href="#i-arr"/></svg></i></div></div></a>
-      <a class="card rv d1" href="#screeny"><div class="ph"><img src="%%IMG:card-screen.webp%%" alt="Screenové rolety na veľkých oknách"></div><div class="bd"><h3>Screenové rolety</h3><p>Technická tkanina v bočnom ZIP vedení. Tieni, chráni pred hmyzom a nechá vám výhľad.</p><ul><li>ZIP</li><li>odolné vetru</li><li>veľké plochy</li></ul><div class="go">Typy boxov <i><svg width="14" height="14"><use href="#i-arr"/></svg></i></div></div></a>
-      <a class="card rv d2" href="#rolety"><div class="ph"><img src="%%IMG:card-roller.webp%%" alt="Vonkajšie hliníkové rolety"></div><div class="bd"><h3>Vonkajšie rolety</h3><p>Plastové alebo hliníkové s PUR penou. Úplné zatemnenie, tepelná izolácia aj bezpečnosť.</p><ul><li>plastové</li><li>hliníkové</li><li>predokenný box</li></ul><div class="go">Porovnanie <i><svg width="14" height="14"><use href="#i-arr"/></svg></i></div></div></a>
+      <a class="card rv" href="#zaluzie"><div class="ph"><img src="%%IMG:real-terrace-card.webp%%" alt="Antracitové vonkajšie žalúzie na terase – realizácia BROMAR"><span class="tag">Najžiadanejšie</span></div><div class="bd"><h3>Vonkajšie žalúzie</h3><p>Najúčinnejšia ochrana pred prehrievaním. Lamelami regulujete svetlo aj súkromie.</p><ul><li>podomietkové</li><li>C-80 · Z-90</li><li>Somfy</li></ul><div class="go">Typy a ovládanie <i><svg width="14" height="14"><use href="#i-arr"/></svg></i></div></div></a>
+      <a class="card rv d1" href="#screeny"><div class="ph"><img src="%%IMG:real-screen.webp%%" alt="ZIP screen na terasových dverách – realizácia BROMAR"></div><div class="bd"><h3>Screenové rolety</h3><p>Technická tkanina v bočnom ZIP vedení. Tieni, chráni pred hmyzom a nechá vám výhľad.</p><ul><li>ZIP</li><li>odolné vetru</li><li>veľké plochy</li></ul><div class="go">Typy boxov <i><svg width="14" height="14"><use href="#i-arr"/></svg></i></div></div></a>
+      <a class="card rv d2" href="#rolety"><div class="ph"><img src="%%IMG:real-rollers.webp%%" alt="Vonkajšie rolety na prízemí domu – realizácia BROMAR"></div><div class="bd"><h3>Vonkajšie rolety</h3><p>Plastové alebo hliníkové s PUR penou. Úplné zatemnenie, tepelná izolácia aj bezpečnosť.</p><ul><li>plastové</li><li>hliníkové</li><li>predokenný box</li></ul><div class="go">Porovnanie <i><svg width="14" height="14"><use href="#i-arr"/></svg></i></div></div></a>
       <a class="card rv" href="#pergoly"><div class="ph"><img src="%%IMG:card-pergola.webp%%" alt="Bioklimatická hliníková pergola na terase"><span class="tag">Novinka</span></div><div class="bd"><h3>Bioklimatické pergoly</h3><p>Hliníková konštrukcia s otočnými lamelami, LED osvetlením a odvodom vody v stĺpoch.</p><ul><li>hliník</li><li>LED</li><li>senzor dažďa</li></ul><div class="go">Ako funguje <i><svg width="14" height="14"><use href="#i-arr"/></svg></i></div></div></a>
-      <a class="card rv d1" href="#interier"><div class="ph"><img src="%%IMG:card-interior.webp%%" alt="Vnútorné žalúzie v obývačke"></div><div class="bd"><h3>Vnútorné tienenie</h3><p>Horizontálne žalúzie, látkové rolety, deň a noc, plisé a vertikálne žalúzie.</p><ul><li>žalúzie</li><li>rolety</li><li>plisé</li></ul><div class="go">Prehľad <i><svg width="14" height="14"><use href="#i-arr"/></svg></i></div></div></a>
+      <a class="card rv d1" href="#interier"><div class="ph"><img src="%%IMG:real-interior.webp%%" alt="Vertikálne žalúzie v obývačke – realizácia BROMAR" style="object-position:50% 35%"></div><div class="bd"><h3>Vnútorné tienenie</h3><p>Horizontálne žalúzie, látkové rolety, deň a noc, plisé a vertikálne žalúzie.</p><ul><li>žalúzie</li><li>rolety</li><li>plisé</li></ul><div class="go">Prehľad <i><svg width="14" height="14"><use href="#i-arr"/></svg></i></div></div></a>
       <a class="card rv d2" href="#servis"><div class="ph"><img src="%%IMG:card-service.webp%%" alt="Servis a nastavenie okien"></div><div class="bd"><h3>Servis okien</h3><p>Okná, ktoré sa zle zatvárajú, fúka cez ne alebo drhnú? Nastavíme, premažeme, vymeníme.</p><ul><li>kovanie</li><li>tesnenia</li><li>kľučky</li></ul><div class="go">Čo opravíme <i><svg width="14" height="14"><use href="#i-arr"/></svg></i></div></div></a>
     </div>
     <div class="extras">
@@ -805,7 +806,7 @@ footer .logo{--lw:#fff;--ls:#f0a3a0}
 <!-- ============ SCREENS ============ -->
 <section class="sec" id="screeny">
   <div class="wrap split">
-    <div class="media rv-img" data-par><img src="%%IMG:card-screen-tall.webp%%" alt="Screenové rolety ZIP na terasových oknách"><div class="badge"><svg width="28" height="28" style="color:var(--red)"><use href="#i-wind"/></svg><div><b>ZIP vedenie</b><small>Látka nevylieta z líšt ani vo vetre</small></div></div></div>
+    <div class="media rv-img" data-par><img src="%%IMG:real-screen.webp%%" alt="Screenové rolety ZIP na terasových oknách"><div class="badge"><svg width="28" height="28" style="color:var(--red)"><use href="#i-wind"/></svg><div><b>ZIP vedenie</b><small>Látka nevylieta z líšt ani vo vetre</small></div></div></div>
     <div>
       <span class="eyebrow rv">Screenové rolety</span>
       <h2 class="h2 rv d1" style="margin:18px 0 20px">Veľké okná bez prehrievania, výhľad zostáva</h2>
@@ -863,7 +864,7 @@ footer .logo{--lw:#fff;--ls:#f0a3a0}
 <!-- ============ ROLLERS ============ -->
 <section class="sec" id="rolety">
   <div class="wrap split rev">
-    <div class="media rv-img" data-par><img src="%%IMG:card-roller-tall.webp%%" alt="Vonkajšie rolety na rodinnom dome"></div>
+    <div class="media rv-img" data-par><img src="%%IMG:real-rollers.webp%%" alt="Vonkajšie rolety na prízemí domu – realizácia BROMAR" style="object-position:40% 50%"></div>
     <div>
       <span class="eyebrow rv">Vonkajšie rolety</span>
       <h2 class="h2 rv d1" style="margin:18px 0 20px">Tma na spanie, ticho a pocit bezpečia</h2>
@@ -969,15 +970,18 @@ footer .logo{--lw:#fff;--ls:#f0a3a0}
   <div class="wrap">
     <div class="sec-head">
       <div><span class="eyebrow rv">Realizácie</span><h2 class="h2 rv d1">Inšpirácia z našich montáží</h2></div>
-      <p class="lead rv d2">Pozrite si, ako tienenie vyzerá na skutočných domoch. Po kliknutí sa fotka zväčší.</p>
+      <p class="lead rv d2">Fotky z našich montáží na rodinných aj bytových domoch. Po kliknutí sa fotka zväčší.</p>
     </div>
     <div class="gal">
-      <figure class="g1 rv-img"><img src="%%IMG:hero-house.webp%%" alt=""><figcaption><span><b>Novostavba, podomietkové žalúzie</b>C-80, antracit, Somfy io</span></figcaption></figure>
-      <figure class="g2 rv-img"><img src="%%IMG:card-pergola.webp%%" alt=""><figcaption><span><b>Bioklimatická pergola</b>6,2 × 4,4 m, LED</span></figcaption></figure>
-      <figure class="g3 rv-img"><img src="%%IMG:blinds-detail.webp%%" alt=""><figcaption><span><b>Detail lamiel</b>Z-90 s tesnením</span></figcaption></figure>
-      <figure class="g4 rv-img"><img src="%%IMG:card-screen.webp%%" alt=""><figcaption><span><b>ZIP screeny</b>tkanina antracit</span></figcaption></figure>
-      <figure class="g5 rv-img"><img src="%%IMG:card-interior.webp%%" alt=""><figcaption><span><b>Vnútorné žalúzie</b>obývačka</span></figcaption></figure>
-      <figure class="g6 rv-img"><img src="%%IMG:card-roller.webp%%" alt=""><figcaption><span><b>Hliníkové rolety</b>predokenný box</span></figcaption></figure>
+      <figure class="g1 rv-img"><img src="%%IMG:real-screen.webp%%" alt="ZIP screen na terase – rodinný dom, antracit"><figcaption><span><b>ZIP screen na terase</b>rodinný dom, antracit</span></figcaption></figure>
+      <figure class="g2 rv-img"><img src="%%IMG:real-bungalow.webp%%" alt="Vonkajšie žalúzie – novostavba, celý dom"><figcaption><span><b>Vonkajšie žalúzie</b>novostavba, celý dom</span></figcaption></figure>
+      <figure class="g3 rv-img"><img src="%%IMG:real-rollers.webp%%" alt="Vonkajšie rolety – prízemie bytového domu"><figcaption><span><b>Vonkajšie rolety</b>prízemie bytového domu</span></figcaption></figure>
+      <figure class="g4 rv-img"><img src="%%IMG:real-terrace.webp%%" alt="Žalúzie na terase – antracit, podomietkový box" style="object-position:50% 30%"><figcaption><span><b>Žalúzie na terase</b>antracit, podomietkový box</span></figcaption></figure>
+      <figure class="g5 rv-img"><img src="%%IMG:real-carport.webp%%" alt="Žalúzie na terasovej stene – antracit" style="object-position:50% 50%"><figcaption><span><b>Žalúzie na terasovej stene</b>antracit</span></figcaption></figure>
+      <figure class="g6 rv-img"><img src="%%IMG:real-interior.webp%%" alt="Vertikálne žalúzie – interiér" style="object-position:50% 30%"><figcaption><span><b>Vertikálne žalúzie</b>interiér</span></figcaption></figure>
+      <figure class="g7 rv-img"><img src="%%IMG:real-blinds-card.webp%%" alt="Vonkajšie žalúzie – rodinný dom, predokenný box" style="object-position:50% 40%"><figcaption><span><b>Vonkajšie žalúzie</b>rodinný dom, predokenný box</span></figcaption></figure>
+      <figure class="g8 rv-img"><img src="%%IMG:real-tower.webp%%" alt="Bytový dom – vonkajšie žalúzie na oknách" style="object-position:50% 50%"><figcaption><span><b>Bytový dom</b>vonkajšie žalúzie na oknách</span></figcaption></figure>
+      <figure class="g9 rv-img"><img src="%%IMG:real-blinds-detail.webp%%" alt="Detail lamiel – vonkajšia žalúzia" style="object-position:50% 50%"><figcaption><span><b>Detail lamiel</b>vonkajšia žalúzia</span></figcaption></figure>
     </div>
   </div>
 </section>
