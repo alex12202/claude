@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build design/danora-homepage.html: inline logos and design/assets images into the template."""
+"""Build design/danora-homepage.html (all e-shop pages): inline logos and design/assets images into the template."""
 import base64
 import io
 import pathlib
@@ -26,7 +26,7 @@ DIVIDER = (
     '<line x1="70" y1="6" x2="120" y2="6" stroke-width="1"/></svg>'
 )
 
-html = (ROOT / "design" / "src" / "homepage.template.html").read_text(encoding="utf-8")
+html = (ROOT / "design" / "src" / "eshop.template.html").read_text(encoding="utf-8")
 ASSETS = ROOT / "design" / "assets"
 html = re.sub(
     r"%%IMG:([\w.-]+)%%",

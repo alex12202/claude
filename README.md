@@ -2,7 +2,7 @@
 
 Dizajn a WordPress child téma pre e-shop **DANORA** postavený na šablóne **Luxrio** (WooCommerce + Elementor).
 
-- **Náhľad návrhu homepage:** `design/danora-homepage.html` (otvor v prehliadači). Vpravo dole je panel na prepnutie variantu **so zlatou / bez zlatej** a podtitulu **Bižutéria a doplnky / Jewelry & Accessories / Collection**.
+- **Klikateľný návrh celého e-shopu:** `design/danora-homepage.html` (otvor v prehliadači). Vpravo dole je panel: výber stránky, zobrazenie **Počítač / Mobil**, variant **so zlatou / bez zlatej** a podtitul **Bižutéria a doplnky / Jewelry & Accessories / Collection**.
 - **Child téma:** `danora-child/`
 - **Logo bez pozadia:** `danora-child/assets/img/`
 - **Obrázky pre náhľad:** `design/assets/` (3D rendre šperkov, saténové pozadia)
@@ -62,7 +62,26 @@ python3 tools/build_light_overrides.py cesta/k/luxrio/assets/css/style.css > dan
 - **Šperky** sú 3D rendre (`tools/render-jewelry.html`, three.js), **satén** je generovaný (`tools/satin.py`). Slúžia ako ukážka, kým nebudú hotové skutočné produktové fotky.
 - Ostatné demo fotky Luxria (produkty, bannery) nie sú v ZIPe. Stiahnu sa až pri importe dema vo WordPresse (Luxrio → Import Demo Data).
 
-Náhľad `design/danora-homepage.html` sa skladá príkazom `python3 tools/build_mockup.py` zo `design/src/homepage.template.html`.
+Náhľad `design/danora-homepage.html` sa skladá príkazom `python3 tools/build_mockup.py` zo `design/src/eshop.template.html`.
+
+## Podstránky v návrhu
+
+| Stránka | Obsah | Vo WordPresse |
+|---|---|---|
+| Domov | slider, kategórie, promo, obľúbené produkty, o značke, výhody, „Čoskoro otvárame“ | Elementor stránka |
+| Kategória | nadpis, podkategórie, filtre (cena, farba kovu, materiál, kameň, zľava, sklad), zoradenie, stránkovanie; na mobile filtre z boku | WooCommerce archív + filter plugin |
+| Produkt | galéria so zoomom (na mobile swipe), cena, sklad, farba, počet, košík, obľúbené, výhody, záložky (popis, materiál, rozmery, doprava), recenzie, súvisiace; na mobile lišta „Do košíka“ | WooCommerce single product |
+| Košík | ukazovateľ dopravy zadarmo (49 €), zmena počtu, zľavový kód, darčekové balenie, súhrn | WooCommerce košík |
+| Pokladňa | kroky, kontakt, adresa, nákup na firmu (IČO, DIČ, IČ DPH), doprava (Packeta, SPS, pošta), platba (Stripe, prevod, dobierka), súhlasy, tlačidlo „Objednať s povinnosťou platby“ | WooCommerce pokladňa |
+| Ďakujeme | číslo objednávky, ďalšie kroky | WooCommerce potvrdenie |
+| Môj účet | prihlásenie, registrácia, ukážka po prihlásení (objednávky, faktúry) | WooCommerce účet |
+| Obľúbené | uložené produkty | wishlist plugin (je v deme Luxria) |
+| O nás | príbeh, tri sľuby značky, citát | Elementor stránka |
+| Kontakt | údaje, formulár, časté otázky | Elementor + formulár |
+| Doprava a platba | tabuľky cien a dôb doručenia | stránka |
+| Právne stránky | obchodné podmienky, reklamačný poriadok, GDPR, cookies (rozloženie, text dodá prevádzkovateľ) | stránky |
+| Odstúpenie od zmluvy | formulár na vrátenie tovaru a postup | stránka + formulár |
+| Čoskoro otvárame | samostatná stránka s odpočítavaním a e-mailom, bez hlavičky a pätičky | plugin (SeedProd, Coming Soon Page) |
 
 ## Štruktúra homepage (podľa návrhu)
 
