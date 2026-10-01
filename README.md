@@ -72,7 +72,7 @@ Náhľad `design/danora-homepage.html` sa skladá príkazom `python3 tools/build
 4. Obľúbené produkty (záložky Najpredávanejšie / Novinky / Do 20 €), stav skladu pri produkte
 5. O značke (text, DANORA Bižutéria / Doplnky / Collection)
 6. Výhody: platba, doručenie, vrátenie, darčekové balenie
-7. Newsletter so zľavou 10 %
+7. „Čoskoro otvárame“: prihlásenie e-mailu na upozornenie o otvorení + 10 % zľava (aj prvá snímka slidera)
 8. Pätička s právnymi stránkami, platobnými metódami, údajmi o prevádzkovateľovi, SOI a RSO
 9. Cookie lišta s možnosťou „Iba nevyhnutné“
 
