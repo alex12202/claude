@@ -21,7 +21,7 @@ for (const job of jobs) {
   page.on('console', m => console.log('  ', m.text()));
   page.on('pageerror', e => console.log('  ERR', e.message));
   const t = Date.now();
-  await page.goto(`http://127.0.0.1:${port}/render-scenes.html?scene=${scene}&view=${view}&time=${time}&w=${w}&h=${h}&ss=2`);
+  await page.goto(`http://127.0.0.1:${port}/render-scenes.html?scene=${scene}&view=${view}&time=${time}&w=${w}&h=${h}&ss=2${process.env.BG ? "&bg=" + process.env.BG : ""}`);
   await page.waitForFunction('window.done === true', null, { timeout: 600000 });
   const data = await page.evaluate(() => document.querySelector('canvas').toDataURL('image/png'));
   const name = `${scene}-${view}-${time}.png`;

@@ -474,7 +474,84 @@ function serviceScene() {
   cam.fov = 40; cam.position.set(-1.1, 1.5, -2.3); cam.lookAt(0.1, 1.55, 0);
 }
 
-({ house: houseScene, pergola: pergolaScene, screen: screenScene, roller: rollerScene, interior: interiorScene, service: serviceScene })[SCENE]();
+async function service2Scene() {
+  // close-up of a modern anthracite tilt & turn window from inside, being adjusted
+  scene.environment = null;
+  sky(0xbcd2e2, 0xf3ece2, 0xd8d0c4);
+  scene.environmentIntensity = 0.7;
+  // out-of-focus garden behind the glass
+  const bokeh = canvasTex(1024, (g, s) => {
+    const gr = g.createLinearGradient(0, 0, 0, s); gr.addColorStop(0, '#f4f5f3'); gr.addColorStop(.3, '#e8ece8'); gr.addColorStop(.6, '#9aa88a'); gr.addColorStop(1, '#8c9d74');
+    g.fillStyle = gr; g.fillRect(0, 0, s, s);
+    g.filter = 'blur(38px)';
+    for (let i = 0; i < 46; i++) { const y = s * (.34 + rnd() * .22); g.fillStyle = `hsla(${85 + rnd() * 35},${18 + rnd() * 14}%,${24 + rnd() * 16}%,.7)`; g.beginPath(); g.arc(rnd() * s, y, 50 + rnd() * 90, 0, 7); g.fill(); }
+    for (let i = 0; i < 30; i++) { const y = s * (.62 + rnd() * .35); g.fillStyle = `hsla(${78 + rnd() * 20},${22 + rnd() * 12}%,${44 + rnd() * 14}%,.5)`; g.beginPath(); g.arc(rnd() * s, y, 60 + rnd() * 100, 0, 7); g.fill(); }
+    for (let i = 0; i < 18; i++) { g.fillStyle = `rgba(255,250,238,${.35 + rnd() * .35})`; g.beginPath(); g.arc(rnd() * s, s * (.2 + rnd() * .3), 30 + rnd() * 50, 0, 7); g.fill(); }
+    g.filter = 'none';
+  });
+  // ?bg=photo.webp: blurred real photo behind the glass (out-of-focus garden)
+  const bgName = q.get('bg');
+  if (bgName) {
+    const im = new Image(); im.src = bgName; await im.decode();
+    const c = document.createElement('canvas'); c.width = 1600; c.height = 1200; const g = c.getContext('2d');
+    g.filter = 'blur(22px) saturate(0.85) brightness(1.08)'; g.drawImage(im, -60, -60, 1720, 1320);
+    bokeh.image = c; bokeh.needsUpdate = true;
+  }
+  const back = new THREE.Mesh(new THREE.PlaneGeometry(16, 12), new THREE.MeshBasicMaterial({ map: bokeh }));
+  back.position.set(1.8, 1.8, 4); back.rotation.y = Math.PI; back.scale.set(0.75, 0.75, 1); scene.add(back);
+  const Wm = new THREE.MeshStandardMaterial({ color: 0xf2eee7, map: plasterTex, roughness: 0.95 });
+  const fw = new THREE.Group(); scene.add(fw);
+  const o = { x: 1.0, y: 0.9, w: 1.6, h: 1.55 };
+  wall(4.2, 3.2, 0.36, [o], Wm, fw);
+  fw.position.z = 0.36; // wall spans z 0..0.36, room side faces -z
+  const frameM = new THREE.MeshStandardMaterial({ color: 0x33363b, roughness: 0.42, metalness: 0.25 });
+  const W = new THREE.Group(); W.position.set(o.x, o.y, 0.16); scene.add(W);
+  const f = 0.075, d = 0.09;
+  rbox(o.w, f, d, frameM, o.w / 2, f / 2, 0, W, 0.01); rbox(o.w, f, d, frameM, o.w / 2, o.h - f / 2, 0, W, 0.01);
+  rbox(f, o.h, d, frameM, f / 2, o.h / 2, 0, W, 0.01); rbox(f, o.h, d, frameM, o.w - f / 2, o.h / 2, 0, W, 0.01);
+  // sash, slightly proud on the room side
+  const S = new THREE.Group(); S.position.set(f - 0.01, f - 0.01, -0.065); W.add(S);
+  const sw = o.w - 2 * f + 0.02, sh = o.h - 2 * f + 0.02, sf = 0.085, sd = 0.075;
+  rbox(sw, sf, sd, frameM, sw / 2, sf / 2, 0, S, 0.012); rbox(sw, sf, sd, frameM, sw / 2, sh - sf / 2, 0, S, 0.012);
+  rbox(sf, sh, sd, frameM, sf / 2, sh / 2, 0, S, 0.012); rbox(sf, sh, sd, frameM, sw - sf / 2, sh / 2, 0, S, 0.012);
+  const glassM = new THREE.MeshPhysicalMaterial({ color: 0xdfe8ec, roughness: 0.02, transparent: true, opacity: 0.16, envMapIntensity: 1.5, depthWrite: false });
+  const gl = new THREE.Mesh(new THREE.PlaneGeometry(sw - 2 * sf, sh - 2 * sf), glassM); gl.position.set(sw / 2, sh / 2, 0.01); S.add(gl);
+  // handle on the right stile (closed position: lever pointing down)
+  const alu = new THREE.MeshStandardMaterial({ color: 0x2b2d31, roughness: 0.3, metalness: 0.8 });
+  const hx = sw - sf / 2, hy = sh / 2;
+  rbox(0.036, 0.12, 0.016, alu, hx, hy + 0.01, -0.045, S, 0.008);
+  const neck = new THREE.Mesh(new THREE.CylinderGeometry(0.011, 0.011, 0.04, 20), alu); neck.rotation.x = Math.PI / 2; neck.position.set(hx, hy + 0.035, -0.065); S.add(neck);
+  rbox(0.024, 0.15, 0.022, alu, hx, hy - 0.035, -0.088, S, 0.01);
+  // hinges on the left side with an allen key in the lower one
+  const hingeM = new THREE.MeshStandardMaterial({ color: 0x3d4045, roughness: 0.35, metalness: 0.6 });
+  for (const y of [0.06, sh - 0.06]) rbox(0.03, 0.1, 0.03, hingeM, -0.012, y, -0.03, S, 0.008);
+  const keyM = new THREE.MeshStandardMaterial({ color: 0x18191b, roughness: 0.25, metalness: 0.9 });
+  const k1 = new THREE.Mesh(new THREE.CylinderGeometry(0.005, 0.005, 0.12, 6), keyM); k1.rotation.x = Math.PI / 2; k1.position.set(-0.012, 0.09, -0.1); S.add(k1);
+  const k2 = new THREE.Mesh(new THREE.CylinderGeometry(0.005, 0.005, 0.05, 6), keyM); k2.position.set(-0.012, 0.115, -0.158); S.add(k2);
+  // interior sill
+  const sillM = new THREE.MeshStandardMaterial({ color: 0xece8e1, roughness: 0.4 });
+  rbox(o.w + 0.16, 0.035, 0.32, sillM, o.x + o.w / 2, o.y - 0.018, -0.03, scene, 0.008);
+  // screwdriver with BROMAR red handle + new gasket coil on the sill
+  const red = new THREE.MeshStandardMaterial({ color: 0xc0141c, roughness: 0.35 });
+  const sd1 = new THREE.Group(); sd1.position.set(o.x + 0.45, o.y + 0.018, -0.12); sd1.rotation.y = 0.5; scene.add(sd1);
+  const hd = new THREE.Mesh(new THREE.CylinderGeometry(0.016, 0.014, 0.11, 24), red); hd.rotation.z = Math.PI / 2; hd.castShadow = true; sd1.add(hd);
+  const sh2 = new THREE.Mesh(new THREE.CylinderGeometry(0.0045, 0.0045, 0.12, 10), new THREE.MeshStandardMaterial({ color: 0xc9c9c9, metalness: 1, roughness: 0.2 })); sh2.rotation.z = Math.PI / 2; sh2.position.x = 0.115; sh2.castShadow = true; sd1.add(sh2);
+  const gasket = new THREE.Mesh(new THREE.TorusGeometry(0.06, 0.008, 12, 48), new THREE.MeshStandardMaterial({ color: 0x1d1d1f, roughness: 0.8 }));
+  gasket.rotation.x = Math.PI / 2; gasket.position.set(o.x + 0.9, o.y + 0.01, -0.08); gasket.castShadow = true; scene.add(gasket);
+  const g2 = gasket.clone(); g2.scale.setScalar(0.85); g2.position.y += 0.016; scene.add(g2);
+  // plant
+  const pot = new THREE.Mesh(new THREE.CylinderGeometry(0.075, 0.06, 0.14, 32), new THREE.MeshStandardMaterial({ color: 0xe9e4dc, roughness: 0.6 })); pot.position.set(o.x + o.w - 0.2, o.y + 0.07, -0.08); pot.castShadow = true; scene.add(pot);
+  for (let i = 0; i < 6; i++) { const b = blob(0.06 + rnd() * 0.04, M.leaf); b.position.set(o.x + o.w - 0.2 + (rnd() - .5) * .12, o.y + 0.2 + rnd() * .1, -0.08 + (rnd() - .5) * .08); scene.add(b); }
+  // light
+  scene.add(new THREE.HemisphereLight(0xf4f6f8, 0xcfc4b4, 1.5));
+  const s = sun([3.5, 4.5, 5], 0xfff1dc, 3.2, 3, [1.8, 1, 0]); s.shadow.radius = 6; s.shadow.mapSize.set(2048, 2048);
+  const fill = new THREE.PointLight(0xfff3e4, 2.2, 6, 1.5); fill.position.set(0.6, 1.9, -1.6); scene.add(fill);
+  cam.fov = 36;
+  if (VIEW === 'wide') { cam.fov = 38; cam.position.set(0.9, 1.6, -2.6); cam.lookAt(1.8, 1.5, 0.1); }
+  else { cam.fov = 40; cam.position.set(1.3, 1.6, -2.5); cam.lookAt(1.8, 1.55, 0.1); }
+}
+
+await ({ house: houseScene, pergola: pergolaScene, screen: screenScene, roller: rollerScene, interior: interiorScene, service: serviceScene, service2: service2Scene })[SCENE]();
 cam.updateProjectionMatrix();
 const composer = new EffectComposer(renderer, new THREE.WebGLRenderTarget(W * SS, H * SS, { type: THREE.HalfFloatType, samples: 4 }));
 composer.setPixelRatio(1); composer.setSize(W * SS, H * SS);

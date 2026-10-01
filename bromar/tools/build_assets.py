@@ -15,8 +15,8 @@ SRC = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else "out")
 # name: (source png, output size, crop centre x/y as 0..1, quality)
 JOBS = {
     "card-pergola.webp": ("pergola-hero-day.png", (960, 720), (0.5, 0.55), 80),
-    "card-service.webp": ("service-hero-day.png", (960, 720), (0.55, 0.5), 80),
-    "card-service-tall.webp": ("service-hero-day.png", (1000, 1040), (0.6, 0.5), 80),
+    "card-service.webp": ("service2-wide-day.png", (960, 720), (0.5, 0.5), 80),
+    "card-service-tall.webp": ("service2-tall-day.png", (1000, 1040), (0.5, 0.5), 80),
     "blinds-detail.webp": ("house-detail-day.png", (1200, 750), (0.5, 0.5), 80),
     "view-garden.webp": ("pergola-fromHouse-day.png", (900, 968), (0.5, 0.5), 80),
 }
