@@ -21,7 +21,7 @@ Na stránke sú vonkajšie žalúzie (aj podomietkové), screenové rolety, plas
 ## Štruktúra homepage
 
 1. Horná lišta (telefón, e-mail) a hlavička. Pri scrollovaní sa zmení na bielu so sklenným efektom.
-2. Hero slider: 4 snímky (žalúzie, pergola, screeny, interiér), každá s vlastným textom a tlačidlami.
+2. Hero slider: 4 snímky (žalúzie, pergola, screeny, bytové domy), každá s vlastným textom a tlačidlami.
 3. Výhody: zameranie zdarma, vlastná montáž, Somfy, záruka a servis
 4. Predstavenie firmy: *Kompletné riešenia tienenia…* a heslo **Komfort · Kvalita · Detail**
 5. Produktové karty (ako na climax.cz): 6 hlavných kategórií, pod nimi siete proti hmyzu, zimné záhrady a zasklenia terás
@@ -62,7 +62,7 @@ Neutrálny základ, červená iba ako akcent (hlavné tlačidlo „Nezáväzná 
 
 - **Logo** – v návrhu je logo **prekreslené do SVG** podľa dodaného obrázka (štít s „B“, BROMAR, TIENIACA TECHNIKA): `bromar-child/assets/img/bromar-logo.svg` (na svetlé pozadie) a `bromar-logo-negative.svg` (na tmavé). Písmo nápisu je približné. Ak existuje originálny vektor od grafika (SVG/PDF/AI), treba ho použiť.
 - **Kontakty** – telefón `+421 900 000 000`, adresa a IČO sú **vymyslené zástupné údaje**. E-mail `info@bromar.sk` treba overiť.
-- **Fotky** – galéria Realizácie, karty žalúzií, screenov, roliet a vnútorného tienenia a sekcie Screeny a Rolety už používajú **skutočné fotky z montáží BROMAR** (orezané bez ŠPZ áut a bez materiálu po montáži, `tools/build_photos.py`). Hero slider, pergola, servis okien a interaktívne okno sú zatiaľ **3D vizualizácie**, lebo fotky pergol a servisu chýbajú. Dodané videá sú na výšku, v nízkom rozlíšení (464 × 832) a je v nich vidieť rozbalený materiál, preto nie sú použité. Na video v hero by bol vhodný vodorovný 4K záber, ako sa žalúzia spúšťa a natáča lamely.
+- **Fotky a videá** – hero slider (žalúzie, screeny, bytové domy), karty produktov, sekcie Screeny a Rolety a galéria Realizácie (9 fotiek + 2 videá + 1 fotka) používajú **skutočné zábery z montáží BROMAR**. Fotky sú orezané bez ŠPZ áut a bez materiálu po montáži (`tools/build_photos.py`), videá sú skrátené a orezané cez ffmpeg (`design/assets/video-*.mp4` + `.webm`). Ako **3D vizualizácie** zostali len pergola, servis okien a pohľad cez interaktívne okno, lebo ich fotky zatiaľ chýbajú. Na video do hero by sa hodil vodorovný záber v 4K.
 - **Texty o produktoch** sú všeobecné. Parametre (max. rozmery, farby RAL, typy boxov, záruky, dodacie lehoty) treba zosúladiť s tým, čo BROMAR od CLIMAXu reálne predáva. Obsah sa dá prevziať z climax.cz (so súhlasom), ale nie doslovne skopírovať.
 - **Hodnotenia v návrhu** (zatemnenie / odolnosť vetru pri lamelách) sú orientačné. Treba ich overiť podľa katalógu.
 - **Formulár** v náhľade nič neodosiela, je len na ukážku. Vo WordPresse ho nahradí Elementor Form / MetForm (Domi ho má v zozname pluginov) s odoslaním na e-mail a meraním konverzie pre Google Ads.

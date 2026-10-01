@@ -412,9 +412,14 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;bac
 .gal figcaption{position:absolute;left:14px;bottom:14px;right:14px;color:#fff;font-size:13px;display:flex;justify-content:space-between;align-items:end;opacity:0;transform:translateY(10px);transition:.4s var(--ease)}
 .gal figcaption b{font:600 16px/1.2 var(--head);display:block}
 .gal figure::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,26,36,.7),transparent 55%);opacity:0;transition:.4s}
-.gal figure:hover::after,.gal figure:hover figcaption{opacity:1;transform:none}
+.gal figure:hover::after,.gal figure:hover figcaption,.gal figure.gv::after,.gal figure.gv figcaption{opacity:1;transform:none}
 .gal figcaption{z-index:1}
 .g1{grid-column:span 7;grid-row:span 4}.g2{grid-column:span 5;grid-row:span 2}.g3{grid-column:span 5;grid-row:span 2}.g4,.g5,.g6,.g7,.g8,.g9{grid-column:span 4;grid-row:span 3}
+.gv{grid-column:span 4;grid-row:span 4}
+.gal video{width:100%;height:100%;object-fit:cover;display:block}
+.gal .play{position:absolute;right:14px;top:14px;z-index:1;background:rgba(14,20,30,.55);backdrop-filter:blur(6px);color:#fff;font:600 11px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;padding:8px 11px;border-radius:999px;display:flex;gap:6px;align-items:center}
+.gal .play::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red)}
+.gal figure.gv{cursor:default}
 @media (max-width:860px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:170px}.gal figure{grid-column:span 1!important;grid-row:span 1!important}.gal .g1{grid-column:span 2!important;grid-row:span 2!important}.gal figcaption{opacity:1;transform:none}.gal figure::after{opacity:1}}
 .lb{position:fixed;inset:0;z-index:80;background:rgba(12,16,22,.92);display:none;place-items:center;padding:30px;cursor:zoom-out}
 .lb.on{display:grid;animation:fadeup .4s}
@@ -588,10 +593,10 @@ footer .logo{--lw:#fff;--ls:#f0a3a0}
 <!-- ============ HERO ============ -->
 <section class="hero" id="hero" aria-label="Úvod">
   <div class="slides">
-    <div class="slide active"><div class="bg" style="background-image:url(%%IMG:hero-house.webp%%)"></div></div>
+    <div class="slide active"><div class="bg" style="background-image:url(%%IMG:hero-real-house.webp%%)"></div></div>
     <div class="slide"><div class="bg" style="background-image:url(%%IMG:hero-pergola.webp%%)"></div></div>
-    <div class="slide"><div class="bg" style="background-image:url(%%IMG:hero-screen.webp%%)"></div></div>
-    <div class="slide"><div class="bg" style="background-image:url(%%IMG:hero-interior.webp%%)"></div></div>
+    <div class="slide"><div class="bg" style="background-image:url(%%IMG:hero-real-screen.webp%%)"></div></div>
+    <div class="slide"><div class="bg" style="background-image:url(%%IMG:hero-real-tower.webp%%)"></div></div>
   </div>
   <div class="hero-content">
     <div class="wrap hero-inner">
@@ -614,10 +619,10 @@ footer .logo{--lw:#fff;--ls:#f0a3a0}
         <div class="btns"><a class="btn btn-light" href="#kontakt">Nezáväzná ponuka <span class="arr"><svg width="14" height="14"><use href="#i-arr"/></svg></span></a><a class="btn btn-ghost" href="#screeny">Viac o screenoch</a></div>
       </div>
       <div class="hero-text">
-        <span class="eyebrow">Vnútorné tienenie</span>
-        <h1 data-split>Svetlo presne podľa <em>nálady.</em></h1>
-        <p>Horizontálne žalúzie, látkové rolety, deň a noc aj plisé. Doladíme farbu, materiál a ovládanie k vášmu interiéru.</p>
-        <div class="btns"><a class="btn btn-light" href="#kontakt">Poradiť sa <span class="arr"><svg width="14" height="14"><use href="#i-arr"/></svg></span></a><a class="btn btn-ghost" href="#interier">Vnútorné tienenie</a></div>
+        <span class="eyebrow">Bytové domy</span>
+        <h1 data-split>Chládok aj v byte na <em>siedmom poschodí.</em></h1>
+        <p>Vonkajšie žalúzie a rolety montujeme aj na panelové a bytové domy. Poradíme s povolením od správcu aj s výberom farby k fasáde.</p>
+        <div class="btns"><a class="btn btn-light" href="#kontakt">Poradiť sa <span class="arr"><svg width="14" height="14"><use href="#i-arr"/></svg></span></a><a class="btn btn-ghost" href="#realizacie">Realizácie</a></div>
       </div>
     </div>
   </div>
@@ -636,7 +641,7 @@ footer .logo{--lw:#fff;--ls:#f0a3a0}
       <button class="hn active" type="button"><b>01</b><span>Vonkajšie žalúzie</span></button>
       <button class="hn" type="button"><b>02</b><span>Bioklimatické pergoly</span></button>
       <button class="hn" type="button"><b>03</b><span>Screenové rolety</span></button>
-      <button class="hn" type="button"><b>04</b><span>Vnútorné tienenie</span></button>
+      <button class="hn" type="button"><b>04</b><span>Bytové domy</span></button>
       <div class="hero-arrows"><button type="button" id="prev" aria-label="Predchádzajúci"><svg width="16" height="16" style="transform:scaleX(-1)"><use href="#i-arr"/></svg></button><button type="button" id="next" aria-label="Ďalší"><svg width="16" height="16"><use href="#i-arr"/></svg></button></div>
     </div>
   </div>
@@ -970,7 +975,7 @@ footer .logo{--lw:#fff;--ls:#f0a3a0}
   <div class="wrap">
     <div class="sec-head">
       <div><span class="eyebrow rv">Realizácie</span><h2 class="h2 rv d1">Inšpirácia z našich montáží</h2></div>
-      <p class="lead rv d2">Fotky z našich montáží na rodinných aj bytových domoch. Po kliknutí sa fotka zväčší.</p>
+      <p class="lead rv d2">Fotky a videá z našich montáží na rodinných aj bytových domoch. Po kliknutí sa fotka zväčší.</p>
     </div>
     <div class="gal">
       <figure class="g1 rv-img"><img src="%%IMG:real-screen.webp%%" alt="ZIP screen na terase – rodinný dom, antracit"><figcaption><span><b>ZIP screen na terase</b>rodinný dom, antracit</span></figcaption></figure>
@@ -982,6 +987,9 @@ footer .logo{--lw:#fff;--ls:#f0a3a0}
       <figure class="g7 rv-img"><img src="%%IMG:real-blinds-card.webp%%" alt="Vonkajšie žalúzie – rodinný dom, predokenný box" style="object-position:50% 40%"><figcaption><span><b>Vonkajšie žalúzie</b>rodinný dom, predokenný box</span></figcaption></figure>
       <figure class="g8 rv-img"><img src="%%IMG:real-tower.webp%%" alt="Bytový dom – vonkajšie žalúzie na oknách" style="object-position:50% 50%"><figcaption><span><b>Bytový dom</b>vonkajšie žalúzie na oknách</span></figcaption></figure>
       <figure class="g9 rv-img"><img src="%%IMG:real-blinds-detail.webp%%" alt="Detail lamiel – vonkajšia žalúzia" style="object-position:50% 50%"><figcaption><span><b>Detail lamiel</b>vonkajšia žalúzia</span></figcaption></figure>
+      <figure class="gv rv-img"><video autoplay muted loop playsinline preload="auto" aria-label="Video: vonkajšie žalúzie na bytovom dome"><source src="%%IMG:video-tower.webm%%" type="video/webm"><source src="%%IMG:video-tower.mp4%%" type="video/mp4"></video><span class="play">Video</span><figcaption><span><b>Žalúzie na paneláku</b>video z realizácie</span></figcaption></figure>
+      <figure class="gv rv-img"><video autoplay muted loop playsinline preload="auto" aria-label="Video: nové vonkajšie rolety"><source src="%%IMG:video-rollers.webm%%" type="video/webm"><source src="%%IMG:video-rollers.mp4%%" type="video/mp4"></video><span class="play">Video</span><figcaption><span><b>Nové rolety</b>video z realizácie</span></figcaption></figure>
+      <figure class="gv rv-img"><img src="%%IMG:real-flats.webp%%" alt="Bytový dom – vonkajšie žalúzie" style="object-position:50% 70%"><figcaption><span><b>Bytový dom</b>žalúzie na oknách a lodžiách</span></figcaption></figure>
     </div>
   </div>
 </section>
@@ -1108,8 +1116,8 @@ footer .logo{--lw:#fff;--ls:#f0a3a0}
   $('#prev').onclick = () => go((cur - 1 + slides.length) % slides.length);
   // intro: blinds open to reveal the first slide
   show(0);
-  setTimeout(open, reduce ? 0 : 450);
-  schedule();
+  const start = () => { setTimeout(open, reduce ? 0 : 450); schedule(); };
+  if (document.readyState === 'complete') start(); else addEventListener('load', start, { once: true });
 
   /* smart card in hero */
   const scSl = $('#scSl'), scPct = $('#scPct');
@@ -1203,7 +1211,7 @@ footer .logo{--lw:#fff;--ls:#f0a3a0}
 
   /* ---- gallery lightbox ---- */
   const lb = $('#lb');
-  $$('.gal figure').forEach(f => f.onclick = () => { lb.firstElementChild.src = $('img', f).src; lb.classList.add('on'); });
+  $$('.gal figure:not(.gv)').forEach(f => f.onclick = () => { lb.firstElementChild.src = $('img', f).src; lb.classList.add('on'); });
   lb.onclick = () => lb.classList.remove('on');
   addEventListener('keydown', e => { if (e.key === 'Escape') { lb.classList.remove('on'); drawer.classList.remove('open'); } });
 
