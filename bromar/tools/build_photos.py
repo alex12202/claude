@@ -28,6 +28,8 @@ JOBS = {
     "real-terrace.webp": ("d08522e4-image.jpg", None, 1300),
     "real-terrace-card.webp": ("d08522e4-image.jpg", (0, 250, 1536, 1402), 1000),
     "real-bungalow.webp": ("966f240d-image.jpg", (0, 450, 1536, 1218), 1400),
+    "real-loggia.webp": ("cb47e0a2-image.jpg", (0, 0, 990, 1010), 1000),
+    "real-brown.webp": ("a126d3d5-image.jpg", (31, 655, 850, 1229), 1000),
     "real-carport.webp": ("15660e6e-image.jpg", None, 1200),
     "real-tower.webp": ("30ef2175-image.jpg", None, 1400),
 }
