@@ -1,0 +1,16 @@
+/* Vzhľad obsahu v editore blokov – nech to klient vidí podobne ako na webe. */
+body {
+  font: 400 17px/1.65 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  color: #2b2030;
+  background: #faf7f4;
+}
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+  color: #4a2c52;
+  line-height: 1.1;
+}
+h2 { font-size: 34px; }
+h3 { font-size: 26px; }
+a { color: #4a2c52; }
+table td:last-child { text-align: right; font-weight: 600; color: #4a2c52; white-space: nowrap; }
